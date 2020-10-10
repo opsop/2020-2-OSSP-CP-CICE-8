@@ -5,6 +5,6 @@
 ## Member
 
 * [유영현](https://github.com/0hyunU)
-* [권나영](https://github.com/i-zero)
+* [권나영](https://github.com/i-zro)
 * [손승민](https://github.com/SeungMinSong2929)
 * [문소연](https://github.com/opsop)
