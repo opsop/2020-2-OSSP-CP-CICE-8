@@ -8,3 +8,6 @@
 * [권나영](https://github.com/i-zro)
 * [송승민](https://github.com/SeungMinSong2929)
 * [문소연](https://github.com/opsop)
+
+## Bot Diagram
+![diagram](bot_monitoring/bot_diagram.png)
