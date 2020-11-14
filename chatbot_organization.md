@@ -17,7 +17,7 @@ https://github.com/dhlife09/Corona-19-API
             https://apis.map.kakao.com/
 
 #### 4. 사회적 거리두기 단계 알림
-정보 어디서 받아오지,,?
+상황별 정부의 정책이라 데이터가 따로 존재하지 않음 
 
 #### 5. 인기 키워드 목록화
 자연어 처리 모델<br>
