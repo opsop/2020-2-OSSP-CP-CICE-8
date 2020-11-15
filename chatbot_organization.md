@@ -1,24 +1,23 @@
 ## 기능 & API, 링크
 
 #### 1. 국내확진자/ 사망자/ 완치자 알림
-https://github.com/dhlife09/Corona-19-API
+https://github.com/dhlife09/Corona-19-API <br>
 매번 호출
 
 #### 2. 팬데믹 바이러스 비교 그래프(시각화) 제공
 국내 현황만 제공
 
 #### 3. 가까운 선별 진료소 보여주기
-    3-1. 연락처/ 운영시간 제공<br>
-        공공 데이터 사용 -excel 파일 형태 <br>
-        ``` https://www.mohw.go.kr/react/popup_200128_3.html ``` <br>
+    3-1. 연락처/ 운영시간 제공
+        공공 데이터 사용 -excel 파일 형태
+        https://www.mohw.go.kr/react/popup_200128_3.html
 
     3-2. 길찾기 정보 제공<br>
-         카카오맵 API 활용 예정<br>
-            https://apis.map.kakao.com/
+        카카오맵 API 활용 예정
+        https://apis.map.kakao.com/
 
 #### 4. 사회적 거리두기 단계 알림
-상황별 정부의 정책이라 데이터가 따로 존재하지 않음 
-???
+사회적 거리두기 단계 정보 보여주기
 
 #### 5. 인기 키워드 목록화
 자연어 처리 모델<br>
@@ -47,14 +46,14 @@ https://tools.cdc.gov/medialibrary/index.aspx#/media/id/405848 <br>
 #### 11. 근처 병원/ 약국 위치 제공
 https://www.data.go.kr/data/3045535/openapi.do <br>
 https://yooic.tistory.com/51 (참고 블로그) <br>
-db 저장
+DB 저장
 
 #### 12. 기타 검색
 자연어처리 기능 사용(카카오에 있음)
 
 
 ## [서버 만드는 방법]
-서버 만들기 -aws, 도커 <br>
+서버 만들기 -aws<br>
 서버에 db 만들기 <br>
 오픈빌더에서 로컬 서버를 불러서, 데이터 갖고오기 <br>
 
