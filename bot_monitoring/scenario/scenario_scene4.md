@@ -7,8 +7,11 @@
 <br>
 
 ### 자가진단 문진표
-<li> 이미지 캡처를 통해 제공 </li>
+<li> 버튼 클릭시 링크를 통해 제공 </li>
 <br>
+
+![image](https://user-images.githubusercontent.com/48379869/99187171-5b95fa80-2798-11eb-8338-1ee7a42c6c70.png)
+
 
 ### 사회적 거리두기 단계 알림
 
