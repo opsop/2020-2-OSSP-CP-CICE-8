@@ -1,37 +1,37 @@
-<h1> scenario_시나리오01 </h1> <br> <br>
+<h1> scenario_시나리오01 </h1>
 
-<h3><i> 시나리오 작성 </i></h3>
-<h3>인기 키워드 </h3><br>
+<h3>[시나리오 작성]</h3>
+<h3>인기 키워드 </h3>
 <b> 사용자 발화 </b><br>
-5개 작성<br>
+* 5개 작성<br>
 <b> 봇 응답</b><br>
-텍스트형 -3위까지 보여줌<br><br>
+* 텍스트형 -3위까지 보여줌<br><br>
 
-<h3>유투브 뉴스 </h3><br>
+<h3>유투브 뉴스 </h3>
 <b> 사용자 발화 </b><br>
-20개 작성<br>
+* 20개 작성<br>
 <b> 파라미터 설정</b><br>
-youtube @youtube 유투브<br>
+* youtube @youtube 유투브<br>
 <b> 봇 응답</b><br>
-텍스트형<br>
-확진자 정보/ 백신 개발/ 코로나 후유증/ 집단 감염/ 기타 검색 블록 생성<br><br>
+* 텍스트형<br>
+* 확진자 정보/ 백신 개발/ 코로나 후유증/ 집단 감염/ 기타 검색 블록 생성<br><br>
 
-<h3>네이버 뉴스 </h3><br>
+<h3>네이버 뉴스 </h3>
 <b> 사용자 발화 </b><br>
-23개 작성
+* 23개 작성
 <b> 파라미터 설정</b><br>
-naverNews @naver 네이버 뉴스<br>
+* naverNews @naver 네이버 뉴스<br>
 <b> 봇 응답</b><br>
-텍스트형<br>
-확진자 정보/ 백신 개발/ 코로나 후유증/ 집단 감염/ 기타 검색 블록 생성<br><br>
+* 텍스트형<br>
+* 확진자 정보/ 백신 개발/ 코로나 후유증/ 집단 감염/ 기타 검색 블록 생성<br><br>
 
-<h3>국내 현황 </h3><br>
+<h3>국내 현황 </h3>
 <b> 사용자 발화 </b><br>
-14개 작성
+* 14개 작성
 <b> 파라미터 설정</b><br>
-KoreaSituation @KoreaSituation 국내 현황<br>
+* KoreaSituation @KoreaSituation 국내 현황<br>
 <b> 봇 응답</b><br>
-텍스트형<br>
+* 텍스트형<br>
 
 ```
 국내 현황
@@ -44,9 +44,9 @@ KoreaSituation @KoreaSituation 국내 현황<br>
 사망자:
 ```
 
-<br><br>
+<br>
 
-<h3><i> 엔티티 작성 </i></h3>
+<h3>[엔티티 작성]</h3>
 <b>youtube</b><br>
 <ul>
 <li>유투브</li>
@@ -67,7 +67,7 @@ KoreaSituation @KoreaSituation 국내 현황<br>
 <li>확진자</li>
 </ul><br>
 
-<b>KoreSituation</b><br>
+<b>KoreaSituation</b><br>
 <ul>
 <li>국내</li>
 <li>사망자</li>
