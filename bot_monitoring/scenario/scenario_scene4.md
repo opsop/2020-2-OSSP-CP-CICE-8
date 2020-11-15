@@ -12,8 +12,16 @@
 
 ![image](https://user-images.githubusercontent.com/48379869/99187171-5b95fa80-2798-11eb-8338-1ee7a42c6c70.png)
 
+<br>
 
 ### 사회적 거리두기 단계 알림
-
+`사회적 거리두기 단계는 '*' 단계 입니다.`
+와 같이, 텍스트 형태로 제공
 
 ### [엔티티 작성]
+#### level
+<li>사회적거리두기단계</li>
+<li>2.5</li>
+<li>3</li>
+<li>2</li>
+<li>1</li>
