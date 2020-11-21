@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from covid import globalData
+
 app = Flask(__name__)
 
 @app.route('/keyboard')
