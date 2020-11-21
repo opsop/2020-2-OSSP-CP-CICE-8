@@ -11,7 +11,7 @@ def Keyboard():
     return jsonify(dataSend)
 
 @app.route('/globalData',methods = ['POST'])
-def global():
+def Global():
     dataSend = globalData(request.get_json())
     return jsonify(dataSend)
 
