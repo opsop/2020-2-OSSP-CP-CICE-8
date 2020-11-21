@@ -17,7 +17,7 @@ post = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93!', 'name': 'corona_chatbot'},
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 
 
-def GlobalData(data):
+def globalData(data):
     #action when data['userRequest']['block']['name'] =='전세계 현황'
     #print(json.dumps(post,indent = '\t',ensure_ascii=False))
 
