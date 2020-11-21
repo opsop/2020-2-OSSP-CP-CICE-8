@@ -15,6 +15,8 @@
 
 ### Installation
 ```bash
+sudo apt install python3-pip #install pip
+python3 -m pip install --upgrade pip
 pip install Flask
 pip install COVID19Py
 ```
