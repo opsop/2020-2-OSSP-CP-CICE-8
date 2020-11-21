@@ -17,12 +17,12 @@ from variable import *
 'getLocationByCountryCode', 'getLocationById', 'getLocations', 'latestData', 'previousData', 'url']
 """
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
-conn=sl.connect(DB_PATH+'/corona.db')
+
 
 def globalData(data):
     #action when data['userRequest']['block']['name'] =='전세계 현황'
     #print(json.dumps(post,indent = '\t',ensure_ascii=False))
-
+    conn=sl.connect(DB_PATH+'/corona.db')
     # required entity
     entity = ['situation','sys_nation','sys_date']
     situation = ['confirmed','deaths','recovered']
@@ -42,9 +42,10 @@ def globalData(data):
             res = covi.COVID19(data_source="csbs").getLatest()
     else :
         res = '지원하지 않는 국가입니다.'
+        conn.close()
         return dataSend(res)
 
-
+    print(res['confirmed'])
     message = """%s 현황입니다.
     확진자 %d 명
     사망자 %d 명
@@ -52,7 +53,7 @@ def globalData(data):
     """ %(input,res['confirmed'],res['deaths'],res['recovered'])
 
 
-
+    conn.close()
     return dataSend(message)
 
 
@@ -70,7 +71,7 @@ def dataSend(message):
             ]
         }
     }
-    conn.close()
+
     return dataSend
 
 

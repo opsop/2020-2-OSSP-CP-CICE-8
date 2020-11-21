@@ -3,7 +3,7 @@ import COVID19Py as covi
 import json
 from variable import *
 
-conn=sl.connect(DB_PATH+'/corona.db')
+
 
 # db insert query & create global data TABLE
 # cols = country(char30) / country_code(char10) / data(json)
@@ -11,7 +11,7 @@ def insert_db():
     res = covi.COVID19().getAll()
     #print(json.dumps(res,indent='\t'))
     db(post)
-
+    conn=sl.connect(DB_PATH+'/corona.db')
     res = res['locations']
     before_country=''
 
@@ -39,6 +39,7 @@ def insert_db():
 
 # create db table
 def db(data):
+    conn=sl.connect(DB_PATH+'/corona.db')
     conn.execute(QCT_global)
     data = data['action']['detailParams']
     situation = ['confirmed','deaths','recovered']
