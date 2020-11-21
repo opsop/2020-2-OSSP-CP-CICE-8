@@ -1,7 +1,7 @@
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 # 2020-2-OSSP-CP-CICE-8
 [데이터사이언스 연계전공]Team_CICE
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
 ## Member
 
@@ -14,10 +14,10 @@
 [Corona-Tracker API](https://github.com/Kamaropoulos/COVID19Py/blob/master/README.md#about) 활용 코로나 챗봇.
 
 ### Installation
-'''bash
+```bash
 pip install Flask
 pip install COVID19Py
-'''
+```
 
 ## Bot Diagram
 ![diagram](bot_monitoring/bot_diagram.png)
