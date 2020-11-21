@@ -33,9 +33,9 @@ def globalData(data):
 
     if input in nations:
         if data['situation']['value'] == 'situation':
-                res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input]) ).fetchone()
+                res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input])).fetchone()
                 res = eval(res[0])
-                print(res)
+                print(type(res))
 
     elif data['sys_nation']['value'] == '미국':
         if data['situation']['value'] == 'situation':
