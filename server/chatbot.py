@@ -13,6 +13,7 @@ def Keyboard():
 
 @app.route('/globalData',methods = ['POST'])
 def Global():
+    # get request and return json message for global
     dataSend = globalData(request.get_json())
     return jsonify(dataSend)
 

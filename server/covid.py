@@ -1,8 +1,9 @@
 import COVID19Py as covi
 import json
 import sqlite3 as sl
-import os
-DB_PATH = os.path.dirname(__file__)
+from variable import *
+# query create table as QCT
+
 ##covid19 = covi.COVID19()
 #data = covid19.getAll()
 #print(json.dumps(data,indent = '\t'))
@@ -15,10 +16,8 @@ DB_PATH = os.path.dirname(__file__)
 '_update', '_valid_data_sources', 'data_source', 'getAll', 'getLatest', 'getLatestChanges',
 'getLocationByCountryCode', 'getLocationById', 'getLocations', 'latestData', 'previousData', 'url']
 """
-post = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93!', 'name': 'corona_chatbot'},
-'intent': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황', 'extra': {'reason': {'code': 1, 'message': 'OK'}}}, 'action': {'id': '5fb0d8e5e0729d24a9b0b1af', 'name': 'server_test', 'params': {'situation1': 'situation', 'sys_date': '{"date": "2020-11-21", "dateTag": "today", "dateHeadword": null, "year": null, "month": null, "day": null}', 'situation': '현황', 'sys_nation': '전세계'}, 'detailParams': {'situation1': {'groupName': '', 'origin': '현황', 'value': 'situation'}, 'sys_date': {'groupName': '', 'origin': '오늘', 'value': '{"date": "2020-11-21", "dateTag": "today", "dateHeadword": null, "year": null, "month": null, "day": null}'}, 'situation': {'groupName': '', 'origin': '현황', 'value': 'situation'}, 'sys_nation': {'groupName': '', 'origin': '미국', 'value': '전세계'}}, 'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'}, 'user': {'id': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475', 'type': 'botUserKey', 'properties': {'botUserKey': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475', 'bot_user_key': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475'}}, 'utterance': '오늘 미국 코로나 현황 알려줘\n', 'params': {'surface': 'BuilderBotTest', 'ignoreMe': 'true'}, 'lang': 'kr', 'timezone': 'Asia/Seoul'}, 'contexts': []}
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
-
+conn=sl.connect(DB_PATH+'/corona.db')
 
 def globalData(data):
     #action when data['userRequest']['block']['name'] =='전세계 현황'
@@ -30,15 +29,34 @@ def globalData(data):
 
     data = data['action']['detailParams']
     res = 'None'
+    input= data['sys_nation']['value']
 
-    if data['sys_nation']['value'] == '전세계':
+    if input in nations:
         if data['situation']['value'] == 'situation':
-            conn=sl.connect(DB_PATH+'/corona.db')
-            res = conn.cursor().execute("""SELECT * from GLOBAL""" ).fetchall()
+                res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input]) ).fetchone()
+                res = eval(res[0])
+                print(res)
 
     elif data['sys_nation']['value'] == '미국':
         if data['situation']['value'] == 'situation':
             res = covi.COVID19(data_source="csbs").getLatest()
+    else :
+        res = '지원하지 않는 국가입니다.'
+        return dataSend(res)
+
+
+    message = """%s 현황입니다.
+    확진자 %s 명
+    사망자 %s 명
+    격리해제 %s 명입니다.
+    """ %(data['sys_nation']['value'],res['confirmed'],res['deaths'],res['recovered'])
+
+
+
+    return dataSend(message)
+
+
+def dataSend(message):
 
     dataSend = {
         "version": "2.0",
@@ -46,38 +64,24 @@ def globalData(data):
             "outputs": [
                 {
                     "simpleText":{
-                        "text" : str(json.dumps(res,indent='\t'))
+                        "text" : message
                     }
                 }
             ]
         }
     }
-
     return dataSend
-#globalData(post)
-
-def db(data):
-    conn=sl.connect(DB_PATH+'/corona.db')
-    conn.execute('''CREATE TABLE GLOBAL
-        (COUNTRY CHAR(20) NOT NULL,
-        Data    TEXT NOT NULL);''')
-    data = data['action']['detailParams']
-    situation = ['confirmed','deaths','recovered']
-    if data['sys_nation']['value'] == '전세계':
-        if data['situation']['value'] == 'situation':
-            res = covi.COVID19().getLatest()
-            conn.execute("""INSERT INTO GLOBAL (COUNTRY,data)
-          VALUES ( '%s' , '%s' )""" %(data['sys_nation']['value'],json.dumps(res)))
-
-    cursor = conn.cursor().execute("SELECT * from GLOBAL")
-    [print(i[0] ,'\t',end='') for i in cursor.description]
-    print(cursor.fetchall())
 
 
-
-
-    conn.commit()
-    conn.close()
-
+#print(json.dumps(globalData(post)))
+#for i in covi.COVID19().getLocations():
+#    print(i['country'])
 #db(post)
-#print(globalData(post))
+#json.dumps(globalData(post),ensure_ascii=False)
+#[print(i) for i in conn.cursor().execute("SELECT * from global").fetchall()]
+
+'''
+if __name__ == "__main__" :
+
+'''
+print(globalData(post))
