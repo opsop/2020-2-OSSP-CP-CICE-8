@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from covid import globalData
 
 app = Flask(__name__)
 
@@ -8,6 +9,11 @@ def Keyboard():
       "user" : "corona_chatbot",
       "Subject" : "OSSP",
     }
+    return jsonify(dataSend)
+
+@app.route('/globalData',methods = ['POST'])
+def global():
+    dataSend = globalData(request.get_json())
     return jsonify(dataSend)
 
 @app.route('/message', methods=['POST'])
