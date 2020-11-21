@@ -46,10 +46,10 @@ def globalData(data):
 
 
     message = """%s 현황입니다.
-    확진자 %s 명
-    사망자 %s 명
-    격리해제 %s 명입니다.
-    """ %(data['sys_nation']['value'],res['confirmed'],res['deaths'],res['recovered'])
+    확진자 %d 명
+    사망자 %d 명
+    격리해제 %d 명입니다.
+    """ %(input,res['confirmed'],res['deaths'],res['recovered'])
 
 
 
@@ -70,6 +70,7 @@ def dataSend(message):
             ]
         }
     }
+    conn.close()
     return dataSend
 
 

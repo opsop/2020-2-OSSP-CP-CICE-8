@@ -35,14 +35,14 @@ def insert_db():
 
 
     conn.commit()
-
+    conn.close()
 
 # create db table
 def db(data):
     conn.execute(QCT_global)
     data = data['action']['detailParams']
     situation = ['confirmed','deaths','recovered']
-    
+
     if data['sys_nation']['value'] == '전세계':
         if data['situation']['value'] == 'situation':
             res = covi.COVID19().getLatest()
@@ -54,6 +54,6 @@ def db(data):
     #[print(i[0] ,'\t',end='') for i in cursor.description]
     #print(cursor.fetchall())
     conn.commit()
-
+    conn.close()
 #insert_db()
-[print("'%s' : '%s' , "%(i1 ,i2)) for i1,i2 in conn.cursor().execute("SELECT country,country_code from global").fetchall()]
+#[print("'%s' : '%s' , "%(i1 ,i2)) for i1,i2 in conn.cursor().execute("SELECT country,country_code from global").fetchall()]
