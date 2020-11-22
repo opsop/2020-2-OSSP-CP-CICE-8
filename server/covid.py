@@ -28,12 +28,13 @@ def globalData(data):
     situation = ['confirmed','deaths','recovered']
 
     data = data['action']['detailParams']
-    res = {'confirmed':0,'deaths':0,'recoverd':0}
+    res = {'confirmed':0,'deaths':0,'recovered':0}
     input= data['sys_nation']['value']
 
     if input in nations:
         if data['situation']['value'] == 'situation':
                 res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input])).fetchone()
+                print(res)
                 res = eval(res[0])
                 print(type(res))
 
