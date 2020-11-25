@@ -28,9 +28,9 @@ def globalData(data):
     entity = ['situation','sys_nation','sys_date']
     situation = ['confirmed','deaths','recovered']
 
-    
-    data = data['action']['detailParams']
     res = {'confirmed':0,'deaths':0,'recovered':0}
+
+    data = data['action']['detailParams']
     input= data['sys_nation']['value']
 
     if input in nations:
