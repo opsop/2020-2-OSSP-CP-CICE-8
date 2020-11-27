@@ -3,19 +3,6 @@ import json
 import sqlite3 as sl
 from variable import *
 # query create table as QCT
-
-##covid19 = covi.COVID19()
-#data = covid19.getAll()
-#print(json.dumps(data,indent = '\t'))
-""" # print(dir(covi.COVID19()))
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
-'__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__',
-'__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__',
-'__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
-'__str__', '__subclasshook__', '__weakref__', '_getSources', '_request',
-'_update', '_valid_data_sources', 'data_source', 'getAll', 'getLatest', 'getLatestChanges',
-'getLocationByCountryCode', 'getLocationById', 'getLocations', 'latestData', 'previousData', 'url']
-"""
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 
 
@@ -77,16 +64,12 @@ def dataSend(message):
 
     return dataSend
 
-
-#print(json.dumps(globalData(post)))
-#for i in covi.COVID19().getLocations():
-#    print(i['country'])
-#db(post)
-#json.dumps(globalData(post),ensure_ascii=False)
-#[print(i) for i in conn.cursor().execute("SELECT * from global").fetchall()]
-
-'''
-if __name__ == "__main__" :
-
-'''
-print(globalData(post))
+""" # print(dir(covi.COVID19()))
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
+'__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__',
+'__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__',
+'__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+'__str__', '__subclasshook__', '__weakref__', '_getSources', '_request',
+'_update', '_valid_data_sources', 'data_source', 'getAll', 'getLatest', 'getLatestChanges',
+'getLocationByCountryCode', 'getLocationById', 'getLocations', 'latestData', 'previousData', 'url']
+"""
