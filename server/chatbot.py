@@ -10,6 +10,7 @@ import json
 import requests
 import re #계산을 위한 특수문자 제거
 from naverNews import *
+from msg_app import *
 
 app = Flask(__name__)
 
@@ -20,6 +21,22 @@ def Keyboard():
       "Subject" : "OSSP",
     }
     return jsonify(dataSend)
+
+@app.route('/city_info')
+class CityInfo(Resource):
+    def get(self):
+        return "DONE"
+
+    @api.response(200, 'OK')
+    @api.response(400, 'Bad Request')
+    @api.response(500, 'Internal Server Error')
+    @api.doc('get emergency alerts of a city')
+    @api.expect(_city, validate=True)
+    def post(self):
+        body = json.loads(request.data)
+        # req = request.get_json()
+        params = body["action"]["params"]
+        return emergency_alerts_service.emergency_alerts(params)
 
 @app.route('/globalData',methods = ['POST'])
 def Global():

@@ -10,7 +10,6 @@ def globalData(data):
     #action when data['userRequest']['block']['name'] =='전세계 현황'
     #print(json.dumps(post,indent = '\t',ensure_ascii=False))
     conn=sl.connect(DB_PATH+'/corona.db')
-
     # required entity
     entity = ['situation','sys_nation','sys_date']
     situation = ['confirmed','deaths','recovered']
