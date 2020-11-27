@@ -10,7 +10,7 @@ import json
 import requests
 import re #계산을 위한 특수문자 제거
 from naverNews import *
-from msg_app import *
+from msg_app.emergency_alerts_service import *
 
 app = Flask(__name__)
 
