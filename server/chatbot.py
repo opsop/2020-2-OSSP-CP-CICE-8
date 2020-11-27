@@ -27,7 +27,7 @@ def CityInfo():
     body = json.loads(request.data)
     # req = request.get_json()
     params = body["action"]["params"]
-    return emergency_alerts_service.emergency_alerts(params)
+    return emergency_alerts(params)
 
 @app.route('/globalData',methods = ['POST'])
 def Global():

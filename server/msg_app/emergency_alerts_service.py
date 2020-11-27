@@ -62,6 +62,5 @@ def emergency_alerts(body):
             }
         }
         return jsonify(res)
-
     finally:
         conn.close()
