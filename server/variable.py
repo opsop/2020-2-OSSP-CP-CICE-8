@@ -1,5 +1,5 @@
 import os
-DB_PATH = os.path.dirname(__file__)
+DB_PATH = os.path.dirname(__file__ + '/CoronaBotDB')
 
 nations = { #key : #value(country_code for db search)
             '전세계':'전세계',
