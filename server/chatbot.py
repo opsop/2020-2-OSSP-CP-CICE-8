@@ -23,7 +23,7 @@ def Keyboard():
     return jsonify(dataSend)
 
 @app.route('/city_info')
-def CityInfo(self):
+def CityInfo():
     body = json.loads(request.data)
     # req = request.get_json()
     params = body["action"]["params"]
