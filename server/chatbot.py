@@ -36,7 +36,7 @@ def Global():
     return jsonify(dataSend)
 
 @app.route('/naver_news', methods=['POST'])
-def naver_news():
+def Naver_news():
     body = request.get_json()
     content = body["action"]["detailParams"]["corona_topic"]["value"]
     get_current_news(str(content))
