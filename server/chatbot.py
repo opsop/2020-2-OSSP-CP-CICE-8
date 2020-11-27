@@ -6,6 +6,7 @@ from globalData import globalData
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
 import json
+from flask_restplus import Resource
 
 import requests
 import re #계산을 위한 특수문자 제거
