@@ -22,7 +22,7 @@ def Keyboard():
     }
     return jsonify(dataSend)
 
-@app.route('/city_info')
+@app.route('/city_info', methods=['POST'])
 def CityInfo():
     body = json.loads(request.data)
     # req = request.get_json()
