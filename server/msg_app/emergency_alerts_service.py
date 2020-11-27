@@ -1,3 +1,4 @@
+
 from flask import Flask, request, jsonify
 import json
 import sqlite3
@@ -13,9 +14,7 @@ import sqlite3
 
 
 def emergency_alerts(body):
-
-
-    try :
+    try:
         conn = sqlite3.connect("disaster_message_temp.db")
         cur = conn.cursor()
 
@@ -36,31 +35,11 @@ def emergency_alerts(body):
         if len(msg_list)>3:
             msg_list = msg_list[0:3]
         elif len(msg_list)==0:
-            res = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "simpleText": {
-                            "text": "최근에 온 재난문자가 없습니다."
-                        }
-                    }
-                ]
-            }
-        }
+            res = {"msg_list" : "최근에 온 재난문자가 없습니다."}
+            
             return jsonify(res)
-        res = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "simpleText": {
-                            "text": msg_list
-                        }
-                    }
-                ]
-            }
-        }
+        res = {"msg_list" : msg_list}
+        
         return jsonify(res)
     finally:
         conn.close()
