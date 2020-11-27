@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-#import json
+import json
 import sqlite3
 
 # try:
@@ -15,8 +15,9 @@ import sqlite3
 def emergency_alerts(body):
     conn = sqlite3.connect("disaster_message_temp.db")
     cur = conn.cursor()
+
+    li = "%"+"%".join(body["sys_location"].split(" "))+"%"
     #li = "%"+"%".join(body["city"].split(" "))+"%"
-    li = "%" + "%".join(body["sys_location"].split(" ")) + "%"
 
 
     # SQL 쿼리 실행
@@ -28,7 +29,35 @@ def emergency_alerts(body):
         msg_list.append(row)
     #for row in rows:
      #   print(row)
-    d = {"msg_list" : msg_list}
-    return jsonify(d)
+    #res = {"msg_list" : msg_list}
+    if len(msg_list)>3:
+        msg_list = msg_list[0:3]
+    elif len(msg_list)==0:
+        res = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": "최근에 온 재난문자가 없습니다."
+                    }
+                }
+            ]
+        }
+    }
+        return jsonify(res)
+    res = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": msg_list
+                    }
+                }
+            ]
+        }
+    }
+    return jsonify(res)
 
     conn.close()

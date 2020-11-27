@@ -17,6 +17,7 @@ api = Api(blueprint,
 api.add_namespace(emergency_alerts_ns, path='/emergency_alerts')
 
 app = Flask(__name__)
+
 app.register_blueprint(blueprint)
 
 
