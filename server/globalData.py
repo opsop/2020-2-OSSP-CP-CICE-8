@@ -7,7 +7,7 @@ from variable import *
 
 
 def globalData(data):
-    message = ""
+    message = "None"
     try:
         #action when data['userRequest']['block']['name'] =='전세계 현황'
         #print(json.dumps(post,indent = '\t',ensure_ascii=False))
