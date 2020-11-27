@@ -7,44 +7,49 @@ from variable import *
 
 
 def globalData(data):
-    #action when data['userRequest']['block']['name'] =='전세계 현황'
-    #print(json.dumps(post,indent = '\t',ensure_ascii=False))
-    conn=sl.connect(DB_PATH+'/corona.db')
-    print(data)
-    # required entity
-    entity = ['situation','sys_nation','sys_date']
-    situation = ['confirmed','deaths','recovered']
+    message = ""
+    try:
+        #action when data['userRequest']['block']['name'] =='전세계 현황'
+        #print(json.dumps(post,indent = '\t',ensure_ascii=False))
+        conn=sl.connect(DB_PATH+'/corona.db')
+        print(data)
+        # required entity
+        entity = ['situation','sys_nation','sys_date']
+        situation = ['confirmed','deaths','recovered']
 
-    res = {'confirmed':0,'deaths':0,'recovered':0}
+        res = {'confirmed':0,'deaths':0,'recovered':0}
 
-    data = data['action']['detailParams']
-    input= data['sys_nation']['value']
+        data = data['action']['detailParams']
+        input= data['sys_nation']['value']
 
-    if input in nations:
-        if data['situation']['value'] == 'situation':
-                res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input])).fetchone()
-                print(res)
-                res = eval(res[0])
-                print(type(res))
+        if input in nations:
+            if data['situation']['value'] == 'situation':
+                    res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input])).fetchone()
+                    print(res)
+                    res = eval(res[0])
+                    print(type(res))
 
-    elif data['sys_nation']['value'] == '미국':
-        if data['situation']['value'] == 'situation':
-            res = covi.COVID19(data_source="csbs").getLatest()
-    else :
-        res = '지원하지 않는 국가입니다.'
+        elif data['sys_nation']['value'] == '미국':
+            if data['situation']['value'] == 'situation':
+                res = covi.COVID19(data_source="csbs").getLatest()
+        else :
+            res = '지원하지 않는 국가입니다.'
+            conn.close()
+            return dataSend(res)
+
+        print(res['confirmed'])
+        message = """%s 현황입니다.
+        확진자 %d 명
+        사망자 %d 명
+        격리해제 %d 명입니다.
+        """ %(input,res['confirmed'],res['deaths'],res['recovered'])
+
+
         conn.close()
-        return dataSend(res)
-
-    print(res['confirmed'])
-    message = """%s 현황입니다.
-    확진자 %d 명
-    사망자 %d 명
-    격리해제 %d 명입니다.
-    """ %(input,res['confirmed'],res['deaths'],res['recovered'])
-
-
-    conn.close()
-    return dataSend(message)
+    except KeyError:
+        pass
+    finally:
+        return dataSend(message)
 
 
 def dataSend(message):
