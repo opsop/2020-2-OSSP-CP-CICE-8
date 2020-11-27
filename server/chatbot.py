@@ -6,7 +6,6 @@ from globalData import globalData
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
 import json
-from flask_restplus import Resource
 
 import requests
 import re #계산을 위한 특수문자 제거
@@ -24,20 +23,11 @@ def Keyboard():
     return jsonify(dataSend)
 
 @app.route('/city_info')
-class CityInfo(Resource):
-    def get(self):
-        return "DONE"
-
-    @api.response(200, 'OK')
-    @api.response(400, 'Bad Request')
-    @api.response(500, 'Internal Server Error')
-    @api.doc('get emergency alerts of a city')
-    @api.expect(_city, validate=True)
-    def post(self):
-        body = json.loads(request.data)
-        # req = request.get_json()
-        params = body["action"]["params"]
-        return emergency_alerts_service.emergency_alerts(params)
+def CityInfo(self):
+    body = json.loads(request.data)
+    # req = request.get_json()
+    params = body["action"]["params"]
+    return emergency_alerts_service.emergency_alerts(params)
 
 @app.route('/globalData',methods = ['POST'])
 def Global():
