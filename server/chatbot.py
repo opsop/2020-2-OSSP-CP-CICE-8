@@ -9,7 +9,7 @@ import json
 
 import requests
 import re #계산을 위한 특수문자 제거
-import naverNews
+from naverNews import *
 
 app = Flask(__name__)
 
