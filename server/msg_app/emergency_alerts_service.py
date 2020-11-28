@@ -15,7 +15,9 @@ disasterDBPath = os.path.dirname(__file__) + '/disaster_message_temp.db'
 def emergency_alerts(body):
     try:
         #print(disasterDBPath)
+        print(body)
         conn = sqlite3.connect(disasterDBPath)
+
         cur = conn.cursor()
         # data = json.loads(body)
 
@@ -43,4 +45,5 @@ def emergency_alerts(body):
         res = {"msg_list": msg_list}
         return jsonify(res)
     finally:
+        cur.close()
         conn.close()
