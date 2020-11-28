@@ -38,9 +38,9 @@ def emergency_alerts(body):
 
         elif len(msg_list) == 0:
             res = {"msg_list": "최근에 온 재난문자가 없습니다."}
-            return (res)
+            return jsonify(res)
 
         res = {"msg_list": msg_list}
-        return (res)
+        return jsonify(res)
     finally:
         conn.close()
