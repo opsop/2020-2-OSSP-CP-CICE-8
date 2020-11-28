@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot
 from globalData import globalData
 from msg_app import emergency_alerts_service
+from kakaoisdk.kakaoi import *
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
@@ -25,6 +26,7 @@ def Keyboard():
 @app.route('/city_info', methods=['POST'])
 def CityInfo():
     body = json.loads(request.data)
+    print(body)
     # req = request.get_json()
     params = body["action"]["params"]
     return emergency_alerts(params)
@@ -38,6 +40,9 @@ def Global():
 @app.route('/naver_news', methods=['POST'])
 def Naver_news():
     body = request.get_json()
+
+    print(body)
+    
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
     return jsonify(get_current_news(str(content)))
 
@@ -95,7 +100,7 @@ def Message():
                 ]
             }
         }
-    return kakaoi.simpleText("서버테스트")
+    return dataSend
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0') # default Flask port : 5000
