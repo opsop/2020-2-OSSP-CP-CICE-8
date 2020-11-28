@@ -42,3 +42,4 @@ def emergency_alerts(body):
     return jsonify(res)
 
     conn.close()
+
