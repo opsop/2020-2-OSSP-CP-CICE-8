@@ -36,6 +36,8 @@ def globalData(data):
 
         data = data['action']['detailParams']
         input= data['sys_nation']['value']
+        if input == "글로벌" :
+            input = "전세계" 
 
         if input in nations:
             if data['situation']['value'] == 'situation':
