@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from KoreaAPIData import KoreaCoronaAPI
+from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot
 from globalData import globalData
 from msg_app import emergency_alerts_service
 
@@ -11,6 +11,7 @@ import requests
 import re #계산을 위한 특수문자 제거
 from naverNews import *
 from msg_app.emergency_alerts_service import *
+
 
 app = Flask(__name__)
 
@@ -89,7 +90,7 @@ def Naver_news():
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     KoreaResult = KoreaCoronaAPI()
-    
+    visualizeKoreaPlot()
     return jsonify(KoreaResult)
 
 
