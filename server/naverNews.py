@@ -19,7 +19,10 @@ class News:
 
     @staticmethod
     def create(title, link):
-        News.news_list.append(News(title, link))
+        news = News()
+        news.title = title
+        news.link = link
+        News.news_list.append(news)
 
 def get_current_news(TOPIC='코로나 후유증'):
     news_num = 5 # 보여줄 뉴스 개수
@@ -42,15 +45,3 @@ def get_current_news(TOPIC='코로나 후유증'):
         link = str(item).split('<link/>')[1]
         link = link.split('<description>')[0].strip()
         News.create(title, link)
-        # news = news + "\n👉" + link
-    # news = news + '\n\n📪 관련 주제 뉴스 더보기'
-    # url = 'http://search.naver.com/search.naver'
-    # param = {
-    #     'where': 'news',
-    #     'query': TOPIC,
-    # }
-    #
-    # header = {'User-Agent': 'Mozilla/5.0', 'referer': 'http://naver.com'}
-    # response = requests.get(url, params=param, headers=header)
-    # news = news + '\n' + response.url
-    # return news
