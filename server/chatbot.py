@@ -26,6 +26,7 @@ def Keyboard():
 @app.route('/city_info', methods=['POST'])
 def CityInfo():
     body = json.loads(request.data)
+    print(body)
     # req = request.get_json()
     params = body["action"]["params"]
     return emergency_alerts(params)
@@ -39,6 +40,7 @@ def Global():
 @app.route('/naver_news', methods=['POST'])
 def Naver_news():
     body = request.get_json()
+    print(body)
     content = body["action"]["detailParams"]["corona_topic"]["value"]
     get_current_news(str(content))
     send = {
