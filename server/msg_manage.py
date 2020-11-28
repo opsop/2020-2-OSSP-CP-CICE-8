@@ -6,6 +6,7 @@ from flask import Blueprint
 
 from msg_app.emergency_alerts_controller import api as emergency_alerts_ns
 
+
 blueprint = Blueprint('api', __name__)
 
 api = Api(blueprint,
