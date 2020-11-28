@@ -13,7 +13,7 @@ import sqlite3
 
 # @app.route('/city_info', methods = ['POST'])
 def emergency_alerts(body):
-    conn = sqlite3.connect('CSID-DGU/2020-2-OSSP-CP-CICE-8/server/msg_app/disaster_message_temp.db')
+    conn = sqlite3.connect('./disaster_message_temp.db')
     cur = conn.cursor()
     # data = json.loads(body)
 
@@ -42,4 +42,3 @@ def emergency_alerts(body):
     return jsonify(res)
 
     conn.close()
-
