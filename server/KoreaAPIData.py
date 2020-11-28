@@ -3,11 +3,14 @@ from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
 # from . import * #if using on django , should using .apikey instead apikey 
 import json 
-
 import requests
 import re #계산을 위한 특수문자 제거
 
-def KoreaCoronaAPI():
+import KoreaDataDB #KoreaDB 정의 및 사용 함수들 정의된 파일
+from matplotlib import pyplot as plt
+
+def KoreaAPI():
+    # Corona API에서 API 데이터 받아오기
     #####
     korea = "http://api.corona-19.kr/korea?serviceKey="
     country = "http://api.corona-19.kr/korea/country?serviceKey="
@@ -30,6 +33,11 @@ def KoreaCoronaAPI():
 
     print(data)
     data.update(data2)
+    return data
+
+def KoreaCoronaAPI():
+    # API 데이터를 챗봇 메시지 출력 형식에 맞게 리턴
+    data=KoreaAPI()
 
     messages="""국내 현황
 확진자 %s명
@@ -49,5 +57,27 @@ def KoreaCoronaAPI():
                 ]
             }
         }
-
+    # visualizeKoreaPlot()
     return dataSend
+
+
+def visualizeKoreaPlot():
+    # 국내 데이터 꺾은선 시각화
+
+    # KoreaDB에 당일 데이터 저장
+    apiData=KoreaAPI()
+    KoreaDataDB.insert_data(apiData['updateTime'], apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'], 
+                            apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'])
+    
+    # 오늘 포함 7일 데이터 불러와서 시각화
+    # TodayCase 바꿔서 출력
+    x_values = [0, 1, 2, 3, 4] # for문으로 오늘부터 7일 날짜
+    y_values = [0, 1, 4, 9, 16] # for문으로 오늘부터 7일 TodayCase불러오기
+
+    plt.plot(x_values, y_values, color='red',  marker='o')
+
+    plt.ylabel('확진자 증가 추이')
+    plt.title('일주일 간 국내 현황 확진자 증가 추이 꺾은선 그래프')
+    plt.figure(figsize=(6, 15))
+    plt.show()
+    plt.savefig('sample.png')
