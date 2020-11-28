@@ -10,10 +10,10 @@ import sqlite3
 # SQLite DB 연결
 
 # Connection 으로부터 Cursor 생성
-
+disasterDBPath = './disaster_message_temp.db'
 # @app.route('/city_info', methods = ['POST'])
 def emergency_alerts(body):
-    conn = sqlite3.connect('CSID-DGU/2020-2-OSSP-CP-CICE-8/server/msg_app/disaster_message_temp.db')
+    conn = sqlite3.connect(disasterDBPath)
     cur = conn.cursor()
     # data = json.loads(body)
 
@@ -42,4 +42,3 @@ def emergency_alerts(body):
     return jsonify(res)
 
     conn.close()
-
