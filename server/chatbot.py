@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from covid import globalData
 # from .KoreaAPIData import KoreaCoronaAPI
-
+from msg_app import emergency_alerts_service
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
@@ -66,6 +66,15 @@ def KoreaData():
     
     return jsonify(dataSend)
     #return KoreaResult
+
+
+@app.route('/city_info', methods=['POST'])
+def post():
+    body = json.loads(request.data)
+    # req = request.get_json()
+    params = body["action"]["params"]
+    return emergency_alerts_service.emergency_alerts(params)
+
 
 @app.route('/message', methods=['POST'])
 def Message():
