@@ -1,6 +1,7 @@
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode, quote_plus, unquote
 import sqlite3, json
+msg_num = 300
 
 # 하루에 한번만 돌아가게
 
@@ -33,7 +34,7 @@ conn.execute("DELETE from MESSAGE")
 i = 1
 
 d = 0  # 추출할 재난문자 개수
-while (d < 300):
+while (d < msg_num):
     mms = get_emergency_alerts(i)
     # print(i)
     rows = mms['DisasterMsg'][1]['row']
