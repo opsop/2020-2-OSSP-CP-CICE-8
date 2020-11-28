@@ -30,4 +30,24 @@ def KoreaCoronaAPI():
 
     print(data)
     data.update(data2)
-    return data 
+
+    messages="""국내 현황
+확진자 %s명
+완치자 %s명
+사망자 %s명
+    """ %(data['TotalCase'], data['TotalRecovered'], data['TotalDeath'])
+    print(messages)
+    dataSend = {
+            "version": "2.0",
+            "template": {
+                "outputs": [ # 봇 테스트로 확인하기                 
+                    {
+                        "simpleText":{
+                            "text" : messages
+                        }
+                    }
+                ]
+            }
+        }
+
+    return dataSend
