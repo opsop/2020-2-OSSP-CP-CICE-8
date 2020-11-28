@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 from KoreaAPIData import KoreaCoronaAPI
 from globalData import globalData
 from msg_app import emergency_alerts_service
-
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
@@ -38,53 +37,8 @@ def Global():
 @app.route('/naver_news', methods=['POST'])
 def Naver_news():
     body = request.get_json()
-    content = body["action"]["detailParams"]["corona_topic"]["value"]
-    get_current_news(str(content))
-    send = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "carousel": {
-                        "type": "basicCard",
-                        "items": [
-                            {
-                                {"buttons": [
-                                    {
-                                        "action": "webLink",
-                                        "label": News.news_list[0].title,
-                                        "webLinkUrl": News.news_list[0].link
-                                    }]},
-                                {"buttons": [
-                                    {
-                                        "action": "webLink",
-                                        "label": News.news_list[1].title,
-                                        "webLinkUrl": News.news_list[1].link
-                                    }]},
-                                {"buttons": [
-                                    {
-                                        "action": "webLink",
-                                        "label": News.news_list[2].title,
-                                        "webLinkUrl": News.news_list[2].link
-                                    }]},
-                                {"buttons": [
-                                    {
-                                        "action": "webLink",
-                                        "label": News.news_list[3].title,
-                                        "webLinkUrl": News.news_list[3].link
-                                    }]},
-                                {"buttons": [
-                                    {
-                                        "action": "webLink",
-                                        "label": News.news_list[4].title,
-                                        "webLinkUrl": News.news_list[4].link
-                                    }]}
-                    }]
-                }}
-        ]
-    }
-    }
-    return jsonify(send)
+    content = body["action"]["detailParams"]["corona_topic"]["origin"]
+    return jsonify(get_current_news(str(content)))
 
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():

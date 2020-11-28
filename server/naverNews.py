@@ -5,7 +5,6 @@ import requests
 
 app = Flask(__name__)
 
-
 # 서버가 정상적으로 작동하는지 확인하는 임시 코드
 @app.route("/")
 def hello():
@@ -14,12 +13,14 @@ def hello():
 class News:
     news_list = []
     def __init__(self):
+        self.date = ""
         self.title = ""
         self.link = ""
 
     @staticmethod
-    def create(title, link):
+    def create(pub, title, link):
         news = News()
+        news.date = pub
         news.title = title
         news.link = link
         News.news_list.append(news)
@@ -39,9 +40,11 @@ def get_current_news(TOPIC='코로나 후유증'):
     for item in items[:news_num]:  # 5개 까지만 불러오기
         pub_date = item.select('pubDate')[0].text
         pub_date = datetime.datetime.strptime(pub_date, '%a, %d %b %Y %H:%M:%S %z')
-        news = news + f'\n발행일시 : {pub_date.year}년 {pub_date.month}월 {pub_date.day}일 {pub_date.hour}시 {pub_date.minute}분'
+        news = news + f'발행일시 : {pub_date.year}년 {pub_date.month}월 {pub_date.day}일 {pub_date.hour}시 {pub_date.minute}분'
         title = item.select('title')[0].text
-        news = news + "\n" + title
         link = str(item).split('<link/>')[1]
         link = link.split('<description>')[0].strip()
-        News.create(title, link)
+        News.create(news, title, link)
+
+get_current_news()
+print(News.news_list[1].link)
