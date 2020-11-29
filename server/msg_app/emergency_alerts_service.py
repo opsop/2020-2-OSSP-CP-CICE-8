@@ -12,6 +12,7 @@ import os
 # Connection 으로부터 Cursor 생성
 disasterDBPath = os.path.dirname(__file__) + '/disaster_message_temp.db'
 # @app.route('/city_info', methods = ['POST'])
+
 def emergency_alerts(body):
     try:
         #print(disasterDBPath)
@@ -39,10 +40,50 @@ def emergency_alerts(body):
             msg_list = msg_list[0:3]
 
         elif len(msg_list) == 0:
-            res = {"msg_list": "최근에 온 재난문자가 없습니다."}
+            res = {
+                "version": "2.0",
+                "template": {
+                    "outputs": [
+                        {
+                            "simpleText": {
+                                "text": "해당지역에는 최근에 온 재난문자가 없습니다."
+                            }
+                        }
+                    ]
+                }
+            }
+
             return jsonify(res)
 
-        res = {"msg_list": msg_list}
+        msg_li = []
+
+        for i in range(0, len(msg_list)):
+            msg_list[i] = msg_list[i][1:]
+            for j in range(0, len(msg_list[0])):
+                print(msg_list[i])
+                msg_tmp = "\n".join(msg_list[i])
+            msg_li.append(msg_tmp)
+
+        msg = "\n\n".join(msg_li)
+
+        default_msg = "[재난문자를 최신순으로 최대 3개까지 표시]"
+        tmp = []
+        tmp.append(default_msg)
+        tmp.append(msg)
+        msg = "\n".join(tmp)
+
+        res = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "simpleText": {
+                            "text": msg
+                        }
+                    }
+                ]
+            }
+        }
         return jsonify(res)
     finally:
         cur.close()
