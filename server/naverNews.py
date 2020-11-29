@@ -32,16 +32,22 @@ class News:
         News.news_list.append(news)
 
     @staticmethod
-    def reset_list():
+    def refresh():
         News.news_list = []
 
 
+def search(TOPIC='코로나'):
+    news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={TOPIC}'
+    return news_add
+
+
 def get_current_news(TOPIC='코로나 후유증'):
-    News.reset_list()
+    News.refresh()
     news_num = 5  # 보여줄 뉴스 개수
-    img_show = 3  # 이미지 파싱해서 몇번째에서 뉴스 이미지 가져올지
+    img_show = 4  # 이미지 파싱해서 몇번째에서 뉴스 이미지 가져올지
     BASE_URL = f'http://newssearch.naver.com/search.naver?where=rss&query={TOPIC}&field=1&nx_search_query=&nx_and_query=&nx_sub_query=&nx_search_hlquery=&is_dts=0'
-    data = ''
+    topic = TOPIC.replace(' ', '+')
+    news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={topic}'
     result = requests.get(BASE_URL)
     result.encoding = 'UTF-8'
     soup = BeautifulSoup(result.text, 'html.parser')
@@ -57,12 +63,20 @@ def get_current_news(TOPIC='코로나 후유증'):
         link = str(item).split('<link/>')[1]
         link = link.split('<description>')[0].strip()
 
-        html = urllib.request.urlopen(link)
+        headers = {'User-Agent': 'Chrome/66.0.3359.181'}
+        html_req = urllib.request.Request(link, headers=headers)
+        html = urllib.request.urlopen(html_req)
         soup = BeautifulSoup(html, "html.parser")
         soup = soup.find_all("img")
-        img = soup[img_show].get('src')
-        News.create(img, news, title, link)
+        try:
+            img = soup[img_show].get('src')
+        except:
+            img = "https://img1.daumcdn.net/thumb/R720x0/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fliveboard%2Fh21%2F946bac8f3dec4440aa6412140cdeb90b.JPG"
 
+        if img == "":
+            img = "https://img1.daumcdn.net/thumb/R720x0/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fliveboard%2Fh21%2F946bac8f3dec4440aa6412140cdeb90b.JPG"
+        News.create(img, news, title, link)
+    print(news_add)
     send = {
         "version": "2.0",
         "template": {
@@ -139,6 +153,20 @@ def get_current_news(TOPIC='코로나 후유증'):
                                         "webLinkUrl": News.news_list[4].link
                                     }
                                 ]
+                            },
+                            {
+                                "title": TOPIC + " 관련 주제가 더 보고 싶으시다면❓",
+                                "description": "아래 '보러가기'를 클릭해 주세요❗",
+                                "thumbnail": {
+                                    "imageUrl": "https://user-images.githubusercontent.com/48379869/100522762-b09d2c00-31ee-11eb-80ee-4716dc3d775f.png"
+                                },
+                                "buttons": [
+                                    {
+                                        "action": "webLink",
+                                        "label": "보러가기",
+                                        "webLinkUrl": news_add
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -147,4 +175,20 @@ def get_current_news(TOPIC='코로나 후유증'):
         }
     }
 
+    return send
+
+
+def exc():
+    send = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": search()
+                    }
+                }
+            ]
+        }
+    }
     return send
