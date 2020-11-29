@@ -40,11 +40,10 @@ def Global():
 @app.route('/naver_news', methods=['POST'])
 def Naver_news():
     body = request.get_json()
-
-    print(body)
-    
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
-    return jsonify(get_current_news(str(content)))
+    if content == "기타 검색":
+        return jsonify(exc())
+    return jsonify(get_current_news(content))
 
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
