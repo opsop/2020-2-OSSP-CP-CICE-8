@@ -49,7 +49,7 @@ def get_current_news(TOPIC='코로나 후유증'):
     BASE_URL = f'http://newssearch.naver.com/search.naver?where=rss&query={TOPIC}&field=1&nx_search_query=&nx_and_query=&nx_sub_query=&nx_search_hlquery=&is_dts=0'
     topic = TOPIC.replace(' ', '+')
     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={topic}'
-    result = requests.get(BASE_URL)
+    result = requests.get(BASE_URL, headers = headers)
     result.encoding = 'UTF-8'
     soup = BeautifulSoup(result.text, 'html.parser')
 
