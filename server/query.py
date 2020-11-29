@@ -3,8 +3,6 @@ import COVID19Py as covi
 import json
 from variable import *
 
-
-
 # db insert query & create global data TABLE
 # cols = country(char30) / country_code(char10) / data(json)
 def insert_db():
