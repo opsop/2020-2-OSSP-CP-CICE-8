@@ -29,15 +29,15 @@ def globalData(data):
         conn=sl.connect(DB_PATH+'/corona.db')
         print(data)
         # required entity
-        entity = ['situation','sys_nation','sys_date']
+        ntt = ['situation','sys_nation','sys_date']
         situation = ['confirmed','deaths','recovered']
 
         res = {'confirmed':0,'deaths':0,'recovered':0}
 
         data = data['action']['detailParams']
         input= data['sys_nation']['value']
-        if input == "글로벌" :
-            input = "전세계" 
+        if input == "글로벌" or input == '외국':
+            input = "전세계"
 
         if input in nations:
             if data['situation']['value'] == 'situation':
@@ -55,14 +55,19 @@ def globalData(data):
             return dataSend(res)
 
         print(res['confirmed'])
-        message = """{} 현황입니다.
+        message = """코로나 {} 현황입니다.
 확진자 {:,} 명
 사망자 {:,} 명
-격리해제 {:,} 명입니다.""".format(input,res['confirmed'],res['deaths'],res['recovered'])
+격리해제 {:,} 명
+치명률 %f.2%""".format(input,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
 
 
         conn.close()
-    except KeyError:
+    except KeyError as e:
+        print(e)
+        pass
+    except Exception as e:
+        print(e)
         pass
     finally:
         return dataSend(message)

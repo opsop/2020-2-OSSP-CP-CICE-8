@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot
 from globalData import globalData
 from msg_app import emergency_alerts_service
-from kakaoisdk.kakaoi import *
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
