@@ -1,11 +1,15 @@
 import kakaoi
 
-client = kakaoi.Client()
+client = Client()
 
 def main(message):
     if message.request.utterance == "ping":
-        return kakaoi.SimpleText("Pong!")
+        return SimpleText("Pong!")
     elif message.request.utterance == "pong":
-        return kakaoi.SimpleText("Ping!")
+        return SimpleText("Ping!")
+
+    return SimpleText("Ping!")
 
 client.run(main, host='0.0.0.0')
+
+print(main(" "))
