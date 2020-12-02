@@ -10,7 +10,8 @@ import requests
 import re #계산을 위한 특수문자 제거
 from naverNews import *
 from msg_app.emergency_alerts_service import *
-
+from hospital_pharmacy import hospital_info
+from triage_center import triage
 
 app = Flask(__name__)
 
@@ -50,14 +51,15 @@ def KoreaData():
     visualizeKoreaPlot()
     return jsonify(KoreaResult)
 
+@app.route('/triagecenter_info', methods=['POST'])
+def Triage():
+    body = request.get_json()
+    return jsonify(triage(body))
 
-@app.route('/city_info', methods=['POST'])
-def post():
-    body = json.loads(request.data)
-    # req = request.get_json()
-    params = body["action"]["params"]
-    return emergency_alerts_service.emergency_alerts(params)
-
+@app.route('/hospital_info', methods=['POST'])
+def Hospital():
+    body = request.get_json()
+    return jsonify(hospital_info(body))
 
 @app.route('/message', methods=['POST'])
 def Message():

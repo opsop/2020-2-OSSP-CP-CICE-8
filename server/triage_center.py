@@ -3,13 +3,10 @@ import json
 
 imageUrl = "https://user-images.githubusercontent.com/71917474/100836760-37822b00-34b3-11eb-8808-680db10567ce.jpg"
 
-app = Flask(__name__)
 
-
-@app.route('/triagecenter_info', methods=['POST'])
-def triage():
+def triage(content):
     # content = request.get_json()
-    content = json.loads(request.data)
+    #content = json.loads(request.data)
     # print(content)
     content = content['userRequest']
     content = content['utterance']
@@ -45,6 +42,3 @@ def triage():
         }
     }
     return dataSend
-
-
-app.run(host='0.0.0.0')
