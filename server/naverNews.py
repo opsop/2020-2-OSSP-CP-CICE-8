@@ -19,6 +19,7 @@ def get_current_news(search_word = '코로나 확진자'):
 
     r = requests.get(url, headers = headers)
     j = json.loads(r.text)
+    print("일단 json은 잘 받는지? : ", j)
 
     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={search_word}'
 
@@ -31,6 +32,7 @@ def get_current_news(search_word = '코로나 확진자'):
         img_url = f'https://openapi.naver.com/v1/search/image.{encode_type}?query={title}&display={str(1)}'
         r_img = requests.get(img_url, headers = headers)
         j_img = json.loads(r_img.text)
+        print("이미지 파일 잘 받아와? : ", j_img)
         thumb = ""
         for k in j_img['items']:
             thumb = k['link']
