@@ -2,6 +2,8 @@ import COVID19Py as covi
 import json
 import sqlite3 as sl
 from variable import *
+from hotKeyword import *
+
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot'},
@@ -35,16 +37,24 @@ def globalData(data):
         res = {'confirmed':0,'deaths':0,'recovered':0}
 
         data = data['action']['detailParams']
-        input= data['sys_nation']['value']
-        if input == "글로벌" or input == '외국':
-            input = "전세계"
+        inputNation= data['sys_nation']['value']
 
-        if input in nations:
+        if inputNation == "글로벌" or inputNation == '외국':
+            inputNation = "전세계"
+
+        originTT = '현황'
+
+        if data['situation']['value'] == 'situation':
+            # If add deaths confirmed situation
+            pass
+
+        # keyword counting for hotKeyword
+        hotKeyword(inputNation + originTT)
+
+        if inputNation in nations:
             if data['situation']['value'] == 'situation':
                     res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input])).fetchone()
-                    print(res)
                     res = eval(res[0])
-                    print(type(res))
 
         elif data['sys_nation']['value'] == '미국':
             if data['situation']['value'] == 'situation':

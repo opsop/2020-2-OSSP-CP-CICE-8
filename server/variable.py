@@ -200,6 +200,14 @@ QCT_global = '''CREATE TABLE GLOBAL
     COUNTRY_CODE CHAR(10) NOT NULL,
     Data    JSON NOT NULL);'''
 
+QCT_hotKeyword = '''CREATE TABLE HOTKEYWORD
+    (KEYWORD TEXT NOT NULL,
+    COUNTING INT NOT NULL);'''
+
+deleteQuery = "Delete From HOTKEYWORD where condition"
+
+QUD_hotKeyword = "UPDATE  HOTKEYWORD SET COUNTING + 1 WHERE KEYWORD = %s"
+
 #sample request json data
 post = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93!', 'name': 'corona_chatbot'},
 'intent': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황', 'extra': {'reason': {'code': 1, 'message': 'OK'}}}, 'action': {'id': '5fb0d8e5e0729d24a9b0b1af', 'name': 'server_test', 'params': {'situation1': 'situation', 'sys_date': '{"date": "2020-11-21", "dateTag": "today", "dateHeadword": null, "year": null, "month": null, "day": null}', 'situation': '현황', 'sys_nation': '전세계'}, 'detailParams': {'situation1': {'groupName': '', 'origin': '현황', 'value': 'situation'}, 'sys_date': {'groupName': '', 'origin': '오늘', 'value': '{"date": "2020-11-21", "dateTag": "today", "dateHeadword": null, "year": null, "month": null, "day": null}'}, 'situation': {'groupName': '', 'origin': '현황', 'value': 'situation'}, 'sys_nation': {'groupName': '', 'origin': '미국', 'value': '전세계'}}, 'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'}, 'user': {'id': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475', 'type': 'botUserKey', 'properties': {'botUserKey': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475', 'bot_user_key': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475'}}, 'utterance': '오늘 미국 코로나 현황 알려줘\n', 'params': {'surface': 'BuilderBotTest', 'ignoreMe': 'true'}, 'lang': 'kr', 'timezone': 'Asia/Seoul'}, 'contexts': []}
