@@ -28,13 +28,12 @@ def get_current_news(search_word = '코로나 확진자'):
         date = f'발행일시 : {pub_date.year}년 {pub_date.month}월 {pub_date.day}일 {pub_date.hour}시 {pub_date.minute}분'
         title = i['title'].replace("<b>", "").replace("</b>", "")
 
-        try:
-            img_url = f'https://openapi.naver.com/v1/search/image.{encode_type}?query={title}&display={str(1)}'
-            r_img = requests.get(img_url, headers = headers)
-            j_img = json.loads(r_img.text)
-            thumb = j_img['items']['link']
-        except:
-            thumb = "https://img1.daumcdn.net/thumb/R720x0/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fliveboard%2Fh21%2F946bac8f3dec4440aa6412140cdeb90b.JPG"
+        img_url = f'https://openapi.naver.com/v1/search/image.{encode_type}?query={title}&display={str(1)}'
+        r_img = requests.get(img_url, headers = headers)
+        j_img = json.loads(r_img.text)
+        thumb = ""
+        for k in j_img['items']:
+            thumb = k['link']
 
         item_list.append({
                                     "title": title,
