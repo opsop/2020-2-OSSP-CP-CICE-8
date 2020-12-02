@@ -59,7 +59,7 @@ def globalData(data):
 확진자 {:,} 명
 사망자 {:,} 명
 격리해제 {:,} 명
-치명률 %f.2%""".format(input,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
+치명률 {:.2f}%""".format(input,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
 
 
         conn.close()
