@@ -26,7 +26,7 @@ def get_current_news(search_word = '코로나 확진자'):
     for idx, i in enumerate(j['items']):
         pub_date = datetime.datetime.strptime(i['pubDate'], '%a, %d %b %Y %H:%M:%S %z')
         date = f'발행일시 : {pub_date.year}년 {pub_date.month}월 {pub_date.day}일 {pub_date.hour}시 {pub_date.minute}분'
-        title = i['title'].replace("<b>", "").replace("</b>", "")
+        title = i['title'].replace("<b>", "").replace("</b>", "").replace("&quot;","")
 
         img_url = f'https://openapi.naver.com/v1/search/image.{encode_type}?query={title}&display={str(1)}'
         r_img = requests.get(img_url, headers = headers)
@@ -34,7 +34,8 @@ def get_current_news(search_word = '코로나 확진자'):
         thumb = ""
         for k in j_img['items']:
             thumb = k['link']
-
+        if thumb == "":
+            thumb = "https://image.dongascience.com/Photo/2020/01/008f1295bea0e575bdb0d8fcdd1a7390.jpg"
         item_list.append({
                                     "title": title,
                                     "description": date,
