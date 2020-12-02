@@ -44,12 +44,11 @@ def Global():
 def Naver_news():
     body = request.get_json()
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
-    output = get_current_news(content)
-    excout = exc()
     if content != "기타 검색":
-        return jsonify(output)
-    else :
-        return jsonify(excout)
+        output = get_current_news(content)
+    else:
+        output = exc()
+    return jsonify(output)
 
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
