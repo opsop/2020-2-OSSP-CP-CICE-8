@@ -8,6 +8,9 @@ from urllib.request import urlopen , Request
 import json
 import requests
 import re #계산을 위한 특수문자 제거
+
+SECURE_SSL_REDIRECT = False
+
 from naverNews import *
 from msg_app.emergency_alerts_service import *
 from hospital_pharmacy import hospital_info

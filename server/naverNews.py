@@ -1,7 +1,7 @@
 import requests
 import json
 import datetime
-SECURE_SSL_REDIRECT = False
+
 def get_current_news(search_word = '코로나 확진자'):
     client_id = "BMMCxLy7yJWCna0lxGcL" # 취득한 아이디 넣기
     client_secret = "2tVAp55OCM"  # 취득한 키 넣기
