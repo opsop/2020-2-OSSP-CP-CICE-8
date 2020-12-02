@@ -53,8 +53,8 @@ def globalData(data):
 
         if inputNation in nations:
             if data['situation']['value'] == 'situation':
-                    res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input])).fetchone()
-                    res = eval(res[0])
+                res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[inputNation])).fetchone()
+                res = eval(res[0])
 
         elif data['sys_nation']['value'] == '미국':
             if data['situation']['value'] == 'situation':
@@ -64,21 +64,19 @@ def globalData(data):
             conn.close()
             return dataSend(res)
 
-        print(res['confirmed'])
+        #print(res['confirmed'])
         message = """코로나 {} 현황입니다.
 확진자 {:,} 명
 사망자 {:,} 명
 격리해제 {:,} 명
-치명률 {:.2f}%""".format(input,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
+치명률 {:.2f}%""".format(inputNation,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
 
 
         conn.close()
     except KeyError as e:
-        print(e)
-        pass
+        print("KeyError" ,e)
     except Exception as e:
-        print(e)
-        pass
+        print("Exception",e)
     finally:
         return dataSendSimple(message)
 
