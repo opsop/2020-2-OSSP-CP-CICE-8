@@ -2,6 +2,8 @@ import requests
 import json
 import datetime
 
+SECURE_SSL_REDIRECT = False
+
 def get_current_news(search_word = '코로나 확진자'):
     client_id = "BMMCxLy7yJWCna0lxGcL" # 취득한 아이디 넣기
     client_secret = "2tVAp55OCM"  # 취득한 키 넣기
@@ -19,6 +21,7 @@ def get_current_news(search_word = '코로나 확진자'):
 
     r = requests.get(url, headers = headers)
     j = json.loads(r.text)
+    print("일단 json은 잘 받는지? : ", j)
 
     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={search_word}'
 
@@ -26,15 +29,17 @@ def get_current_news(search_word = '코로나 확진자'):
     for idx, i in enumerate(j['items']):
         pub_date = datetime.datetime.strptime(i['pubDate'], '%a, %d %b %Y %H:%M:%S %z')
         date = f'발행일시 : {pub_date.year}년 {pub_date.month}월 {pub_date.day}일 {pub_date.hour}시 {pub_date.minute}분'
-        title = i['title'].replace("<b>", "").replace("</b>", "")
+        title = i['title'].replace("<b>", "").replace("</b>", "").replace("&quot;","")
 
         img_url = f'https://openapi.naver.com/v1/search/image.{encode_type}?query={title}&display={str(1)}'
         r_img = requests.get(img_url, headers = headers)
         j_img = json.loads(r_img.text)
+        print("이미지 파일 잘 받아와? : ", j_img)
         thumb = ""
         for k in j_img['items']:
             thumb = k['link']
-
+        if thumb == "":
+            thumb = "https://image.dongascience.com/Photo/2020/01/008f1295bea0e575bdb0d8fcdd1a7390.jpg"
         item_list.append({
                                     "title": title,
                                     "description": date,
@@ -97,3 +102,5 @@ def exc():
         }
     }
     return send
+
+get_current_news()

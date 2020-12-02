@@ -8,6 +8,9 @@ from urllib.request import urlopen , Request
 import json
 import requests
 import re #계산을 위한 특수문자 제거
+
+SECURE_SSL_REDIRECT = False
+
 from naverNews import *
 from msg_app.emergency_alerts_service import *
 from hospital_pharmacy import hospital_info
@@ -41,6 +44,7 @@ def Global():
 def Naver_news():
     body = request.get_json()
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
+    print("카톡 에서 네이버 뉴스 눌렀을 때 잘 받는지 : "body)
     if content == "기타 검색":
         return jsonify(exc())
     return jsonify(get_current_news(content))
