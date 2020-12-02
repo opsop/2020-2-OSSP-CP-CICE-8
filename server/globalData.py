@@ -4,7 +4,22 @@ import sqlite3 as sl
 from variable import *
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
-
+sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot'},
+'intent': {'id': '5fb0e639d9431d64aa840e50',
+'name': '전세계 현황', 'extra': {'reason': {'code': 1, 'message': 'OK'}}},
+'action': {'id': '5fb8dd0e06b0fa6d6630322a', 'name': 'globalData',
+'params': {'sys_nation': '미국', 'situation': 'situation'},
+'detailParams': {'sys_nation': {'groupName': '', 'origin': '미국', 'value': '미국'},
+'situation': {'groupName': '', 'origin': '데이터', 'value': 'situation'}},
+'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'},
+'user': {'id': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
+'type': 'botUserKey', 'properties':
+{'botUserKey': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
+'isFriend': True, 'plusfriendUserKey': 'IWOvhONHTgXo',
+'bot_user_key': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
+'plusfriend_user_key': 'IWOvhONHTgXo'}}, 'utterance': '미국 데이터',
+'params': {'surface': 'Kakaotalk.plusfriend'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'},
+'contexts': []}
 
 def globalData(data):
     message = "None"
@@ -14,13 +29,15 @@ def globalData(data):
         conn=sl.connect(DB_PATH+'/corona.db')
         print(data)
         # required entity
-        entity = ['situation','sys_nation','sys_date']
+        ntt = ['situation','sys_nation','sys_date']
         situation = ['confirmed','deaths','recovered']
 
         res = {'confirmed':0,'deaths':0,'recovered':0}
 
         data = data['action']['detailParams']
         input= data['sys_nation']['value']
+        if input == "글로벌" or input == '외국':
+            input = "전세계"
 
         if input in nations:
             if data['situation']['value'] == 'situation':
@@ -38,15 +55,19 @@ def globalData(data):
             return dataSend(res)
 
         print(res['confirmed'])
-        message = """%s 현황입니다.
-        확진자 %d 명
-        사망자 %d 명
-        격리해제 %d 명입니다.
-        """ %(input,res['confirmed'],res['deaths'],res['recovered'])
+        message = """코로나 {} 현황입니다.
+확진자 {:,} 명
+사망자 {:,} 명
+격리해제 {:,} 명
+치명률 %f.2%""".format(input,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
 
 
         conn.close()
-    except KeyError:
+    except KeyError as e:
+        print(e)
+        pass
+    except Exception as e:
+        print(e)
         pass
     finally:
         return dataSend(message)
@@ -68,6 +89,8 @@ def dataSend(message):
     }
 
     return dataSend
+
+print(globalData(sampleReque))
 
 """ # print(dir(covi.COVID19()))
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
