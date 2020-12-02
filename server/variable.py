@@ -1,6 +1,25 @@
 import os
 DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 print(DB_PATH)
+
+def dataSendSimple(message):
+
+    dataSend = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText":{
+                        "text" : message
+                    }
+                }
+            ]
+        }
+    }
+
+    return dataSend
+
+
 nations = { #key : #value(country_code for db search)
             '전세계':'전세계',
             '아프가니스탄' : 'AF' ,

@@ -1,7 +1,6 @@
 import sqlite3 as sl
 import os
 from variable import *
-from globalData import dataSend
 
 
 # counting hotKeyword
@@ -53,5 +52,8 @@ def searchHotKeyword(body):
     # COUNTING 순으로 정렬 limit 3
 
     #오는 request 형식 확인
-    print(doby)
-    return dataSend("인기 키워드 테스트중")
+    print(body)
+    return dataSendSimple("인기 키워드 테스트중")
+
+
+print(searchHotKeyword(" "))
