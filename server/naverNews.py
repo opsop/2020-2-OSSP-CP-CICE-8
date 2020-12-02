@@ -44,6 +44,7 @@ def search(TOPIC='코로나'):
 
 def get_current_news(TOPIC='코로나 후유증'):
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+    context.set_ciphers('HIGH:!DH:!aNULL')
     context.set_ciphers('DEFAULT@SECLEVEL=1')
     News.refresh()
     headers = {'User-Agent': 'Mozilla/5.0'}
