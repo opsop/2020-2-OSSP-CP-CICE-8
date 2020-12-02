@@ -48,7 +48,7 @@ def insert_data(updateTime, TotalCase, TotalDeath, TotalRecovered, NowCase, Tota
         c.execute("INSERT INTO KoreaDB VALUES (?, ?, ?, ?, ?, ?, ?, ?)", setdata) 
         db.commit() 
     except Exception as e: 
-        print('db error:', e) 
+        print('db error: here', e) 
     finally: 
         db.close()
 
