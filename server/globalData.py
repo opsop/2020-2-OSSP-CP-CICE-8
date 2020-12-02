@@ -2,6 +2,8 @@ import COVID19Py as covi
 import json
 import sqlite3 as sl
 from variable import *
+from hotKeyword import *
+
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot'},
@@ -35,16 +37,24 @@ def globalData(data):
         res = {'confirmed':0,'deaths':0,'recovered':0}
 
         data = data['action']['detailParams']
-        input= data['sys_nation']['value']
-        if input == "글로벌" or input == '외국':
-            input = "전세계"
+        inputNation= data['sys_nation']['value']
 
-        if input in nations:
+        if inputNation == "글로벌" or inputNation == '외국':
+            inputNation = "전세계"
+
+        originTT = '현황'
+
+        if data['situation']['value'] == 'situation':
+            # If add deaths confirmed situation
+            pass
+
+        # keyword counting for hotKeyword
+        hotKeyword(inputNation + originTT)
+
+        if inputNation in nations:
             if data['situation']['value'] == 'situation':
-                    res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[input])).fetchone()
-                    print(res)
-                    res = eval(res[0])
-                    print(type(res))
+                res = conn.cursor().execute("""SELECT data from GLOBAL WHERE country_code='%s' """ %(nations[inputNation])).fetchone()
+                res = eval(res[0])
 
         elif data['sys_nation']['value'] == '미국':
             if data['situation']['value'] == 'situation':
@@ -54,41 +64,21 @@ def globalData(data):
             conn.close()
             return dataSend(res)
 
-        print(res['confirmed'])
+        #print(res['confirmed'])
         message = """코로나 {} 현황입니다.
 확진자 {:,} 명
 사망자 {:,} 명
 격리해제 {:,} 명
-치명률 %f.2%""".format(input,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
+치명률 {:.2f}%""".format(inputNation,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
 
 
         conn.close()
     except KeyError as e:
-        print(e)
-        pass
+        print("KeyError" ,e)
     except Exception as e:
-        print(e)
-        pass
+        print("Exception",e)
     finally:
-        return dataSend(message)
-
-
-def dataSend(message):
-
-    dataSend = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText":{
-                        "text" : message
-                    }
-                }
-            ]
-        }
-    }
-
-    return dataSend
+        return dataSendSimple(message)
 
 print(globalData(sampleReque))
 

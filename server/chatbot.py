@@ -11,13 +11,16 @@ import re #계산을 위한 특수문자 제거
 
 SECURE_SSL_REDIRECT = False
 
+# 카카오 챗봇 기능별 메소드
 from naverNews import *
 from msg_app.emergency_alerts_service import *
 from hospital_pharmacy import hospital_info
 from triage_center import triage
+from hotKeyword import *
 
 app = Flask(__name__)
 
+# api Test
 @app.route('/keyboard')
 def Keyboard():
     dataSend = {
@@ -26,6 +29,7 @@ def Keyboard():
     }
     return jsonify(dataSend)
 
+# 긴급 재난문자
 @app.route('/city_info', methods=['POST'])
 def CityInfo():
     body = json.loads(request.data)
@@ -34,12 +38,14 @@ def CityInfo():
     params = body["action"]["params"]
     return emergency_alerts(params)
 
+# 전세계 현황 데이터
 @app.route('/globalData',methods = ['POST'])
 def Global():
     # get request and return json message for global
     dataSend = globalData(request.get_json())
     return jsonify(dataSend)
 
+# 네이버 뉴스
 @app.route('/naver_news', methods=['POST'])
 def Naver_news():
     body = request.get_json()
@@ -50,6 +56,7 @@ def Naver_news():
         output = exc()
     return jsonify(output)
 
+# 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     KoreaResult = KoreaCoronaAPI()
@@ -66,6 +73,13 @@ def Hospital():
     body = request.get_json()
     return jsonify(hospital_info(body))
 
+# 인기 키워드 검색기능
+@app.route('/hotKeyword' , methods = ['POST'])
+def HotKeyword():
+    body = request.get_json()
+    return jsonify(searchHotKeyword(body))
+
+# 서버 테스트 ( 카카오 오픈빌더 return format )
 @app.route('/message', methods=['POST'])
 def Message():
     content = request.get_json()

@@ -1,6 +1,25 @@
 import os
 DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 print(DB_PATH)
+
+def dataSendSimple(message):
+
+    dataSend = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText":{
+                        "text" : message
+                    }
+                }
+            ]
+        }
+    }
+
+    return dataSend
+
+
 nations = { #key : #value(country_code for db search)
             '전세계':'전세계',
             '아프가니스탄' : 'AF' ,
@@ -199,6 +218,14 @@ QCT_global = '''CREATE TABLE GLOBAL
     (COUNTRY CHAR(20) NOT NULL,
     COUNTRY_CODE CHAR(10) NOT NULL,
     Data    JSON NOT NULL);'''
+
+QCT_hotKeyword = '''CREATE TABLE HOTKEYWORD
+    (KEYWORD TEXT NOT NULL,
+    COUNTING INT NOT NULL);'''
+
+deleteQuery = "Delete From HOTKEYWORD where condition"
+
+QUD_hotKeyword = "UPDATE  HOTKEYWORD SET COUNTING + 1 WHERE KEYWORD = %s"
 
 #sample request json data
 post = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93!', 'name': 'corona_chatbot'},
