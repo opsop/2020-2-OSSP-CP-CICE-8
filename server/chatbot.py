@@ -76,7 +76,7 @@ def Hospital():
 @app.route('/hotKeyword' , methods = ['POST'])
 def HotKeyword():
     body = request.get_json()
-    return jsonify(searchHotKeyword(doby))
+    return jsonify(searchHotKeyword(body))
 
 # 서버 테스트 ( 카카오 오픈빌더 return format )
 @app.route('/message', methods=['POST'])
