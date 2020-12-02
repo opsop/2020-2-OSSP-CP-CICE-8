@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import datetime
 import requests
 import urllib.request
+import ssl
 
 app = Flask(__name__)
 
@@ -42,6 +43,8 @@ def search(TOPIC='코로나'):
 
 
 def get_current_news(TOPIC='코로나 후유증'):
+    context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+    context.set_ciphers('DEFAULT@SECLEVEL=1')
     News.refresh()
     headers = {'User-Agent': 'Mozilla/5.0'}
     news_num = 5  # 보여줄 뉴스 개수
@@ -49,7 +52,7 @@ def get_current_news(TOPIC='코로나 후유증'):
     BASE_URL = f'http://newssearch.naver.com/search.naver?where=rss&query={TOPIC}&field=1&nx_search_query=&nx_and_query=&nx_sub_query=&nx_search_hlquery=&is_dts=0'
     topic = TOPIC.replace(' ', '+')
     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={topic}'
-    result = requests.get(BASE_URL, headers = headers)
+    result = requests.get(BASE_URL, verify = False, headers = headers)
     result.encoding = 'UTF-8'
     soup = BeautifulSoup(result.text, 'html.parser')
 
@@ -177,6 +180,7 @@ def get_current_news(TOPIC='코로나 후유증'):
 
     return send
 
+# print(get_current_news())
 
 def exc():
     send = {
