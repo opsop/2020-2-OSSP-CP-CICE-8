@@ -50,10 +50,12 @@ def Global():
 def Naver_news():
     body = request.get_json()
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
-    print("카톡 에서 네이버 뉴스 눌렀을 때 잘 받는지 : ",body)
-    if content == "기타 검색":
-        return jsonify(exc())
-    return jsonify(get_current_news(content))
+    output = get_current_news(content)
+    excout = exc()
+    if content != "기타 검색":
+        return jsonify(output)
+    else :
+        return jsonify(excout)
 
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
