@@ -1,7 +1,5 @@
 from flask import Flask, jsonify, request
-from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot
-from globalData import globalData
-from msg_app import emergency_alerts_service
+
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
@@ -12,11 +10,16 @@ import re #계산을 위한 특수문자 제거
 SECURE_SSL_REDIRECT = False
 
 # 카카오 챗봇 기능별 메소드
+from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot # 국내 현황, 국내 확진자 추이 시각화
+from globalData import globalData # 전세계 데이터
+from msg_app import emergency_alerts_service # 재난문자
 from naverNews import *
 from msg_app.emergency_alerts_service import *
-from hospital_pharmacy import hospital_info
-from triage_center import triage
-from hotKeyword import *
+from hospital_pharmacy import hospital_info # 병원/약국 정보
+from triage_center import triage # 선별 진료소
+from hotKeyword import * # 인기 키워드
+from youtubeNews import youtubeNews # 유투브 뉴스
+
 
 app = Flask(__name__)
 
@@ -56,11 +59,19 @@ def Naver_news():
         output = exc()
     return jsonify(output)
 
+# 유투브 뉴스
+@app.route('/youtube_news', methods=['POST'])
+def Naver_news():
+    body = request.get_json()
+    
+    return jsonify(output)
+
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     KoreaResult = KoreaCoronaAPI()
-    visualizeKoreaPlot()
+    # visualizeKoreaPlot()
+    hotKeyword("국내현황")
     return jsonify(KoreaResult)
 
 @app.route('/triagecenter_info', methods=['POST'])
