@@ -52,9 +52,9 @@ def Naver_news():
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
     output = get_current_news(content)
     print(output)
-    exoutput = exc()
+    excoutput = get_current_news(content)
     if content == "기타 검색":
-        return jsonify(exoutput)
+        return jsonify(excoutput)
     else :
         return jsonify(output)
 

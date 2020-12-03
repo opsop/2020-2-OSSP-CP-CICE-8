@@ -3,7 +3,7 @@ import json
 import datetime
 import html
 
-def get_current_news(search_word):
+def get_current_news(search_word = '코로나'):
     client_id = "BMMCxLy7yJWCna0lxGcL" # 취득한 아이디 넣기
     client_secret = "2tVAp55OCM"  # 취득한 키 넣기
     encode_type = 'json'
@@ -79,21 +79,21 @@ def get_current_news(search_word):
 
     return send
 
-def search(TOPIC='코로나'):
-    news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={TOPIC}'
-    return news_add
-
-def exc():
-    send = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText": {
-                        "text": search()
-                    }
-                }
-            ]
-        }
-    }
-    return send
+# def search(TOPIC='코로나'):
+#     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={TOPIC}'
+#     return news_add
+#
+# def exc():
+#     send = {
+#         "version": "2.0",
+#         "template": {
+#             "outputs": [
+#                 {
+#                     "simpleText": {
+#                         "text": search()
+#                     }
+#                 }
+#             ]
+#         }
+#     }
+#     return send
