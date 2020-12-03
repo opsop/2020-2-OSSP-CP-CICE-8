@@ -56,6 +56,13 @@ def Naver_news():
         output = exc()
     return jsonify(output)
 
+@app.route('/Youtube', methods=['POST'])
+def Youtube():
+    body = request.get_json()
+    dataSend = you_news(body)
+    print(dataSend)
+    return jsonify(dataSend)
+
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
