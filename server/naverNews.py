@@ -102,5 +102,3 @@ def exc():
         }
     }
     return send
-
-get_current_news()
