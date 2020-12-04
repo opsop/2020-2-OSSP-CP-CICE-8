@@ -80,15 +80,18 @@ def Youtube_news():
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
-    KoreaResult = KoreaCoronaAPI()
+    body = request.get_json() # 되묻기 질문용도
+    KoreaResult = KoreaCoronaAPI() 
     hotKeyword("국내현황")
     return jsonify(KoreaResult)
 
+# 선별 진료소
 @app.route('/triagecenter_info', methods=['POST'])
 def Triage():
     body = request.get_json()
     return jsonify(triage(body))
 
+# 병원 정보
 @app.route('/hospital_info', methods=['POST'])
 def Hospital():
     body = request.get_json()
