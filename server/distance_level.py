@@ -20,10 +20,6 @@ def distance_level(content):
                                 "buttons": [
                                     {
                                         "action": "webLink",
-                                        "label": "관련 포스트 보기",
-                                        "webLinkUrl": "https://m.post.naver.com/viewer/postView.nhn?volumeNo=30045858&memberNo=31572221"},
-                                    {
-                                        "action": "webLink",
                                         "label": "지역별 안내",
                                         "webLinkUrl": "http://ncov.mohw.go.kr/duBoardList.do?brdId=2&brdGubun=29&flowId=main"},
                                     {
