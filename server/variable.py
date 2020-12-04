@@ -198,26 +198,27 @@ nations = { #key : #value(country_code for db search)
             'Tunisia' : 'TN' ,
             '터키' : 'TR' ,
             '미국' : 'US' ,
-            'Uganda' : 'UG' ,
+            '우간다' : 'UG' ,
             'Ukraine' : 'UA' ,
-            'United Arab Emirates' : 'AE' ,
+            '아랍에미리트' : 'AE' ,
             '영국' : 'GB' ,
-            'Uruguay' : 'UY' ,
-            'Uzbekistan' : 'UZ' ,
+            '우루과이' : 'UY' ,
+            '우즈베키스탄' : 'UZ' ,
             'Vanuatu' : 'VU' ,
-            'Venezuela' : 'VE' ,
+            '베네수엘라' : 'VE' ,
             '베트남' : 'VN' ,
             'West Bank and Gaza' : 'PS' ,
             'Western Sahara' : 'EH' ,
             'Yemen' : 'YE' ,
-            'Zambia' : 'ZM' ,
+            '잠비아' : 'ZM' ,
             'Zimbabwe' : 'ZW'}
 
 #query create global table
-QCT_global = '''CREATE TABLE GLOBAL
+QCT_global  = '''CREATE TABLE GLOBAL
     (COUNTRY CHAR(20) NOT NULL,
     COUNTRY_CODE CHAR(10) NOT NULL,
-    Data    JSON NOT NULL);'''
+    Data    JSON NOT NULL,
+    LASTUPDATE  DATETIME);'''
 
 QCT_hotKeyword = '''CREATE TABLE HOTKEYWORD
     (KEYWORD TEXT NOT NULL,
