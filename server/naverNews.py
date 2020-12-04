@@ -31,4 +31,3 @@ def naver_get(param = '코로나 확진자'):
                         "type": "basicCard",
                         "items": item_list}}]}}
     return send
-
