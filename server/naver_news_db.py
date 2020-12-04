@@ -3,20 +3,25 @@ import requests
 import json
 import datetime
 import html
+import os
+
+DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
+
 
 def insert_db(data):
-    con = sqlite3.connect("naver.db")
+    con = sqlite3.connect(DB_PATH + '/naver.db')
     cursor = con.cursor()
-
     for row in data:
         cursor.execute("INSERT INTO NEWS VALUES(?, ?, ?, ?, ?)", (row[0], row[1], row[2], row[3], row[4]))
         con.commit()
     con.close()
 
+
 def refresh_db():
-    con = sqlite3.connect("naver.db")
+    con = sqlite3.connect(DB_PATH+'/naver.db')
     con.execute("DELETE FROM NEWS").rowcount
     con.commit()
+    con.close()
 
 
 def crawl_naver():

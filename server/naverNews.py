@@ -1,9 +1,12 @@
 import sqlite3
+import os
 
 item_list = []
 
+DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
+
 def naver_get(param = '코로나 확진자'):
-    con = sqlite3.connect("naver.db")
+    con = sqlite3.connect(DB_PATH+"naver.db")
     res = con.cursor().execute("""SELECT * from NEWS WHERE ENTITY='%s' """ % (param)).fetchall()
     for i in res:
         item_list.append({
