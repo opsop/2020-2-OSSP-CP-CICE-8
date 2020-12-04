@@ -19,7 +19,7 @@ from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
 from naverNews import * # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
-from youtube import you_news # 유튜부 뉴스
+from youtube import you_news # 유튜브 뉴스
 
 
 app = Flask(__name__)
