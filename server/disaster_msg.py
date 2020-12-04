@@ -27,7 +27,7 @@ def get_emergency_alerts(page_number):
     return dict_content
 
 #conn = sqlite3.connect("disaster_message_temp.db", isolation_level=None)
-conn = sqlite3.connect("server/disaster_message_temp.db", isolation_level=None)
+conn = sqlite3.connect("server/CoronaBotDB/disaster_message_temp.db", isolation_level=None)
 
 conn.execute("CREATE TABLE IF NOT EXISTS MESSAGE \
     (id integer PRIMARY KEY, create_date text, location_name text, msg text)")
