@@ -22,14 +22,14 @@ from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
 from naverNews import naver_get # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
-# from youtube import tube_get # 유튜브 뉴스
+#from youtube import tube_get # 유튜브 뉴스
 from self_diagnosis import * # 자가진단
 from distance_level import * # 사회적 거리두기
 from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
 
 # # 위에거 안될때
-# from Tube import tube_get # 유튜브 뉴스 에러
-# from Naver import naver_get # 네이버 뉴스 에러
+from Tube import tube_get # 유튜브 뉴스 에러
+from Naver import naver_get # 네이버 뉴스 에러
 
 # db 업데이트
 def update_db():
