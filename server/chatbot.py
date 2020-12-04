@@ -62,7 +62,7 @@ def Naver_news():
     else :
         return jsonify(output)
 
-# 유튜브 뉴스
+# 유튜브 뉴스 -나영 -이걸로 작동!
 @app.route('/Youtube', methods=['POST'])
 def Youtube():
     body = request.get_json()
@@ -70,7 +70,7 @@ def Youtube():
     print(dataSend)
     return jsonify(dataSend)
 
-# 유투브 뉴스
+# 유투브 뉴스 -승민 -아직 미작동(테스트용)
 @app.route('/youtube_news', methods=['POST'])
 def Youtube_news():
     body = request.get_json()
