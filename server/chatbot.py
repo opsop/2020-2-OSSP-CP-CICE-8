@@ -53,11 +53,21 @@ def Global():
 def Naver_news():
     body = request.get_json()
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
-    if content != "기타 검색":
-        output = get_current_news(content)
-    else:
-        output = exc()
-    return jsonify(output)
+    output = get_current_news(content)
+    print(output)
+    excoutput = get_current_news(content)
+    if content == "기타 검색":
+        return jsonify(excoutput)
+    else :
+        return jsonify(output)
+
+# 유튜브 뉴스
+@app.route('/Youtube', methods=['POST'])
+def Youtube():
+    body = request.get_json()
+    dataSend = you_news(body)
+    print(dataSend)
+    return jsonify(dataSend)
 
 # 유투브 뉴스
 @app.route('/youtube_news', methods=['POST'])

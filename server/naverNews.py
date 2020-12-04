@@ -1,10 +1,9 @@
 import requests
 import json
 import datetime
+import html
 
-SECURE_SSL_REDIRECT = False
-
-def get_current_news(search_word = '코로나 확진자'):
+def get_current_news(search_word = '코로나'):
     client_id = "BMMCxLy7yJWCna0lxGcL" # 취득한 아이디 넣기
     client_secret = "2tVAp55OCM"  # 취득한 키 넣기
     encode_type = 'json'
@@ -21,7 +20,6 @@ def get_current_news(search_word = '코로나 확진자'):
 
     r = requests.get(url, headers = headers)
     j = json.loads(r.text)
-    print("일단 json은 잘 받는지? : ", j)
 
     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={search_word}'
 
@@ -29,12 +27,11 @@ def get_current_news(search_word = '코로나 확진자'):
     for idx, i in enumerate(j['items']):
         pub_date = datetime.datetime.strptime(i['pubDate'], '%a, %d %b %Y %H:%M:%S %z')
         date = f'발행일시 : {pub_date.year}년 {pub_date.month}월 {pub_date.day}일 {pub_date.hour}시 {pub_date.minute}분'
-        title = i['title'].replace("<b>", "").replace("</b>", "").replace("&quot;","")
+        title = html.unescape(i['title']).replace("<b>", "").replace("</b>", "")
 
         img_url = f'https://openapi.naver.com/v1/search/image.{encode_type}?query={title}&display={str(1)}'
         r_img = requests.get(img_url, headers = headers)
         j_img = json.loads(r_img.text)
-        print("이미지 파일 잘 받아와? : ", j_img)
         thumb = ""
         for k in j_img['items']:
             thumb = k['link']
@@ -82,25 +79,21 @@ def get_current_news(search_word = '코로나 확진자'):
 
     return send
 
-print(get_current_news())
-
-def search(TOPIC='코로나'):
-    news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={TOPIC}'
-    return news_add
-
-def exc():
-    send = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText": {
-                        "text": search()
-                    }
-                }
-            ]
-        }
-    }
-    return send
-
-get_current_news()
+# def search(TOPIC='코로나'):
+#     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={TOPIC}'
+#     return news_add
+#
+# def exc():
+#     send = {
+#         "version": "2.0",
+#         "template": {
+#             "outputs": [
+#                 {
+#                     "simpleText": {
+#                         "text": search()
+#                     }
+#                 }
+#             ]
+#         }
+#     }
+#     return send
