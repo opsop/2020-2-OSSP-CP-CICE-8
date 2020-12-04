@@ -4,7 +4,7 @@ import sqlite3
 import os
 from hotKeyword import *
 
-disasterDBPath = os.path.dirname(__file__) + '/disaster_message_temp.db'
+disasterDBPath = os.path.dirname(__file__) + '/CoronaBotDB/disaster_message_temp.db'
 # @app.route('/city_info', methods = ['POST'])
 
 def emergency_alerts(body):
