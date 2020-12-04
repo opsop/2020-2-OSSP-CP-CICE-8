@@ -1,7 +1,7 @@
 import sqlite3 as sl
 import os
 from variable import *
-
+import traceback
 
 # counting hotKeyword
 # from hotKeyword import *
@@ -17,14 +17,16 @@ def hotKeyword( nttpass : str ):
         conn = sl.connect(DB_PATH + "/corona.db")
         cur = conn.cursor()
 
+        # 테이블 생성
+        #cur.execute(QCT_hotKeyword)
+
         # insert if not exists
-        InsertOrIgnore = f""" INSERT OR IGNORE INTO HOTKEYWORD ( KEYWORD , COUNTING )
-                            VALUES ('{nttpass}', 0) """
+        """ INSERT OR IGNORE INTO HOTKEYWORD ( KEYWORD , COUNTING )
+        VALUES ('{nttpass}', 0) """
 
         # or like this query
-        #INSERT INTO tablename(values)
-        #SELECT values
-        #WHERE NOT EXISTS(SELECT 1 FROM tablename WHERE condition);
+        InsertOrIgnore = f"""INSERT INTO  HOTKEYWORD( KEYWORD , COUNTING ) SELECT '{nttpass}',0
+        WHERE NOT EXISTS(SELECT 1 FROM HOTKEYWORD WHERE KEYWORD = '{nttpass}');"""
 
         # 인기 키워드 카운팅 update COUNTING
         update = f"""UPDATE HOTKEYWORD SET COUNTING = COUNTING + 1 WHERE KEYWORD='{nttpass}' """
@@ -39,8 +41,8 @@ def hotKeyword( nttpass : str ):
 
 
     except Exception as e:
-        print(e)
-
+        print("ERROR : " + e)
+        print(traceback.format_exc())
     finally :
         conn.commit()
         cur.close()
@@ -50,10 +52,25 @@ def searchHotKeyword(body):
 
     # 인기 키워드 로직 채워넣기
     # COUNTING 순으로 정렬 limit 3
+    res = "인기키워드 테스트중"
+    try:
+        conn = sl.connect(DB_PATH + "/corona.db")
+        # 내림차순 3개까지
+        a = conn.execute(" SELECT * FROM HOTKEYWORD ORDER BY COUNTING DESC LIMIT 3 ").fetchall()
+        a = list(a)
+
+        rank = ['🥇','🥈','🥉']
+        #ex) 1. a \n 2. b \n 3. c
+        res = "\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
+
+    except Exception as e:
+        print("ERROR : " + e)
+        print(traceback.format_exc())
+    finally:
+        conn.close()
 
     #오는 request 형식 확인
+    print("인기키워드")
     print(body)
-    return dataSendSimple("인기 키워드 테스트중")
 
-
-print(searchHotKeyword(" "))
+    return dataSendSimple("인기 키워드 순위 입니다\n"+res)
