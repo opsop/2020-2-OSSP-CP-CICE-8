@@ -22,6 +22,7 @@ from triage_center import triage
 from hotKeyword import *
 from distance_level import distance_level
 from self_diagnosis import self_diagnosis
+from youtube import *
 
 # db 업데이트
 def update_db():
