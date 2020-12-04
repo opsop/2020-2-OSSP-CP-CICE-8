@@ -23,7 +23,8 @@ from hotKeyword import * # 인기 키워드
 from naverNews import * # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
 from youtube import you_news # 유튜브 뉴스
-
+from msg_app import disaster_message
+from distance_level import distance_level
 
 # db 업데이트
 def update_db():
@@ -31,12 +32,11 @@ def update_db():
     from msg_app import disaster_message
     # 업데이트할 것들 여기에
 
-sched = BackgroundScheduler(daemon=True,{'apscheduler.timezone': 'Asia/Seoul'})
+sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 #sched.add_job(update_db, 'cron', hours=24)
 # scheduling dbupdate at 6:00(pm) ervery day
-sched.add_cron_job(update_db, day_of_week='0-6', hour=18)
+sched.add_job(update_db,'cron' ,day_of_week='0-6', hour=18)
 sched.start()
-
 
 app = Flask(__name__)
 
