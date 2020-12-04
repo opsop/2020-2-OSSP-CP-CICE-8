@@ -22,24 +22,27 @@ from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
 from naverNews import naver_get # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
-# from youtube import tube_get # 유튜브 뉴스
+#from youtube import tube_get # 유튜브 뉴스
 from self_diagnosis import * # 자가진단
 from distance_level import * # 사회적 거리두기
+from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
 
 # # 위에거 안될때
-# from Tube import tube_get # 유튜브 뉴스 에러
-# from Naver import naver_get # 네이버 뉴스 에러
+from Tube import tube_get # 유튜브 뉴스 에러
+from Naver import naver_get # 네이버 뉴스 에러
 
 # db 업데이트
 def update_db():
     print("db 업데이트 진행중")
     import disaster_msg
+    update_GlobalDB()
     # 업데이트할 것들 여기에
 
-sched = BackgroundScheduler(daemon=True)
-sched.add_job(update_db, 'interval', hours=24)
+sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
+#sched.add_job(update_db, 'cron', hours=24)
+# scheduling dbupdate at 6:00(pm) ervery day
+sched.add_job(update_db,'cron' ,day_of_week='0-6', hour=18)
 sched.start()
-
 
 app = Flask(__name__)
 
@@ -88,14 +91,14 @@ def Youtube():
 @app.route('/youtube_news', methods=['POST'])
 def Youtube_news():
     body = request.get_json()
-    
+
     return jsonify(output)
 
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     body = request.get_json() # 되묻기 질문용도
-    KoreaResult = KoreaCoronaAPI() 
+    KoreaResult = KoreaCoronaAPI()
     hotKeyword("국내현황")
     return jsonify(KoreaResult)
 

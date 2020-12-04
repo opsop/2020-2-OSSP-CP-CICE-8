@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import re
 import html
 import json
-import pymysql
 
 youtube_key='AIzaSyB8ZFMX5E553Q1a6z5Zrtw8Vam1GOHiY-Q'
 
