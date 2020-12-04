@@ -13,8 +13,18 @@
 ## About
 [Corona-Tracker API](https://github.com/Kamaropoulos/COVID19Py/blob/master/README.md#about) 활용 코로나 챗봇.
 
+## 
+
 ### Installation
-```bash
+1. Clone git repository
+```
+git clone https://github.com/CSID-DGU/2020-2-OSSP-CP-CICE-8.git
+cd server
+```
+
+2. Install required packages
+Linux Terminal / Windows cmd, PowerShell / Git bash
+```
 sudo apt install python3-pip #install pip
 python3 -m pip install --upgrade pip
 pip install Flask
@@ -23,6 +33,15 @@ pip install bs4
 pip install requests
 pip3 install matplotlib
 ```
+3. run server
+```
+python chatbot.py runserver
+```
+```
+http://0.0.0.0:5000/ -> http://ip-address:5000/ 
+```
+use your own ip-address
+
 
 ## Bot Diagram
 ![diagram](bot_monitoring/bot_diagram.png)

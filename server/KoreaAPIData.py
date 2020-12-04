@@ -1,4 +1,4 @@
- h#-*- coding:utf-8 -*-
+#-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
 # from . import * #if using on django , should using .apikey instead apikey 
@@ -8,6 +8,9 @@ import re #계산을 위한 특수문자 제거
 
 import KoreaDataDB #KoreaDB 정의 및 사용 함수들 정의된 파일
 from matplotlib import pyplot as plt
+from datetime import datetime, date, timedelta # 시각화에서 일주일간 날짜 정보 받아오기 위함
+
+# http://192.168.25.10:5000/KoreaData
 
 def KoreaAPI():
     # Corona API에서 API 데이터 받아오기
@@ -60,16 +63,36 @@ def KoreaCoronaAPI():
     # visualizeKoreaPlot()
     return dataSend
 
-
 def visualizeKoreaPlot():
     # 국내 데이터 꺾은선 시각화
 
     # KoreaDB에 당일 데이터 저장
     apiData=KoreaAPI()
-    KoreaDataDB.insert_data(apiData['updateTime'], apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'], 
+    YEAR= datetime.today().year
+
+    KoreaDataDBValues=KoreaDataDB.select_all()
+    print("\n", KoreaDataDBValues)
+    
+    YEAR= datetime.today().year        # 현재 연도 가져오기
+    MONTH= datetime.today().month      # 현재 월 가져오기
+    DAY= datetime.today().day        # 현재 일 가져오기
+    TodayDate=str(YEAR)+"."+str(MONTH)+"."+str(DAY)
+    print(TodayDate)
+    
+    # if KoreaDataDBValues[-1][0] !=TodayDate 일때만 한다.
+    KoreaDataDB.insert_data(str(YEAR)+"."+apiData['updateTime'][23:28], apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'], 
                             apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'])
     
+    # 잘못 들어간 DB 데이터 지우거나, 고치기
+
     # 오늘 포함 7일 데이터 불러와서 시각화
+    InfectedWeekValue=[]
+    for i in range(7):
+        updateTime=date.today()-timedelta(i)
+        InfectedWeekValue += select_updateTime(updateTime)
+        print(InfectedWeekValue)
+    
+
     # TodayCase 바꿔서 출력
     x_values = [0, 1, 2, 3, 4] # for문으로 오늘부터 7일 날짜
     y_values = [0, 1, 4, 9, 16] # for문으로 오늘부터 7일 TodayCase불러오기

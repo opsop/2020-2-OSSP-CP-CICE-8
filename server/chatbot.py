@@ -1,7 +1,5 @@
 from flask import Flask, jsonify, request
-from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot
-from globalData import globalData
-from msg_app import emergency_alerts_service
+
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
@@ -15,14 +13,16 @@ SECURE_SSL_REDIRECT = False
 from apscheduler.schedulers.background import BackgroundScheduler
 
 # 카카오 챗봇 기능별 메소드
-from naverNews import *
-from msg_app.emergency_alerts_service import *
-from hospital_pharmacy import hospital_info
-from triage_center import triage
-from hotKeyword import *
-from distance_level import distance_level
-from self_diagnosis import self_diagnosis
-from youtube import *
+from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot # 국내 현황, 국내 확진자 추이 시각화
+from globalData import globalData # 전세계 데이터
+from msg_app import emergency_alerts_service # 재난문자
+from msg_app.emergency_alerts_service import * # 재난문자
+from hospital_pharmacy import hospital_info # 병원/약국 정보
+from triage_center import triage # 선별 진료소
+from hotKeyword import * # 인기 키워드
+from naverNews import * # 네이버 뉴스
+#from youtubeNews import youtubeNews # 유투브 뉴스
+from youtube import you_news # 유튜브 뉴스
 
 # db 업데이트
 def update_db():
@@ -74,7 +74,7 @@ def Naver_news():
     else :
         return jsonify(output)
 
-# 유튜브 뉴스
+# 유튜브 뉴스 -나영 -이걸로 작동!
 @app.route('/Youtube', methods=['POST'])
 def Youtube():
     body = request.get_json()
@@ -82,18 +82,28 @@ def Youtube():
     print(dataSend)
     return jsonify(dataSend)
 
+# 유투브 뉴스 -승민 -아직 미작동(테스트용)
+@app.route('/youtube_news', methods=['POST'])
+def Youtube_news():
+    body = request.get_json()
+    
+    return jsonify(output)
+
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
-    KoreaResult = KoreaCoronaAPI()
-    visualizeKoreaPlot()
+    body = request.get_json() # 되묻기 질문용도
+    KoreaResult = KoreaCoronaAPI() 
+    hotKeyword("국내현황")
     return jsonify(KoreaResult)
+
 
 # 선별진료소 안내
 @app.route('/triagecenter_info', methods=['POST'])
 def Triage():
     body = request.get_json()
     return jsonify(triage(body))
+
 
 # 병원및약국 안내
 @app.route('/hospital_info', methods=['POST'])
