@@ -22,7 +22,7 @@ from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
 from naverNews import naver_get # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
-from youtube import you_news # 유튜브 뉴스
+from youtube import tube_get # 유튜브 뉴스
 from self_diagnosis import * # 자가진단
 from distance_level import * # 사회적 거리두기
 
@@ -77,8 +77,8 @@ def Naver_news():
 @app.route('/Youtube', methods=['POST'])
 def Youtube():
     body = request.get_json()
-    dataSend = you_news(body)
-    print(dataSend)
+    content = body["action"]["detailParams"]["youtube_corona"]["origin"]
+    dataSend = tube_get(content)
     return jsonify(dataSend)
 
 # 유투브 뉴스 -승민 -아직 미작동(테스트용)
