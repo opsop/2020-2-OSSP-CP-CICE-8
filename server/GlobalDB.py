@@ -2,6 +2,7 @@ import sqlite3 as sl
 import COVID19Py as covi
 import json
 from variable import *
+import traceback
 
 # db insert query & create global data TABLE
 # cols = country(char30) / country_code(char10) / data(json) / LASTUPDATE(DATETIME)
@@ -38,7 +39,8 @@ def create_GlobalDB():
       VALUES ( '%s' ,'%s', '%s', '%s' )""" %('world','전세계',json.dumps(res['latest']) ,updateTime))
 
     except Exception as e:
-      print(e)
+      print("ERROR : " + e)
+      print(traceback.format_exc())
 
     finally:
         conn.commit()
@@ -77,7 +79,8 @@ def update_GlobalDB():
         conn.execute("UPDATE GLOBAL SET DATA = '%s', LASTUPDATE = '%s' WHERE COUNTRY = '%s'" %(res['latest'], updateTime , 'world'))
 
     except Exception as e:
-        print(e)
+        print("ERROR : " + e)
+        print(traceback.format_exc())
     finally:
         conn.commit()
         conn.close()
