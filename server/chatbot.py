@@ -20,7 +20,7 @@ from msg_app.emergency_alerts_service import * # 재난문자
 from hospital_pharmacy import hospital_info # 병원/약국 정보
 from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
-from naverNews import * # 네이버 뉴스
+from naverNews import naver_get # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
 from youtube import you_news # 유튜브 뉴스
 
@@ -66,13 +66,8 @@ def Global():
 def Naver_news():
     body = request.get_json()
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
-    output = get_current_news(content)
-    print(output)
-    excoutput = get_current_news(content)
-    if content == "기타 검색":
-        return jsonify(excoutput)
-    else :
-        return jsonify(output)
+    dataSend = naver_get(content)
+    return jsonify(dataSend)
 
 # 유튜브 뉴스 -나영 -이걸로 작동!
 @app.route('/Youtube', methods=['POST'])
