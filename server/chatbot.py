@@ -29,6 +29,10 @@ from Tube import tube_get
 # 네이버 뉴스 리스트 카드 버전
 from Naver import naver_get
 
+# 뉴스 9시, 13시, 18시 update
+from news_updater import news_update
+news_update()
+
 # db 업데이트
 def update_db():
     print("db 업데이트 진행중")

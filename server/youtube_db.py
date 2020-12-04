@@ -44,6 +44,3 @@ def crawl_tube():
             add_list.append([i, title, desc, r_img, j_img])
 
     insert_db(add_list)
-
-refresh_db()
-crawl_tube()

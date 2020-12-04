@@ -60,6 +60,3 @@ def crawl_naver():
             add_list.append([i, title, date, thumb, item['link']])
 
     insert_db(add_list)
-
-refresh_db()
-crawl_naver()
