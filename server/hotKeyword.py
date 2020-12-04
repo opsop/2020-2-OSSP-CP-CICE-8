@@ -61,7 +61,7 @@ def searchHotKeyword(body):
 
         rank = ['🥇','🥈','🥉']
         #ex) 1. a \n 2. b \n 3. c
-        res = "\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
+        res = "\n\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
 
     except Exception as e:
         print("ERROR : " + e)

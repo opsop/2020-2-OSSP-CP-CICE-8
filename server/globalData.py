@@ -49,7 +49,7 @@ def globalData(data):
             pass
 
         # keyword counting for hotKeyword
-        hotKeyword(inputNation + originTT)
+        hotKeyword(inputNation +" "+ originTT)
 
         if inputNation in nations:
             if data['situation']['value'] == 'situation':
