@@ -24,13 +24,17 @@ from naverNews import * # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
 from youtube import you_news # 유튜브 뉴스
 
+
 # db 업데이트
 def update_db():
     print("db 업데이트 진행중")
+    from msg_app import disaster_message
     # 업데이트할 것들 여기에
 
-sched = BackgroundScheduler(daemon=True)
-sched.add_job(update_db, 'interval', hours=24)
+sched = BackgroundScheduler(daemon=True,{'apscheduler.timezone': 'Asia/Seoul'})
+#sched.add_job(update_db, 'cron', hours=24)
+# scheduling dbupdate at 6:00(pm) ervery day
+sched.add_cron_job(update_db, day_of_week='0-6', hour=18)
 sched.start()
 
 
@@ -86,14 +90,14 @@ def Youtube():
 @app.route('/youtube_news', methods=['POST'])
 def Youtube_news():
     body = request.get_json()
-    
+
     return jsonify(output)
 
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     body = request.get_json() # 되묻기 질문용도
-    KoreaResult = KoreaCoronaAPI() 
+    KoreaResult = KoreaCoronaAPI()
     hotKeyword("국내현황")
     return jsonify(KoreaResult)
 
