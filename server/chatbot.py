@@ -25,12 +25,13 @@ from naverNews import naver_get # 네이버 뉴스
 from youtube import you_news # 유튜브 뉴스
 from self_diagnosis import * # 자가진단
 from distance_level import * # 사회적 거리두기
-
+from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
 
 # db 업데이트
 def update_db():
     print("db 업데이트 진행중")
     import disaster_msg
+    update_GlobalDB()
     # 업데이트할 것들 여기에
 
 sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
