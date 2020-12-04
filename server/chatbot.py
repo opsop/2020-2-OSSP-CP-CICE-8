@@ -20,9 +20,10 @@ from emergency_service import * # 재난문자
 from hospital_pharmacy import hospital_info # 병원/약국 정보
 from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
-from self_diagnosis import * # 자가진단
+# from self_diagnosis import * # 자가진단
 from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
 from Sociallev import level # 사회적 거리두기 단계
+from Self_diag import self_diagnosis
 
 # 유튜브 뉴스 리스트 카드 버전
 from Tube import tube_get
@@ -129,8 +130,8 @@ def HotKeyword():
 # 자가진단 테스트
 @app.route('/self_diagnosis', methods = ['POST'])
 def Diagnosis():
-    body = json.loads(request.data)
-    return jsonify(self_diagnosis(body))
+    body = request.get_json()
+    return jsonify(self_diagnosis())
 
 # 사회적 거리두기
 @app.route('/distance_level', methods = ['POST'])

@@ -13,7 +13,7 @@ lev 엔티티 (필수 파라미터)
 '''
 
 def level(param):
-    hotKeyword("사회적 거리두기")
+    hotKeyword("사회적 거리두기 단계")
     if param == "단계별 특징":
         answer = {
           "version": "2.0",
