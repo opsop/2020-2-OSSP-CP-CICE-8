@@ -16,21 +16,21 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot # 국내 현황, 국내 확진자 추이 시각화
 from globalData import globalData # 전세계 데이터
 from msg_app import emergency_alerts_service # 재난문자
-from msg_app.emergency_alerts_service import * # 재난문자
+from emergency_service import * # 재난문자
 from hospital_pharmacy import hospital_info # 병원/약국 정보
 from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
 from naverNews import naver_get # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
 from youtube import you_news # 유튜브 뉴스
-from self_diagnosis import *
-from distance_level import *
+from self_diagnosis import * # 자가진단
+from distance_level import * # 사회적 거리두기
 
 
 # db 업데이트
 def update_db():
     print("db 업데이트 진행중")
-    from msg_app import disaster_message
+    import disaster_msg
     # 업데이트할 것들 여기에
 
 sched = BackgroundScheduler(daemon=True)
