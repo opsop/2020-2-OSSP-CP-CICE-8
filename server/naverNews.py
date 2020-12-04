@@ -79,21 +79,21 @@ def get_current_news(search_word = '코로나'):
 
     return send
 
-# def search(TOPIC='코로나'):
-#     news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={TOPIC}'
-#     return news_add
-#
-# def exc():
-#     send = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": search()
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return send
+def search(TOPIC='코로나'):
+    news_add = f'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={TOPIC}'
+    return news_add
+
+def exc():
+    send = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": search()
+                    }
+                }
+            ]
+        }
+    }
+    return send
