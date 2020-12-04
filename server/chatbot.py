@@ -23,10 +23,14 @@ from hotKeyword import * # 인기 키워드
 from naverNews import naver_get # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
 from youtube import you_news # 유튜브 뉴스
+from self_diagnosis import *
+from distance_level import *
+
 
 # db 업데이트
 def update_db():
     print("db 업데이트 진행중")
+    from msg_app import disaster_message
     # 업데이트할 것들 여기에
 
 sched = BackgroundScheduler(daemon=True)
