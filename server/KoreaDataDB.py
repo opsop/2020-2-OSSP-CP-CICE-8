@@ -69,7 +69,7 @@ def select_all():
         return ret
 
 
-def select_updataTime(updateTime):
+def select_updateTime(updateTime):
     ret = ()
     try:
         db = sqlite3.connect(KoreaDBPath)
