@@ -37,7 +37,7 @@ def hotKeyword( nttpass : str ):
 
         cur.execute(InsertOrIgnore)
         cur.execute(update)
-        print(cur.execute("SELECT * FROM HOTKEYWORD").fetchone())
+        #print(cur.execute("SELECT * FROM HOTKEYWORD").fetchone())
 
 
     except Exception as e:
@@ -73,4 +73,4 @@ def searchHotKeyword(body):
     print("인기키워드")
     print(body)
 
-    return dataSendSimple("인기 키워드 순위 입니다\n"+res)
+    return dataSendSimple("인기 키워드 순위 입니다\n\n"+res)
