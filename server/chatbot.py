@@ -21,17 +21,19 @@ from hospital_pharmacy import hospital_info # 병원/약국 정보
 from triage_center import triage # 선별 진료소
 from hotKeyword import * # 인기 키워드
 from self_diagnosis import * # 자가진단
-from distance_level import * # 사회적 거리두기
 from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
+from Sociallev import level # 사회적 거리두기 단계
 
 # 유튜브 뉴스 리스트 카드 버전
 from Tube import tube_get
 # 네이버 뉴스 리스트 카드 버전
 from Naver import naver_get
-
 # 뉴스 9시, 13시, 18시 update
 from news_updater import news_update
 news_update()
+
+
+
 
 # db 업데이트
 def update_db():
@@ -133,8 +135,9 @@ def Diagnosis():
 # 사회적 거리두기
 @app.route('/distance_level', methods = ['POST'])
 def Distance():
-    body = json.loads(request.data)
-    return jsonify(distance_level(body))
+    body = request.get_json()
+    content = body["action"]["detailParams"]["lev"]["origin"]
+    return jsonify(level(content))
 
 
 # 서버 테스트 ( 카카오 오픈빌더 return format )
