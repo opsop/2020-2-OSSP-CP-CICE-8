@@ -1,0 +1,528 @@
+[
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "botbot",
+        "model": "statisticvalues"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.23",
+    "fields": {
+        "TotalCase": "31,004",
+        "TotalDeath": "509",
+        "TotalRecovered": "26,539",
+        "NowCase": "3,956",
+        "TotalChecking": "2,922,135",
+        "TodayCase": "271",
+        "TodayRecovered": "73"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.24",
+    "fields": {
+        "TotalCase": "31,353",
+        "TotalDeath": "510",
+        "TotalRecovered": "26,722",
+        "NowCase": "4,121",
+        "TotalChecking": "2,946,399",
+        "TodayCase": "349",
+        "TodayRecovered": "183"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.25",
+    "fields": {
+        "TotalCase": "31,735",
+        "TotalDeath": "513",
+        "TotalRecovered": "26,825",
+        "NowCase": "4,397",
+        "TotalChecking": "2,966,405",
+        "TodayCase": "382",
+        "TodayRecovered": "103"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.26",
+    "fields": {
+        "TotalCase": "32,318",
+        "TotalDeath": "515",
+        "TotalRecovered": "26,950",
+        "NowCase": "4,853",
+        "TotalChecking": "2,988,046",
+        "TodayCase": "583",
+        "TodayRecovered": "125"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.27",
+    "fields": {
+        "TotalCase": "32,887",
+        "TotalDeath": "516",
+        "TotalRecovered": "27,103",
+        "NowCase": "5,268",
+        "TotalChecking": "3,009,577",
+        "TodayCase": "569",
+        "TodayRecovered": "153"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.28",
+    "fields": {
+        "TotalCase": "33,375",
+        "TotalDeath": "522",
+        "TotalRecovered": "27,349",
+        "NowCase": "5,504",
+        "TotalChecking": "3,032,004",
+        "TodayCase": "504",
+        "TodayRecovered": "246"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.29",
+    "fields": {
+        "TotalCase": "33,824",
+        "TotalDeath": "523",
+        "TotalRecovered": "27,542",
+        "NowCase": "5,759",
+        "TotalChecking": "3,046,971",
+        "TodayCase": "450",
+        "TodayRecovered": "193"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.11.30",
+    "fields": {
+        "TotalCase": "34,201",
+        "TotalDeath": "526",
+        "TotalRecovered": "27,625",
+        "NowCase": "6,050",
+        "TotalChecking": "3,061,172",
+        "TodayCase": "438",
+        "TodayRecovered": "83"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.12.1.",
+    "fields": {
+        "TotalCase": "34,652",
+        "TotalDeath": "526",
+        "TotalRecovered": "27,885",
+        "NowCase": "6,241",
+        "TotalChecking": "3,083,997",
+        "TodayCase": "451",
+        "TodayRecovered": "260"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.12.2.",
+    "fields": {
+        "TotalCase": "35,163",
+        "TotalDeath": "526",
+        "TotalRecovered": "28,065",
+        "NowCase": "6,572",
+        "TotalChecking": "3,106,970",
+        "TodayCase": "511",
+        "TodayRecovered": "180"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.12.3.",
+    "fields": {
+        "TotalCase": "35,703",
+        "TotalDeath": "529",
+        "TotalRecovered": "28,352",
+        "NowCase": "6,822",
+        "TotalChecking": "3,131,886",
+        "TodayCase": "540",
+        "TodayRecovered": "287"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.12.4.",
+    "fields": {
+        "TotalCase": "36,332",
+        "TotalDeath": "536",
+        "TotalRecovered": "28,611",
+        "NowCase": "7,185",
+        "TotalChecking": "3,157,410",
+        "TodayCase": "629",
+        "TodayRecovered": "259"
+    }
+},
+{
+    "model": "botbot.statisticvalues",
+    "pk": "2020.12.5.",
+    "fields": {
+        "TotalCase": "36,915",
+        "TotalDeath": "540",
+        "TotalRecovered": "28,917",
+        "NowCase": "7,458",
+        "TotalChecking": "3,180,496",
+        "TodayCase": "583",
+        "TodayRecovered": "306"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add statistic values",
+        "content_type": [
+            "botbot",
+            "statisticvalues"
+        ],
+        "codename": "add_statisticvalues"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change statistic values",
+        "content_type": [
+            "botbot",
+            "statisticvalues"
+        ],
+        "codename": "change_statisticvalues"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete statistic values",
+        "content_type": [
+            "botbot",
+            "statisticvalues"
+        ],
+        "codename": "delete_statisticvalues"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view statistic values",
+        "content_type": [
+            "botbot",
+            "statisticvalues"
+        ],
+        "codename": "view_statisticvalues"
+    }
+}
+]
