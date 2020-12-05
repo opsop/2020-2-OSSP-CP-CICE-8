@@ -60,8 +60,10 @@ def globalData(data):
         conn.close()
     except KeyError as e:
         print("KeyError" ,e)
+        print(traceback.format_exc())
     except Exception as e:
         print("Exception",e)
+        print(traceback.format_exc())
     finally:
         return dataSendSimple(message)
 
