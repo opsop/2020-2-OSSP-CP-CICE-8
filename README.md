@@ -32,6 +32,7 @@ pip install COVID19Py
 pip install bs4
 pip install requests
 pip3 install matplotlib
+pip install apscheduler
 ```
 3. run server
 ```
