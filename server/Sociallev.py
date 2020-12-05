@@ -1,6 +1,10 @@
 from hotKeyword import *
 
 '''
+기본적으로 level이라는 entity를 받으면 실행
+'''
+
+'''
 lev 엔티티 (필수 파라미터)
 : 되묻기 질문으로 받아오는 애
 단계별 특징, 지역별 단계 보기
@@ -10,6 +14,15 @@ lev 엔티티 (필수 파라미터)
 단계별 기준 및 방역조치
 다중 이용 시설
 일상 및 사회, 경제적 활동
+'''
+
+'''
+지역별 단계는
+http://ncov.mohw.go.kr/duBoardList.do?brdId=2&brdGubun=29&flowId=main
+의 자료 활용
+
+크롤링이 막혀있지만, 자료 이용자체는 가능해서
+이미지 url을 주기적으로 수작업으로 업데이트 예정
 '''
 
 def level(param):
@@ -61,7 +74,7 @@ def level(param):
             {
                 "simpleImage": {
                     "imageUrl": "http://ncov.mohw.go.kr/front_new/modules/img_view.jsp?img_loc=/upload/mwEditor/202012/1607080506682_20201204201506.png",
-                    "altText": "보물상자입니다"
+                    "altText": "Error"
                 }
             }
         ]
