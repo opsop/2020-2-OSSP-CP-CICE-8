@@ -28,7 +28,7 @@ DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 def tube_get(param = '코로나 확진자'):
     hotKeyword("유튜브 뉴스")
 
-    if param == "기타 검색":
+    if param == "기타 영상":
         output = {
         "version": "2.0",
         "template": {
