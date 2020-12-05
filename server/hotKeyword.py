@@ -1,6 +1,6 @@
 import sqlite3 as sl
 import os
-from variable import *
+from ConstVar import *
 import traceback
 
 # counting hotKeyword

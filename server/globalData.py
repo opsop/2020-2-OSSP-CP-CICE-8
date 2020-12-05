@@ -1,27 +1,12 @@
 import COVID19Py as covi
 import json
 import sqlite3 as sl
-from variable import *
+from ConstVar import *
 from hotKeyword import *
 
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
-sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot'},
-'intent': {'id': '5fb0e639d9431d64aa840e50',
-'name': '전세계 현황', 'extra': {'reason': {'code': 1, 'message': 'OK'}}},
-'action': {'id': '5fb8dd0e06b0fa6d6630322a', 'name': 'globalData',
-'params': {'sys_nation': '미국', 'situation': 'situation'},
-'detailParams': {'sys_nation': {'groupName': '', 'origin': '미국', 'value': '미국'},
-'situation': {'groupName': '', 'origin': '데이터', 'value': 'situation'}},
-'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'},
-'user': {'id': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
-'type': 'botUserKey', 'properties':
-{'botUserKey': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
-'isFriend': True, 'plusfriendUserKey': 'IWOvhONHTgXo',
-'bot_user_key': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
-'plusfriend_user_key': 'IWOvhONHTgXo'}}, 'utterance': '미국 데이터',
-'params': {'surface': 'Kakaotalk.plusfriend'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'},
-'contexts': []}
+
 
 def globalData(data):
     message = "None"
