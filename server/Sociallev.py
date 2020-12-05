@@ -1,4 +1,7 @@
 from hotKeyword import *
+import os
+
+DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 
 '''
 기본적으로 level이라는 entity를 받으면 실행
@@ -24,6 +27,11 @@ http://ncov.mohw.go.kr/duBoardList.do?brdId=2&brdGubun=29&flowId=main
 크롤링이 막혀있지만, 자료 이용자체는 가능해서
 이미지 url을 주기적으로 수작업으로 업데이트 예정
 '''
+
+f = open(DB_PATH + '/distance.txt', 'r')
+line = f.readline()
+f.close()
+line = '"'+line+'"'
 
 def level(param):
     hotKeyword("사회적 거리두기 단계")
@@ -73,7 +81,7 @@ def level(param):
         "outputs": [
             {
                 "simpleImage": {
-                    "imageUrl": "http://ncov.mohw.go.kr/front_new/modules/img_view.jsp?img_loc=/upload/mwEditor/202012/1607080506682_20201204201506.png",
+                    "imageUrl": line,
                     "altText": "Error"
                 }
             }

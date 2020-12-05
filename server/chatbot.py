@@ -30,8 +30,7 @@ from Tube import tube_get
 from Naver import naver_get
 # 뉴스 9시, 13시, 18시 update
 from news_updater import news_update
-news_update()
-
+from distance_txt import distance_update
 
 # db 업데이트
 def update_db():
@@ -44,6 +43,8 @@ sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 #sched.add_job(update_db, 'cron', hours=24)
 # scheduling dbupdate at 6:00(pm) ervery day
 sched.add_job(update_db,'cron' ,day_of_week='0-6', hour=18)
+sched.add_job(news_update, 'interval', hours=2)
+sched.add_job(distance_update,'cron' ,day_of_week='0-6', hour=18)
 sched.start()
 
 app = Flask(__name__)
@@ -89,7 +90,6 @@ def Youtube():
     dataSend = tube_get(content)
     return jsonify(dataSend)
 
-
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
@@ -126,7 +126,7 @@ def HotKeyword():
 @app.route('/self_diagnosis', methods = ['POST'])
 def Diagnosis():
     body = request.get_json()
-    return jsonify(self_diagnosis())
+    return jsonify(self_diagnosis(body))
 
 # 사회적 거리두기
 @app.route('/distance_level', methods = ['POST'])
