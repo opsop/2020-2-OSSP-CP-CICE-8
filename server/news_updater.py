@@ -1,6 +1,6 @@
 import datetime
-from naver_news_db import insert_db, nrefresh_db, crawl_naver
-from youtube_db import insert_db, yrefresh_db, crawl_tube
+from naver_news_db import insert_db, refresh_db, crawl_naver
+from youtube_db import insert_db, refresh_db, crawl_tube
 
 now = datetime.datetime.now()
 

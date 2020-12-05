@@ -1,6 +1,6 @@
 import sqlite3 as sl
 import os
-from variable import *
+from ConstVar import *
 import traceback
 
 # counting hotKeyword
@@ -73,4 +73,4 @@ def searchHotKeyword(body):
     print("인기키워드")
     print(body)
 
-    return dataSendSimple("인기 키워드 순위 입니다\n\n"+res)
+    return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)

@@ -214,7 +214,7 @@ nations = { #key : #value(country_code for db search)
             'Zimbabwe' : 'ZW'}
 
 #query create global table
-QCT_global  = '''CREATE TABLE GLOBAL
+QCT_global  = '''CREATE TABLE IF NOT EXISTS GLOBAL
     (COUNTRY CHAR(20) NOT NULL,
     COUNTRY_CODE CHAR(10) NOT NULL,
     Data    JSON NOT NULL,
@@ -228,6 +228,20 @@ deleteQuery = "Delete From HOTKEYWORD where condition"
 
 QUD_hotKeyword = "UPDATE  HOTKEYWORD SET COUNTING + 1 WHERE KEYWORD = %s"
 
-#sample request json data
-post = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93!', 'name': 'corona_chatbot'},
-'intent': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황', 'extra': {'reason': {'code': 1, 'message': 'OK'}}}, 'action': {'id': '5fb0d8e5e0729d24a9b0b1af', 'name': 'server_test', 'params': {'situation1': 'situation', 'sys_date': '{"date": "2020-11-21", "dateTag": "today", "dateHeadword": null, "year": null, "month": null, "day": null}', 'situation': '현황', 'sys_nation': '전세계'}, 'detailParams': {'situation1': {'groupName': '', 'origin': '현황', 'value': 'situation'}, 'sys_date': {'groupName': '', 'origin': '오늘', 'value': '{"date": "2020-11-21", "dateTag": "today", "dateHeadword": null, "year": null, "month": null, "day": null}'}, 'situation': {'groupName': '', 'origin': '현황', 'value': 'situation'}, 'sys_nation': {'groupName': '', 'origin': '미국', 'value': '전세계'}}, 'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'}, 'user': {'id': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475', 'type': 'botUserKey', 'properties': {'botUserKey': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475', 'bot_user_key': '28467d86be10408615c5ca4d2800eb01ca2acb03053fbc6e77f757a681a0732475'}}, 'utterance': '오늘 미국 코로나 현황 알려줘\n', 'params': {'surface': 'BuilderBotTest', 'ignoreMe': 'true'}, 'lang': 'kr', 'timezone': 'Asia/Seoul'}, 'contexts': []}
+#Global Data sample request json data
+sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot'},
+'intent': {'id': '5fb0e639d9431d64aa840e50',
+'name': '전세계 현황', 'extra': {'reason': {'code': 1, 'message': 'OK'}}},
+'action': {'id': '5fb8dd0e06b0fa6d6630322a', 'name': 'globalData',
+'params': {'sys_nation': '미국', 'situation': 'situation'},
+'detailParams': {'sys_nation': {'groupName': '', 'origin': '미국', 'value': '미국'},
+'situation': {'groupName': '', 'origin': '데이터', 'value': 'situation'}},
+'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'},
+'user': {'id': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
+'type': 'botUserKey', 'properties':
+{'botUserKey': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
+'isFriend': True, 'plusfriendUserKey': 'IWOvhONHTgXo',
+'bot_user_key': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
+'plusfriend_user_key': 'IWOvhONHTgXo'}}, 'utterance': '미국 데이터',
+'params': {'surface': 'Kakaotalk.plusfriend'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'},
+'contexts': []}
