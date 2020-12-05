@@ -13,7 +13,7 @@ SECURE_SSL_REDIRECT = False
 from apscheduler.schedulers.background import BackgroundScheduler
 
 # 카카오 챗봇 기능별 메소드
-from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot # 국내 현황, 국내 확진자 추이 시각화
+from KoreaAPIData import KoreaCorona  # 국내 현황, 국내 확진자 추이 시각화
 from globalData import globalData # 전세계 데이터
 from msg_app import emergency_alerts_service # 재난문자
 from emergency_service import * # 재난문자
@@ -31,8 +31,6 @@ from Naver import naver_get
 # 뉴스 9시, 13시, 18시 update
 from news_updater import news_update
 news_update()
-
-
 
 
 # db 업데이트
@@ -91,19 +89,17 @@ def Youtube():
     dataSend = tube_get(content)
     return jsonify(dataSend)
 
-# 유투브 뉴스 -승민 -아직 미작동(테스트용)
-@app.route('/youtube_news', methods=['POST'])
-def Youtube_news():
-    body = request.get_json()
-
-    return jsonify(output)
 
 # 국내 코로나 현황
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     body = request.get_json() # 되묻기 질문용도
-    KoreaResult = KoreaCoronaAPI()
-    hotKeyword("국내현황")
+    print(body)
+    content = body["action"]["detailParams"]["select"]["origin"]
+    #KoreaResult = KoreaCorona(body)
+    KoreaResult = KoreaCorona(content)
+    #KoreaResult = KoreaCoronaAPI('확진자 추이 그래프')
+    
     return jsonify(KoreaResult)
 
 
