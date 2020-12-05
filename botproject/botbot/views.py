@@ -47,10 +47,10 @@ def index(request):
         statisticValue  = None
     # updateTime # 정보 업데이트 시간 data['updateTime'][23:28] -> 월.일(00.00 구조)
 
-    statisticDB = StatisticValues.objects.all() # 테이블 데이타를 전부 가져오기 위한 메소드
-    statisticDBValues = list(StatisticValues.objects.all().values())
-    
-    #print(statisticDBValues)
+    statisticDB = StatisticValues.objects.all().order_by('updateTime') # 테이블 데이타를 전부 가져오기 위한 메소드
+    statisticDBValues = list(statisticDB.values())
+    print(statisticDBValues)
+
     #print(statisticValue)
     #=============================================== End of 'contents-home.html' ========================================================
     context = {

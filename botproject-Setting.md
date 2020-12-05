@@ -47,3 +47,11 @@ After running the server in your localhost, check whether everything's good in t
 ```
 ***
 
+## 시각화 이미지
+![chart-container](botproject/chart-container.png)
+
+***
+이미지 링크
+```
+https://i.esdrop.com/d/KVTpYYElDK.png
+```
