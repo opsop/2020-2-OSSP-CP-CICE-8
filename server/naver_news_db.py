@@ -17,7 +17,7 @@ def insert_db(data):
     con.close()
 
 
-def refresh_db():
+def nrefresh_db():
     con = sqlite3.connect(DB_PATH+'/naver.db')
     con.execute("DELETE FROM NEWS").rowcount
     con.commit()
