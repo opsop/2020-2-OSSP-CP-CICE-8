@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Corona Chatbot</title>
+        
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href ="/static/assets/css/mystyles.css" type="text/css" rel="stylesheet" />
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+<style>
+    .chart-container {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        width: 50vw;
+    }
+</style>
+
+<div class="chart-container" id='chart-container'>
+    <canvas id="daily-histogram"></canvas>
+</div>
+
+<button type="button" class="btnScreenShot" id="btnScreenShot">스크린샷</button>
+<div id="img-out"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+<script src="/static/js/Plugin.Subtitle.min.js"></script>
+<script src="/static/js/statistics.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<!-- IE10, 11 지원을 위한 es6-promise -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.js"></script>
+<script>
+    // --------------------------------------------- 첫 번째 차트 ------------------------------------------------------
+    var ctx = document.getElementById('daily-histogram').getContext('2d');
+
+    var coronaAPIData = {{ result | safe }}; 
+    var statisticDBData={{statisticDBValues | safe}};
+    
+    var sizeOfData=statisticDBData.length; // DB 데이터 길이
+    
+    // labels => updateTime: 2020.11.23[5:끝]형식으로, 데이터 끝에서부터 7개 list 해당.
+    var weekDate=new Array();   
+    for(var wd=6;wd>=0;wd--){
+        weekDate[6-wd]=statisticDBData[sizeOfData-1-wd]['updateTime'].substring(5,);
+    }
+
+    // 7일간 확진/ 사망/ 완치 데이터 list로 
+    var diseased7=new Array(); // 7일간 확진자
+    for(var dis=6;dis>=0;dis--){      
+        diseased7[6-dis]=statisticDBData[sizeOfData-1-dis]['TodayCase'].replace(/[^0-9]/g,'');
+    }
+    var death7=new Array(); // 7일간 사망자
+    var dead=0;
+    for(var de=0;de<7;de++){        
+        dead = statisticDBData[sizeOfData-1-(6-de)]['TotalDeath'].replace(/[^0-9]/g,'')- statisticDBData[sizeOfData-2-(6-de)]['TotalDeath'].replace(/[^0-9]/g,'');
+        death7[de]=dead;
+    }
+    var cured7=new Array(); // 7일간 완치자
+    for(var c=6;c>=0;c--){
+        cured7[6-c]=statisticDBData[sizeOfData-1-c]['TodayRecovered'].replace(/[^0-9]/g,'');
+    }
+
+    var hdata = new HistogramData(weekDate, diseased7, death7, cured7);
+
+    var daily_chart = new Chart(ctx, {
+        type: 'bar',
+        data: hdata,
+        options: {
+            legend: { // 범례
+                position: 'bottom'
+            },
+            title: { // 차트 제목
+                display: true,
+                fontSize: 15,
+                text: ['대한민국 코로나19(COVID-19) 추이', '총 확진자 ' + coronaAPIData['TotalCase'] + '명  사망: ' + coronaAPIData['TotalDeath'] + '명  완치자: ' + coronaAPIData['TotalRecovered'] + '명']
+            },
+            tooltips: { // 툴팁
+                mode: 'index',
+                intersect: false
+            },
+            hover: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                chartJsPluginSubtitle: {
+                    display: true,
+                    fontSize: 12,
+                    text: coronaAPIData['updateTime']
+                }
+            }
+        }
+    });
+
+
+    $("#btnScreenShot").on("click", function() {
+        html2canvas(document.querySelector("#chart-container")).then(function(canvas) {
+        if (canvas.msToBlob) { //for IE 10, 11
+            var blob = canvas.msToBlob();
+            window.navigator.msSaveBlob(blob, "chart-container.png");
+        } else {
+            saveAs(canvas.toDataURL(), "chart-container.png");
+        }
+    });
+
+
+    function saveAs(uri, filename) {
+        var link = document.createElement('a');
+        if (typeof link.download === 'string') {
+            link.href = uri;
+            link.href=uri.replace
+            link.download = filename;
+            //document.writeln(uri);
+            //document.writeln(link);
+            //Firefox requires the link to be in the body
+            document.body.appendChild(link);
+            //simulate click
+            link.click();
+            //remove the link when done
+            document.body.removeChild(link);
+        } else {
+            window.open(uri);
+        }
+    }
+    });
+  
+</script>
+</html>
+<!--http://blog.naver.com/PostView.nhn?blogId=canbe76&logNo=222019035308&categoryNo=30&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=section 참고-->
