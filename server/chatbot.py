@@ -82,7 +82,7 @@ def Naver_news():
     dataSend = naver_get(content)
     return jsonify(dataSend)
 
-# 유튜브 뉴스 -나영 -이걸로 작동!
+# 유튜브 뉴스 
 @app.route('/Youtube', methods=['POST'])
 def Youtube():
     body = request.get_json()
@@ -94,12 +94,9 @@ def Youtube():
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     body = request.get_json() # 되묻기 질문용도
-    print(body)
-    content = body["action"]["detailParams"]["select"]["origin"]
-    #KoreaResult = KoreaCorona(body)
-    KoreaResult = KoreaCorona(content)
-    #KoreaResult = KoreaCoronaAPI('확진자 추이 그래프')
-    
+    # print(body)
+    content = body["action"]["detailParams"]["select"]["origin"]  
+    KoreaResult = KoreaCorona(content)   
     return jsonify(KoreaResult)
 
 
