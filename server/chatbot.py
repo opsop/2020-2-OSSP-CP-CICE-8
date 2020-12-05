@@ -92,10 +92,10 @@ def Youtube():
     dataSend = tube_get(content)
     return jsonify(dataSend)
 
-# 유투브 뉴스 -승민 -아직 미작동(테스트용)
-@app.route('/youtube_news', methods=['POST'])
-def Youtube_news():
-    body = request.get_json()
+# # 유투브 뉴스 -승민 -아직 미작동(테스트용)
+# @app.route('/youtube_news', methods=['POST'])
+# def Youtube_news():
+#     body = request.get_json()
 
     return jsonify(output)
 
