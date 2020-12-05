@@ -130,7 +130,7 @@ def HotKeyword():
 @app.route('/self_diagnosis', methods = ['POST'])
 def Diagnosis():
     body = request.get_json()
-    return jsonify(self_diagnosis())
+    return jsonify(self_diagnosis(body))
 
 # 사회적 거리두기
 @app.route('/distance_level', methods = ['POST'])
