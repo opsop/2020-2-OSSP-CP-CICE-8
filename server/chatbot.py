@@ -96,7 +96,8 @@ def KoreaData():
     body = request.get_json() # 되묻기 질문용도
     # print(body)
     content = body["action"]["detailParams"]["select"]["origin"]  
-    KoreaResult = KoreaCorona(content)   
+    KoreaResult = KoreaCorona(content)  
+    hotKeyword('국내 현황') 
     return jsonify(KoreaResult)
 
 
