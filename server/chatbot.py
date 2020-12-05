@@ -9,6 +9,9 @@ import re #계산을 위한 특수문자 제거
 
 SECURE_SSL_REDIRECT = False
 
+# 스케줄링에 필요한 모듈
+from apscheduler.schedulers.background import BackgroundScheduler
+
 # 카카오 챗봇 기능별 메소드
 from KoreaAPIData import KoreaCoronaAPI, visualizeKoreaPlot # 국내 현황, 국내 확진자 추이 시각화
 from globalData import globalData # 전세계 데이터
@@ -20,6 +23,15 @@ from hotKeyword import * # 인기 키워드
 from naverNews import * # 네이버 뉴스
 #from youtubeNews import youtubeNews # 유투브 뉴스
 from youtube import you_news # 유튜브 뉴스
+
+# db 업데이트
+def update_db():
+    print("db 업데이트 진행중")
+    # 업데이트할 것들 여기에
+
+sched = BackgroundScheduler(daemon=True)
+sched.add_job(update_db, 'interval', hours=24)
+sched.start()
 
 
 app = Flask(__name__)
@@ -85,13 +97,15 @@ def KoreaData():
     hotKeyword("국내현황")
     return jsonify(KoreaResult)
 
-# 선별 진료소
+
+# 선별진료소 안내
 @app.route('/triagecenter_info', methods=['POST'])
 def Triage():
     body = request.get_json()
     return jsonify(triage(body))
 
-# 병원 정보
+
+# 병원및약국 안내
 @app.route('/hospital_info', methods=['POST'])
 def Hospital():
     body = request.get_json()
@@ -102,6 +116,19 @@ def Hospital():
 def HotKeyword():
     body = request.get_json()
     return jsonify(searchHotKeyword(body))
+
+# 자가진단 테스트
+@app.route('/self_diagnosis', methods = ['POST'])
+def Diagnosis():
+    body = json.loads(request.data)
+    return jsonify(self_diagnosis(body))
+
+# 사회적 거리두기
+@app.route('/distance_level', methods = ['POST'])
+def Distance():
+    body = json.loads(request.data)
+    return jsonify(distance_level(body))
+
 
 # 서버 테스트 ( 카카오 오픈빌더 return format )
 @app.route('/message', methods=['POST'])
