@@ -6,25 +6,27 @@ item_list = []
 
 DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 
-def tube_get(param = '코로나 확진자'):
-    hotKeyword("유튜브 뉴스")
-
-    '''
+'''
             기타 검색일 때, '코로나' 검색어로
             유튜브 뉴스에 검색한 링크 반환
             (simpleText형태)
-    '''
-    '''
+'''
+
+'''
     주어진 엔티티
     : 코로나 확진자, 코로나 백신, 코로나 후유증
-    '''
-    '''
+'''
+
+'''
         주어진 엔티티일 때, 해당 검색어로
         db로 저장된 제목, 영상 설명, 사진, 링크를 꺼내서
         5개까지 보여주고,
         해당 검색어로 유튜브 뉴스 검색 링크와 연결하는 버튼도 보여줌
         (List Card 형태)
-    '''
+'''
+
+def tube_get(param = '코로나 확진자'):
+    hotKeyword("유튜브 뉴스")
 
     if param == "기타 검색":
         output = {
