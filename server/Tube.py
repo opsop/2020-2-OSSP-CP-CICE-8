@@ -52,7 +52,7 @@ def tube_get(param = '코로나 확진자'):
                 {
                     "listCard": {
                         "header": {
-                            "title": "유튜브 뉴스"
+                            "title": param+" 관련 유튜브 뉴스"
                         },
                         "items": [
 

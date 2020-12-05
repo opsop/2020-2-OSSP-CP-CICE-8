@@ -54,7 +54,7 @@ def naver_get(param = '코로나 확진자'):
                 {
                     "listCard": {
                         "header": {
-                            "title": "네이버 뉴스"
+                            "title": param+" 관련 네이버 뉴스"
                         },
                         "items": [
 
