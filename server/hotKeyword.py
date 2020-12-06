@@ -41,7 +41,7 @@ def hotKeyword( nttpass : str ):
 
 
     except Exception as e:
-        print("ERROR : " + e)
+        print("ERROR : ", e)
         print(traceback.format_exc())
     finally :
         conn.commit()
@@ -64,7 +64,7 @@ def searchHotKeyword(body):
         res = "\n\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
 
     except Exception as e:
-        print("ERROR : " + e)
+        print("ERROR : ", e)
         print(traceback.format_exc())
     finally:
         conn.close()
