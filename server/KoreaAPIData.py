@@ -44,7 +44,7 @@ def KoreaAPI():
 # API 데이터를 챗봇 메시지 출력 형식에 맞게 리턴
 def KoreaCorona(param='현황 보기'):
     # 국내 코로나 API 데이터 가져오기
-    #apiData=KoreaAPI()
+    apiData=KoreaAPI()
 
     # KoreaDataDB의 함수들 사용
     import KoreaDataDB
