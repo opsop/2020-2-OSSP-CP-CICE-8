@@ -13,7 +13,7 @@ SECURE_SSL_REDIRECT = False
 from apscheduler.schedulers.background import BackgroundScheduler
 
 # 카카오 챗봇 기능별 메소드
-from KoreaAPIData import KoreaCorona  # 국내 현황, 국내 확진자 추이 시각화
+from KoreaAPIData import KoreaCorona, update_KoreaDB  # 국내 현황, 국내 확진자 추이 시각화, api 오후 2시 업데이트
 from globalData import globalData # 전세계 데이터
 from msg_app import emergency_alerts_service # 재난문자
 from emergency_service import * # 재난문자
@@ -42,9 +42,10 @@ def update_db():
 sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 #sched.add_job(update_db, 'cron', hours=24)
 # scheduling dbupdate at 6:00(pm) ervery day
-sched.add_job(update_db,'cron' ,day_of_week='0-6', hour=18)
+sched.add_job(update_db,'cron', day_of_week='0-6', hour=18)
 sched.add_job(news_update, 'interval', hours=2)
-sched.add_job(distance_update,'cron' ,day_of_week='0-6', hour=18)
+sched.add_job(distance_update,'cron', day_of_week='0-6', hour=18)
+sched.add_job(update_KoreaDB, 'cron', day_of_week='0-6', hour=14)
 sched.start()
 
 app = Flask(__name__)
