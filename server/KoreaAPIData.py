@@ -82,7 +82,7 @@ def KoreaCorona(param='현황 보기'):
                             {
                                 "action": "webLink",
                                 "label": "바로가기",
-                                "webLinkUrl": "http://ncov.mohw.go.kr/"
+                                "webLinkUrl": "https://kosis.kr/covid/covid_index.do" # 정부 통계청 사이트
                             }
                         ]
                         }
