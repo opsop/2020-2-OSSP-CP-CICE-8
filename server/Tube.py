@@ -1,6 +1,7 @@
 import sqlite3
 import os
 from hotKeyword import *
+import traceback
 
 item_list = []
 
@@ -44,79 +45,86 @@ def tube_get(param = '코로나 확진자'):
         return output
 
     else:
-        con = sqlite3.connect(DB_PATH+"/tube.db")
-        res = con.cursor().execute("""SELECT * from NEWS WHERE CATEGORY='%s' """ % (param)).fetchall()
+        try :
+            con = sqlite3.connect(DB_PATH+"/tube.db")
+            res = con.cursor().execute("""SELECT * from NEWS WHERE CATEGORY='%s' """ % (param)).fetchall()
 
-        card = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "listCard": {
-                        "header": {
-                            "title": param+" 관련 유튜브 뉴스"
-                        },
-                        "items": [
+            card = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": param+" 관련 유튜브 뉴스"
+                            },
+                            "items": [
+
+                                {
+                                    "title": res[0][1],
+                                    "description": res[0][2],
+                                    "imageUrl": res[0][3],
+                                    "link": {
+                                        "web": res[0][4]
+                                    }
+                                },
+                                {
+                                    "title": res[1][1],
+                                    "description": res[1][2],
+                                    "imageUrl": res[1][3],
+                                    "link": {
+                                        "web": res[1][4]
+                                    }
+                                }
+                            ,
 
                             {
-                                "title": res[0][1],
-                                "description": res[0][2],
-                                "imageUrl": res[0][3],
+                                "title": res[2][1],
+                                "description": res[2][2],
+                                "imageUrl": res[2][3],
                                 "link": {
-                                    "web": res[0][4]
+                                    "web": res[2][4]
                                 }
                             },
+
                             {
-                                "title": res[1][1],
-                                "description": res[1][2],
-                                "imageUrl": res[1][3],
+                                "title": res[3][1],
+                                "description": res[3][2],
+                                "imageUrl": res[3][3],
                                 "link": {
-                                    "web": res[1][4]
+                                    "web": res[3][4]
                                 }
-                            }
-                        ,
+                            },
 
-                        {
-                            "title": res[2][1],
-                            "description": res[2][2],
-                            "imageUrl": res[2][3],
-                            "link": {
-                                "web": res[2][4]
-                            }
-                        },
-
-                        {
-                            "title": res[3][1],
-                            "description": res[3][2],
-                            "imageUrl": res[3][3],
-                            "link": {
-                                "web": res[3][4]
-                            }
-                        },
-
-                        {
-                            "title": res[4][1],
-                            "description": res[4][2],
-                            "imageUrl": res[4][3],
-                            "link": {
-                                "web": res[4][4]
-                            }
-                        }],
-                        "buttons": [
                             {
-                                "label": "관련 뉴스 더 보기",
-                                "action": "webLink",
-                                "webLinkUrl": f"https://www.youtube.com/results?search_query={param.replace(' ','+')+'+뉴스'}"
-                            }
-                        ]
-                    }
+                                "title": res[4][1],
+                                "description": res[4][2],
+                                "imageUrl": res[4][3],
+                                "link": {
+                                    "web": res[4][4]
+                                }
+                            }],
+                            "buttons": [
+                                {
+                                    "label": "관련 뉴스 더 보기",
+                                    "action": "webLink",
+                                    "webLinkUrl": f"https://www.youtube.com/results?search_query={param.replace(' ','+')+'+뉴스'}"
+                                }
+                            ]
+                        }
 
-                }
-            ]
+                    }
+                ]
+            }
         }
-    }
+        except Exception as e:
+                print("ERROR : " + e)
+                print(traceback.format_exc())
+        finally:
+            con.close
+
         return card
 
 # 파라미터 자체는 띄어쓰기로 들어왔어도, 검색창 링크는 띄어쓰기를 +로 바꿔줘야함
 # + 유튜브는 뉴스도 붙여줘야함
-print(tube_get('기타 검색'))
+print(tube_get('기타 영상'))
