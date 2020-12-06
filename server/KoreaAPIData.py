@@ -60,7 +60,7 @@ def KoreaCorona(param='현황 보기'):
 사망자 %s명
 격리자 %s명
 치명률 %.2f%%""" %(currentValue[0], currentValue[1], currentValue[6],currentValue[7], # currentValue['updateTime'], currentValue['TotalCase'], currentValue['TodayCase'],currentValue['TotalRecovered'],
-    currentValue[3], currentValue[2], currentValue[4], (int(currentValue[2].replace(",",""))/int(currentValue[1].replace(",",""))*100)) # currentValue['TodayRecovered'], currentValue['TotalDeath'], currentValue['NowCase']
+    currentValue[3], currentValue[2], currentValue[4], (int(currentValue[2].replace(",",""))/int(currentValue[1].replace(",","")))*100) # currentValue['TodayRecovered'], currentValue['TotalDeath'], currentValue['NowCase']
     print(messages)
 
     # 되묻기 질문에 대한 응답.
