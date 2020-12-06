@@ -38,7 +38,7 @@ def update_db():
     import disaster_msg
     update_GlobalDB()
     # 업데이트할 것들 여기에
-
+update_GlobalDB()
 sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 #sched.add_job(update_db, 'cron', hours=24)
 # scheduling dbupdate at 6:00(pm) ervery day
@@ -133,7 +133,9 @@ def Diagnosis():
 def Distance():
     body = request.get_json()
     content = body["action"]["detailParams"]["lev"]["origin"]
-    return jsonify(level(content))
+    a = level(content)
+    print(a)
+    return jsonify(a)
 
 
 # 서버 테스트 ( 카카오 오픈빌더 return format )

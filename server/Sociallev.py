@@ -31,7 +31,6 @@ http://ncov.mohw.go.kr/duBoardList.do?brdId=2&brdGubun=29&flowId=main
 f = open(DB_PATH + '/distance.txt', 'r')
 line = f.readline()
 f.close()
-line = '"'+line+'"'
 
 '''
 그냥 url 파싱해오는게 서버에서 돌렸을때 에러 뜨는 부분이 있을수도 있더라고요 ㅠㅠ
@@ -102,7 +101,6 @@ def level(param):
             {
                 "simpleImage": {
                     "imageUrl": line,
-                    "altText": "Error"
                 }
             }
         ]
