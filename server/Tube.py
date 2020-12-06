@@ -28,7 +28,7 @@ DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 def tube_get(param = '코로나 확진자'):
     hotKeyword("유튜브 뉴스")
 
-    if param == "기타 검색":
+    if param == "기타 영상":
         output = {
         "version": "2.0",
         "template": {
@@ -115,9 +115,8 @@ def tube_get(param = '코로나 확진자'):
             ]
         }
     }
-
         return card
 
 # 파라미터 자체는 띄어쓰기로 들어왔어도, 검색창 링크는 띄어쓰기를 +로 바꿔줘야함
 # + 유튜브는 뉴스도 붙여줘야함
-print(tube_get('코로나 확진자'))
+print(tube_get('기타 검색'))
