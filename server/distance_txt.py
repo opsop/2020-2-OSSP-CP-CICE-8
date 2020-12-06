@@ -4,7 +4,7 @@ import os
 DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 
 headers={
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0'
+'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0'
 }
 
 def distance_update():
@@ -20,5 +20,3 @@ def distance_update():
         f = open(DB_PATH+"/distance.txt", 'w')
         f.write(target)
         f.close()
-
-distance_update()
