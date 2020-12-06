@@ -54,7 +54,7 @@ def update_GlobalDB():
     try:
         # 1. 디비 연결
         conn=sl.connect(DB_PATH+'/corona.db')
-
+        before_country = ""
         # 2. 디비 업데이트
         for i in res['locations']:
             if i['country'] == "Cote d'Ivoire": continue # except nation
