@@ -118,7 +118,7 @@ def tube_get(param = '코로나 확진자'):
             }
         }
         except Exception as e:
-                print("ERROR : " + e)
+                print("ERROR : ", e)
                 print(traceback.format_exc())
         finally:
             con.close

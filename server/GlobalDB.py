@@ -39,7 +39,7 @@ VALUES ('%s','%s','%s', '%s')"""
         conn.execute(insertGlData %('world','전세계',json.dumps(res['latest']) ,updateTime))
 
     except Exception as e:
-      print("ERROR : " + e)
+      print("ERROR : ", e)
       print(traceback.format_exc())
 
     finally:
@@ -79,7 +79,7 @@ def update_GlobalDB():
         conn.execute( updateData %(res['latest'], updateTime , 'world'))
 
     except Exception as e:
-        print("ERROR : " + e)
+        print("ERROR : ", e)
         print(traceback.format_exc())
     finally:
         conn.commit()
