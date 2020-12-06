@@ -30,7 +30,7 @@ from Tube import tube_get
 from Naver import naver_get
 # 뉴스 9시, 13시, 18시 update
 from news_updater import news_update
-from distance_txt import distance_update
+# from distance_txt import distance_update
 
 # db 업데이트
 def update_db():
@@ -45,7 +45,7 @@ sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 
 sched.add_job(update_db,'cron', day_of_week='0-6', hour=18)
 sched.add_job(news_update, 'interval', hours=2)
-sched.add_job(distance_update,'interval', hours = 3)
+# sched.add_job(distance_update,'interval', hours = 3)
 sched.add_job(update_KoreaDB, 'cron', day_of_week='0-6', hour=14)
 sched.start()
 
