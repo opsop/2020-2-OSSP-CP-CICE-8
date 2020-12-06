@@ -61,6 +61,46 @@ def emergency_alerts(body):
             city[1] = "전라남도"
             li = "%".join(city)
 
+        elif city[1] == "충청도":
+            city[1] = "충청"
+            li = "%".join(city)
+
+        elif city[1] == "전라도":
+            city[1] = "전라"
+            li = "%".join(city)
+
+        elif city[1] == "경상도":
+            city[1] = "경상"
+            li = "%".join(city)
+
+        elif city[1] == "울산시":
+            city[1] = "울산광역시"
+            li = "%".join(city)
+
+        elif city[1] == "대전시":
+            city[1] = "대전광역시"
+            li = "%".join(city)
+
+        elif city[1] == "부산시":
+            city[1] = "부산광역시"
+            li = "%".join(city)
+
+        elif city[1] == "대구시":
+            city[1] = "대구광역시"
+            li = "%".join(city)
+
+        elif city[1] == "인천시":
+            city[1] = "인천광역시"
+            li = "%".join(city)
+
+        elif city[1] == "광주시":
+            city[1] = "광주광역시"
+            li = "%".join(city)
+
+        elif city[1] == "울릉도":
+            city[1] = "울릉"
+            li = "%".join(city)
+
         # SQL 쿼리 실행
         cur.execute("select * from MESSAGE where location_name like '" + li + "'")
         # 데이터 Fetch
