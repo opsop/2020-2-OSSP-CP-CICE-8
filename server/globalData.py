@@ -65,7 +65,7 @@ def globalData(data):
         print("Exception",e)
         print(traceback.format_exc())
     finally:
-        return GlobaldataSendCard(message,imageUrl = "https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg" )
+        return GlobaldataSendCard(message,imageUrl = "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg" )
 
 print(globalData(sampleReque))
 
