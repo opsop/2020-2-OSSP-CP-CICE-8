@@ -134,25 +134,4 @@ def KoreaCorona(param='현황 보기'):
 
     return dataSend
 
-'''
-def visualizeKoreaPlot():
-    # 국내 데이터 꺾은선 시각화
-
-    # KoreaDB에 당일 데이터 저장
-    apiData=KoreaAPI()
-    YEAR= datetime.today().year
-
-    KoreaDataDBValues=KoreaDataDB.select_all()
-    print("\n", KoreaDataDBValues)
-    
-    YEAR= datetime.today().year        # 현재 연도 가져오기
-    MONTH= datetime.today().month      # 현재 월 가져오기
-    DAY= datetime.today().day        # 현재 일 가져오기
-    TodayDate=str(YEAR)+"."+str(MONTH)+"."+str(DAY)
-    print(TodayDate)
-    
-    # if KoreaDataDBValues[-1][0] !=TodayDate 일때만 한다.
-    KoreaDataDB.insert_data(str(YEAR)+"."+apiData['updateTime'][23:28], apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'], 
-                            apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'])
-
-'''                            
+                 
