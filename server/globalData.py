@@ -48,13 +48,13 @@ def globalData(data):
             res = '지원하지 않는 국가입니다.'
             conn.close()
             return dataSend(res)
-
+        update = conn.cursor().execute("select LASTUPDATE from global").fetchone()[0].split("T")[0].replace("-",".")
         #print(res['confirmed'])
-        message = """코로나 {} 현황입니다.
-확진자 {:,} 명
-사망자 {:,} 명
-격리해제 {:,} 명
-치명률 {:.2f}%""".format(inputNation,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
+        message = """({} 기준)
+확진자 {:,}명
+사망자 {:,}명
+격리해제 {:,}명
+치명률 {:.2f}%""".format(update,res['confirmed'],res['deaths'],res['recovered'],(res["deaths"]/res["confirmed"]*100))
 
 
         conn.close()
@@ -65,7 +65,7 @@ def globalData(data):
         print("Exception",e)
         print(traceback.format_exc())
     finally:
-        return dataSendSimple(message)
+        return GlobaldataSendCard(message,imageUrl = "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg" )
 
 print(globalData(sampleReque))
 

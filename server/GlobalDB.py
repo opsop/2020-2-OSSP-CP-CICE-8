@@ -39,7 +39,7 @@ VALUES ('%s','%s','%s', '%s')"""
         conn.execute(insertGlData %('world','전세계',json.dumps(res['latest']) ,updateTime))
 
     except Exception as e:
-      print("ERROR : " + e)
+      print("ERROR : ", e)
       print(traceback.format_exc())
 
     finally:
@@ -50,11 +50,11 @@ def update_GlobalDB():
 
     res = covi.COVID19().getAll()
     updateTime = ":".join(res['locations'][0]['last_updated'].split(".")[:-1])
-    updateData = "UPDATE GLOBAL SET DATA = '%s', LASTUPDATE = '%s' WHERE COUNTRY = '%s'"
+    updateData = "UPDATE GLOBAL SET DATA='%s', LASTUPDATE='%s' WHERE COUNTRY='%s' "
     try:
         # 1. 디비 연결
         conn=sl.connect(DB_PATH+'/corona.db')
-
+        before_country = ""
         # 2. 디비 업데이트
         for i in res['locations']:
             if i['country'] == "Cote d'Ivoire": continue # except nation
@@ -67,25 +67,29 @@ def update_GlobalDB():
                 #중복국가 데이터 합치기
                 for (k,v), (k2,v2) in zip(Q.items(), i['latest'].items()):
                     Q[k] += v2
-                conn.execute("""UPDATE GLOBAL SET DATA='%s'
-                WHERE COUNTRY='%s' """ %(json.dumps(Q) , before_country))
+                conn.execute("""UPDATE GLOBAL SET DATA='%s',LASTUPDATE='%s'
+                WHERE COUNTRY='%s' """ %(json.dumps(Q) ,updateTime, before_country))
                 continue
 
-            conn.cursor(updateData %(i['latest'],updateTime , i['country']))
-
+            #conn.execute(f"UPDATE GLOBAL SET DATA='{json.dumps(i['latest'])}', LASTUPDATE = '{updateTime}' WHERE COUNTRY='{i['country']}' ")
+            conn.execute(updateData %(json.dumps(i['latest']),updateTime,i['country']))
             before_country = i['country']
 
         # 업데이트  data for world (국가,국가코드,데이터,최신업데이트시간(초제거))
-        conn.execute( updateData %(res['latest'], updateTime , 'world'))
-
+        #conn.execute( f"UPDATE GLOBAL SET DATA='{}', LASTUPDATE = '{updateTime}' WHERE COUNTRY= " )
+        conn.execute(updateData %(json.dumps(res['latest']),updateTime,'world'))
     except Exception as e:
-        print("ERROR : " + e)
+        print("ERROR : ", e)
         print(traceback.format_exc())
     finally:
         conn.commit()
         conn.close()
 
-#create_GlobalDB()
+create_GlobalDB()
+update_GlobalDB()
+conn=sl.connect(DB_PATH+'/corona.db')
+print(conn.cursor().execute("select * from GLOBAL").fetchone())
+conn.close()
 # 1. db 생성
 # 2. db 저장 (미국, 전세계 따로 저장)
 # 3. db 업데이트

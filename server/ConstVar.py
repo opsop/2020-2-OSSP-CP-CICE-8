@@ -19,6 +19,36 @@ def dataSendSimple(message):
 
     return dataSend
 
+def GlobaldataSendCard(message,imageUrl):
+
+    dataSend = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "carousel": {
+                        "type": "basicCard",
+                        "items": [
+                            {
+                                "title": "국외 코로나 현황",
+                                "description": message,
+                                "thumbnail": {
+                                    "imageUrl": imageUrl},
+                                "buttons": [
+                                    {
+                                        "action": "share",
+                                        "label": "공유하기"}
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+
+    return dataSend
+
 
 nations = { #key : #value(country_code for db search)
             '전세계':'전세계',
