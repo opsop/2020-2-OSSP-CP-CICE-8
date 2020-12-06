@@ -41,26 +41,9 @@ def KoreaAPI():
 
     return data
 
-# API 데이터를 챗봇 메시지 출력 형식에 맞게 리턴
+# KoreaDB에서 챗봇 메시지 출력 형식에 맞게 리턴
 def KoreaCorona(param='현황 보기'):
-    # 국내 코로나 API 데이터 가져오기
-    apiData=KoreaAPI()
-
-    # KoreaDataDB의 함수들 사용
     import KoreaDataDB
-    KoreaDataDBValues=KoreaDataDB.select_all()
-    print("\n", KoreaDataDBValues)
-    
-    YEAR= datetime.today().year        # 현재 연도 가져오기
-    MONTH= datetime.today().month      # 현재 월 가져오기
-    DAY= datetime.today().day        # 현재 일 가져오기
-    TodayDate=str(YEAR)+"."+str(MONTH)+"."+str(DAY)
-    print(TodayDate)
-    
-    # 오늘자 최신 데이터를 DB에 insert
-    KoreaDataDB.insert_data(TodayDate, apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'], 
-                            apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'])
-
 
     # 국내 현황 메시지
     print("\n", KoreaDataDB.select_all())
@@ -122,7 +105,7 @@ def KoreaCorona(param='현황 보기'):
         dataSend = {
             "version": "2.0",
             "template": {
-                "outputs": [ # 봇 테스트로 확인하기                 
+                "outputs": [                 
                     {
                         "simpleText":{
                             "text" : "다시 입력해주세요."
@@ -134,4 +117,24 @@ def KoreaCorona(param='현황 보기'):
 
     return dataSend
 
-                 
+# 국내 코로나 API 데이터로 KoreaDB 업데이트
+def update_KoreaDB():  
+    # 국내 코로나 API 데이터 가져오기
+    apiData=KoreaAPI()
+
+    # KoreaDataDB의 함수들 사용
+    import KoreaDataDB
+    KoreaDataDBValues=KoreaDataDB.select_all()
+    print("\n", KoreaDataDBValues)
+    
+    YEAR= datetime.today().year        # 현재 연도 가져오기
+    MONTH= datetime.today().month      # 현재 월 가져오기
+    DAY= datetime.today().day        # 현재 일 가져오기
+    TodayDate=str(YEAR)+"."+str(MONTH)+"."+str(DAY)
+    print(TodayDate)
+    
+    # 오늘자 최신 데이터를 DB에 insert
+    KoreaDataDB.insert_data(TodayDate, apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'], 
+                            apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'])
+ 
+    return
