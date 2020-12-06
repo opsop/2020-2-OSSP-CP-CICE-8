@@ -65,7 +65,7 @@ def globalData(data):
         print("Exception",e)
         print(traceback.format_exc())
     finally:
-        return GlobaldataSendCard(message,imageUrl = "https://brand.jhu.edu/assets/uploads/sites/5/2016/01/university.logo_.small_.vertical.black_.png" )
+        return GlobaldataSendCard(message,imageUrl = "https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg" )
 
 print(globalData(sampleReque))
 
