@@ -28,10 +28,10 @@ http://ncov.mohw.go.kr/duBoardList.do?brdId=2&brdGubun=29&flowId=main
 이미지 url을 주기적으로 수작업으로 업데이트 예정
 '''
 
-f = open(DB_PATH + '/distance.txt', 'r')
-line = f.readline()
-f.close()
-line = '"'+line+'"'
+# f = open(DB_PATH + '/distance.txt', 'r')
+# line = f.readline()
+# f.close()
+# line = '"'+line+'"'
 
 '''
 그냥 url 파싱해오는게 서버에서 돌렸을때 에러 뜨는 부분이 있을수도 있더라고요 ㅠㅠ
@@ -95,17 +95,35 @@ def level(param):
         }
         return answer
 
-    answer = {
-    "version": "2.0",
-    "template": {
-        "outputs": [
-            {
-                "simpleImage": {
-                    "imageUrl": line,
-                    "altText": "Error"
+    else:
+        answer = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "궁금한 항목을 선택해 주세요."
+                        },
+                        "items": [
+                            {
+                                "title": "지역별 사회적 거리두기 단계",
+                                "imageUrl": "https://media.vlpt.us/images/i-zro/post/8918b4fd-e489-4a18-8181-94fc2835be71/image.png",
+                                "link": {
+                                    "web": "http://ncov.mohw.go.kr/duBoardList.do?brdId=2&brdGubun=29&flowId=main"
+                                }
+                            },
+                            {
+                                "title": "지역별 사회적 거리두기 단계 뉴스",
+                                "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA4MjRfMTg3%2FMDAxNTk4MjQ2NjcyMzU3.61epWupfiorJmHSA8aAKTlm0sKXcxydzKDglZVca568g.3z4bGuxALC3XOVQJnYpnIm2lejRUOfgTbMO4r4k3J5cg.JPEG.jhsarang1893%2F%25BB%25E7%25C8%25B8%25C0%25FB%25B0%25C5%25B8%25AE%25B5%25CE%25B1%25E22%25B4%25DC%25B0%25E815.jpg&type=sc960_832",
+                                "link": {
+                                    "web": f"https://search.naver.com/search.naver?where=news&sm=tab_jum&query={'지역별+사회적+거리두기+단계'}"
+                                }
+                            }
+                        ]
+                    }
                 }
-            }
-        ]
+            ]
         }
-        }
-    return answer
+    }
+        return answer
