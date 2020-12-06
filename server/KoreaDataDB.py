@@ -107,13 +107,3 @@ def delete_updateTime(updateTime):
     finally:
         db.close()
         return
-
-# 
-def dumpDB():
-    db = sqlite3.connect(KoreaDBPath)
-    c = db.cursor()
-    with c:
-        with open("dump.sql", "w") as f:
-            for line in c.iterdump():
-                f.write("%s\n" % line)
-            print("Dump Print Complet")
