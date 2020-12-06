@@ -33,6 +33,26 @@ line = f.readline()
 f.close()
 line = '"'+line+'"'
 
+'''
+그냥 url 파싱해오는게 서버에서 돌렸을때 에러 뜨는 부분이 있을수도 있더라고요 ㅠㅠ
+계속 안돌아가면 그냥 이걸로 합시다...
+저 단계별 특징 answer에 이게 들어가면 되요
+(아래꺼)
+
+answer = {
+                "version": "2.0",
+                "template": {
+                    "outputs": [
+                        {
+                            "simpleText": {
+                                "text": "http://ncov.mohw.go.kr/duBoardList.do?brdId=2&brdGubun=29&flowId=main"
+                            }
+                        }
+                    ]
+                }
+            }
+'''
+
 def level(param):
     hotKeyword("사회적 거리두기 단계")
     if param == "단계별 특징":
