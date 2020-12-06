@@ -85,6 +85,10 @@ def emergency_alerts(body):
 
         if entity_second == "":
             li = "%" + entity_first + "%"
+
+        elif entity_second == "전체":
+            li = "%" + entity_first + "%"
+
         else:
             li = "%" + entity_first + "%" + entity_second + "%"
 
