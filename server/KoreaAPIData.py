@@ -54,7 +54,7 @@ def KoreaCorona(param='현황 보기'):
     # 오늘자 데이터가 아직 DB에 없을 경우를 대비해서, DB의 데이터 중 가장 최신 데이터를 반환할 수 있도록 함. (에러 방지)
     currentValue=totalValue[0]
     print("DB에 저장된 가장 최신 데이터: ", currentValue, "\n")
-    update_KoreaDB()
+    # update_KoreaDB()
 
     messages=""" 국내 현황입니다.
 (%s 기준)
@@ -62,8 +62,12 @@ def KoreaCorona(param='현황 보기'):
 완치자 %s(+%s)명
 사망자 %s명
 격리자 %s명
-치명률 %.2f%%""" %(currentValue[0], currentValue[1], currentValue[6],currentValue[3], # currentValue['updateTime'], currentValue['TotalCase'], currentValue['TodayCase'],currentValue['TotalRecovered'],
-    currentValue[7], currentValue[2], currentValue[4], (int(currentValue[2].replace(",",""))/int(currentValue[1].replace(",","")))*100) # currentValue['TodayRecovered'], currentValue['TotalDeath'], currentValue['NowCase']
+치명률 %.2f%%""" %(currentValue[0], # currentValue['updateTime'],
+    currentValue[1], currentValue[6], # currentValue['TotalCase'], currentValue['TodayCase']
+    currentValue[3], currentValue[7],  # currentValue['TodayCase'],currentValue['TotalRecovered'],
+    currentValue[2], # currentValue['TodayRecovered'],
+    currentValue[4], # currentValue['TotalDeath']
+    (int(currentValue[2].replace(",",""))/int(currentValue[1].replace(",","")))*100) # currentValue['NowCase']
     print(messages)
 
     # 되묻기 질문에 대한 응답.
