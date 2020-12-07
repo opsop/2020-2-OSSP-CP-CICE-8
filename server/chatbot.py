@@ -46,7 +46,6 @@ sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 sched.add_job(update_db,'cron', day_of_week='0-6', hour=18)
 sched.add_job(news_update, 'interval', hours=2)
 # sched.add_job(distance_update,'interval', hours = 3)
-sched.add_job(update_KoreaDB, 'cron', day_of_week='0-6', hour=10) # KoreaDB 오전 9시 업데이트
 sched.add_job(update_KoreaDB, 'cron', day_of_week='0-6', hour=13) # KoreaDB 오후 1시 업데이트
 sched.start()
 
