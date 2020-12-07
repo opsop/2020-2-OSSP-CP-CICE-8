@@ -165,4 +165,4 @@ def KoreadataSendCard(message,imageUrl):
     }
     return dataSend
 
-print(KoreaCorona())
+#print(KoreaCorona())
