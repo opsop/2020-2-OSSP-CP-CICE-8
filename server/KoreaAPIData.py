@@ -57,7 +57,7 @@ def KoreaCorona(param='현황 보기'):
     # update_KoreaDB()
 
     messages=""" 국내 현황입니다.
-(%s 기준)
+(%s 00시 기준)
 확진자 %s(+%s)명
 완치자 %s(+%s)명
 사망자 %s명
