@@ -46,7 +46,7 @@ while (d < msg_num):
 
         query = """INSERT INTO MESSAGE(id, create_date, location_name, msg)
                 VALUES ( "%d", "%s", "%s", "%s" )""" % (_id, row['create_date'], row['location_name'], row['msg'])
-        print(query)
+        #print(query)
         conn.execute(query)
         d = _id
     i += 1

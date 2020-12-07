@@ -13,7 +13,7 @@ def triage(content):
     hotKeyword("선별진료소 안내")
     content = content['userRequest']
     content = content['utterance']
-    print(content)
+    #print(content)
 
     dataSend = {
         "version": "2.0",
