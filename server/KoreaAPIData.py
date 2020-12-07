@@ -46,13 +46,15 @@ def KoreaCorona(param='현황 보기'):
     import KoreaDataDB
 
     # 국내 현황 메시지
-    print("\n", KoreaDataDB.select_all())
+    # print("\n", KoreaDataDB.select_all())
     # DB 데이터 정렬을 통해, DB 데이터 중에 최신 데이터 출력
     totalValue=list(KoreaDataDB.select_all())
     totalValue.sort(reverse=True)
     print(totalValue)
     # 오늘자 데이터가 아직 DB에 없을 경우를 대비해서, DB의 데이터 중 가장 최신 데이터를 반환할 수 있도록 함. (에러 방지)
     currentValue=totalValue[0]
+    print("DB에 저장된 가장 최신 데이터: ", currentValue, "\n")
+    update_KoreaDB()
 
     messages=""" 국내 현황입니다.
 (%s 기준)
@@ -127,6 +129,8 @@ def update_KoreaDB():
     KoreaDataDB.insert_data(TodayDate, apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'],
                             apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'])
 
+    print("업데이트에 들어가는 정보: ",TodayDate, apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'],
+                            apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'],"\n")
     return
 
 # "현황 보기"에 대한 응답 형식
