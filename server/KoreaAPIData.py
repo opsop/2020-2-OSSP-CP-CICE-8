@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
 from urllib.request import urlopen , Request
-# from . import * #if using on django , should using .apikey instead apikey
+
 import json
 import requests
 import re #계산을 위한 특수문자 제거
@@ -12,7 +12,6 @@ from datetime import datetime, date, timedelta # 시각화에서 일주일간 �
 from KoreaDataDB import *
 import matplotlib.pyplot as plt
 
-# http://192.168.25.30:5000/KoreaData
 
 def KoreaAPI():
     # Corona API에서 API 데이터 받아오기
@@ -46,7 +45,6 @@ def KoreaCorona(param='현황 보기'):
     import KoreaDataDB
 
     # 국내 현황 메시지
-    # print("\n", KoreaDataDB.select_all())
     # DB 데이터 정렬을 통해, DB 데이터 중에 최신 데이터 출력
     totalValue=list(KoreaDataDB.select_all())
     totalValue.sort(reverse=True)
@@ -64,10 +62,10 @@ def KoreaCorona(param='현황 보기'):
 격리자 %s명
 치명률 %.2f%%""" %(currentValue[0], # currentValue['updateTime'],
     currentValue[1], currentValue[6], # currentValue['TotalCase'], currentValue['TodayCase']
-    currentValue[3], currentValue[7],  # currentValue['TodayCase'],currentValue['TotalRecovered'],
-    currentValue[2], # currentValue['TodayRecovered'],
-    currentValue[4], # currentValue['TotalDeath']
-    (int(currentValue[2].replace(",",""))/int(currentValue[1].replace(",","")))*100) # currentValue['NowCase']
+    currentValue[3], currentValue[7],  # currentValue['TotalRecovered'],currentValue['TodayRecovered'],
+    currentValue[2], # currentValue['TotalDeath'],
+    currentValue[4], # currentValue['NowCase']
+    (int(currentValue[2].replace(",",""))/int(currentValue[1].replace(",","")))*100) # 치명률: (사망자/ 확진자)*100
     print(messages)
 
     # 되묻기 질문에 대한 응답.
