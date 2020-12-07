@@ -29,7 +29,7 @@ def emergency_alerts(body):
             entity_second = ""
 
         elif entity_first == "서울시":
-            entity_first == "서울특별시"
+            entity_first = "서울특별시"
 
         elif entity_first == "충북":
             entity_first = "충청북도"
