@@ -85,11 +85,11 @@ def update_GlobalDB():
         conn.commit()
         conn.close()
 
-create_GlobalDB()
+"""create_GlobalDB()
 update_GlobalDB()
 conn=sl.connect(DB_PATH+'/corona.db')
 print(conn.cursor().execute("select * from GLOBAL").fetchone())
-conn.close()
+conn.close()"""
 # 1. db 생성
 # 2. db 저장 (미국, 전세계 따로 저장)
 # 3. db 업데이트

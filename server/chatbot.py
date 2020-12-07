@@ -37,8 +37,9 @@ def update_db():
     print("db 업데이트 진행중")
     import disaster_msg
     update_GlobalDB()
+    print("db 업데이트 완료")
     # 업데이트할 것들 여기에
-update_GlobalDB()
+#update_GlobalDB()
 sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 #sched.add_job(update_db, 'cron', hours=24)
 # scheduling dbupdate at 6:00(pm) ervery day
@@ -64,7 +65,7 @@ def Keyboard():
 @app.route('/city_info', methods=['POST'])
 def CityInfo():
     body = json.loads(request.data)
-    print(body)
+    print("긴급 재난문자 call")
     # req = request.get_json()
     params = body["action"]["params"]
     return emergency_alerts(params)
@@ -72,6 +73,7 @@ def CityInfo():
 # 전세계 현황 데이터
 @app.route('/globalData',methods = ['POST'])
 def Global():
+    print("전세계 현황 call")
     # get request and return json message for global
     dataSend = globalData(request.get_json())
     return jsonify(dataSend)
@@ -79,14 +81,16 @@ def Global():
 # 네이버 뉴스
 @app.route('/naver_news', methods=['POST'])
 def Naver_news():
+    print("네이버 뉴스 call")
     body = request.get_json()
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
     dataSend = naver_get(content)
     return jsonify(dataSend)
 
-# 유튜브 뉴스 
+# 유튜브 뉴스
 @app.route('/Youtube', methods=['POST'])
 def Youtube():
+    print("유튜브 뉴스 call")
     body = request.get_json()
     content = body["action"]["detailParams"]["youtube_corona"]["origin"]
     dataSend = tube_get(content)
@@ -97,15 +101,17 @@ def Youtube():
 def KoreaData():
     body = request.get_json() # 되묻기 질문용도
     # print(body)
-    content = body["action"]["detailParams"]["select"]["origin"]  
-    KoreaResult = KoreaCorona(content)  
-    hotKeyword('국내 현황') 
+    print("국내 코로나 현황 call")
+    content = body["action"]["detailParams"]["select"]["origin"]
+    KoreaResult = KoreaCorona(content)
+    hotKeyword('국내 현황')
     return jsonify(KoreaResult)
 
 
 # 선별진료소 안내
 @app.route('/triagecenter_info', methods=['POST'])
 def Triage():
+    print("선별진료소 call")
     body = request.get_json()
     return jsonify(triage(body))
 
@@ -113,28 +119,31 @@ def Triage():
 # 병원및약국 안내
 @app.route('/hospital_info', methods=['POST'])
 def Hospital():
+    print("병원및약국 call")
     body = request.get_json()
     return jsonify(hospital_info(body))
 
 # 인기 키워드 검색기능
 @app.route('/hotKeyword' , methods = ['POST'])
 def HotKeyword():
+    print("인기 키워드 call")
     body = request.get_json()
     return jsonify(searchHotKeyword(body))
 
 # 자가진단 테스트
 @app.route('/self_diagnosis', methods = ['POST'])
 def Diagnosis():
+    print("자가진단 테스트 call")
     body = request.get_json()
     return jsonify(self_diagnosis(body))
 
 # 사회적 거리두기
 @app.route('/distance_level', methods = ['POST'])
 def Distance():
+    print("사회적 거리두기 call")
     body = request.get_json()
     content = body["action"]["detailParams"]["lev"]["origin"]
     a = level(content)
-    print(a)
     return jsonify(a)
 
 

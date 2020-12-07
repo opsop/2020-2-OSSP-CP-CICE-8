@@ -70,7 +70,7 @@ def searchHotKeyword(body):
         conn.close()
 
     #오는 request 형식 확인
-    print("인기키워드")
-    print(body)
+    #print("인기키워드")
+    #print(body)
 
     return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)

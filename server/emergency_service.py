@@ -11,7 +11,7 @@ def emergency_alerts(body):
     try:
         hotKeyword("재난문자")
         #print(disasterDBPath)
-        print(body)
+        #print(body)
         conn = sqlite3.connect(disasterDBPath)
 
         cur = conn.cursor()

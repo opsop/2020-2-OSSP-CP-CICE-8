@@ -14,7 +14,7 @@ def globalData(data):
         #action when data['userRequest']['block']['name'] =='전세계 현황'
         #print(json.dumps(post,indent = '\t',ensure_ascii=False))
         conn=sl.connect(DB_PATH+'/corona.db')
-        print(data)
+        #print(data)
         # required entity
         ntt = ['situation','sys_nation','sys_date']
         situation = ['confirmed','deaths','recovered']
@@ -67,7 +67,7 @@ def globalData(data):
     finally:
         return GlobaldataSendCard(message,imageUrl = "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg" )
 
-print(globalData(sampleReque))
+#print(globalData(sampleReque))
 
 """ # print(dir(covi.COVID19()))
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
