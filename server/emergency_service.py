@@ -24,7 +24,10 @@ def emergency_alerts(body):
         # li = "%"+"%".join(body["city"].split(" "))+"%"
         # city = li.split("%")
 
-        if entity_first == "세종시":
+        if entity_first == entity_second:
+            entity_second = ""
+
+        elif entity_first == "세종시":
             entity_first = "세종특별자치시"
             entity_second = ""
 
