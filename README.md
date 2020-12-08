@@ -49,7 +49,10 @@ use your own ip-address
 ![diagram](bot_monitoring/bot_diagram_final.png)
 
 ## Bot images
-![01국내현황보기](bot_monitoring/bot_image/01 국내현황보기.jpg)
-![02국내현황추이그래프](bot_monitoring/bot_image/02 국내현황추이그래프.jpg)
-![03선별진료소](bot_monitoring/bot_image/03 선별진료소.jpg)
-![04사회적거리두기_단계별특징](bot_monitoring/bot_image/04 사회적거리두기_단계별특징.jpg)
+![01국내현황보기](bot_monitoring/bot_image/01 국내현황보기.jpg) <br>
+
+![02국내현황추이그래프](bot_monitoring/bot_image/02 국내현황추이그래프.jpg) <br>
+
+![03선별진료소](bot_monitoring/bot_image/03 선별진료소.jpg) <br>
+
+![04사회적거리두기_단계별특징](bot_monitoring/bot_image/04 사회적거리두기_단계별특징.jpg) <br>
