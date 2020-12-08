@@ -5,31 +5,25 @@ import os
 from hotKeyword import *
 
 disasterDBPath = os.path.dirname(__file__) + '/CoronaBotDB/disaster_message_temp.db'
-# @app.route('/city_info', methods = ['POST'])
 
 def emergency_alerts(body):
     try:
-        hotKeyword("재난문자")
-        #print(disasterDBPath)
-        #print(body)
+        hotKeyword("재난 문자 현황") # 인기 키워드 DB에 넣기
+
         conn = sqlite3.connect(disasterDBPath)
 
         cur = conn.cursor()
-        # data = json.loads(body)
 
-        # req = request.get_json()
         entity_first = body["sys_location"]
         entity_second = body["sys_location1"]
 
-        # li = "%"+"%".join(body["city"].split(" "))+"%"
-        # city = li.split("%")
-
-        if entity_first == entity_second:
-            entity_second = ""
+        # 사용자 발화 값에 대한 예외 처리 부분
+        if entity_first == entity_second:  # 도 / 광역시 에 대해 전체를 알고 싶은 경우 (예를 들어 서울, 서울이라고 입력했을 때)
+            entity_second = "전체"
 
         elif entity_first == "세종시":
             entity_first = "세종특별자치시"
-            entity_second = ""
+            entity_second = "전체"
 
         elif entity_first == "서울시":
             entity_first = "서울특별시"
@@ -42,7 +36,7 @@ def emergency_alerts(body):
 
         elif entity_first == "제주도":
             entity_first = "제주특별자치도"
-            entity_second = ""
+            entity_second = "전체"
 
         elif entity_first == "경북":
             entity_first = "경상북도"
@@ -83,14 +77,73 @@ def emergency_alerts(body):
         elif entity_first == "광주시":
             entity_first = "광주광역시"
 
+        elif entity_first == "울릉도":
+            entity_first = "울릉"
+
+        elif entity_second == "세종시":
+            entity_second = "세종특별자치시"
+            entity_first = "전체"
+
+        elif entity_second == "서울시":
+            entity_second = "서울특별시"
+
+        elif entity_second == "충북":
+            entity_second = "충청북도"
+
+        elif entity_second == "충남":
+            entity_second = "충청남도"
+
+        elif entity_second == "제주도":
+            entity_second = "제주특별자치도"
+            entity_first = "전체"
+
+        elif entity_second == "경북":
+            entity_second = "경상북도"
+
+        elif entity_second == "경남":
+            entity_second = "경상남도"
+
+        elif entity_second == "전북":
+            entity_second = "전라북도"
+
+        elif entity_second == "전남":
+            entity_second = "전라남도"
+
+        elif entity_second == "충청도":
+            entity_second = "충청"
+
+        elif entity_second == "전라도":
+            entity_second = "전라"
+
+        elif entity_second == "경상도":
+            entity_second = "경상"
+
+        elif entity_second == "울산시":
+            entity_second = "울산광역시"
+
+        elif entity_second == "대전시":
+            entity_second = "대전광역시"
+
+        elif entity_second == "부산시":
+            entity_second = "부산광역시"
+
+        elif entity_second == "대구시":
+            entity_second = "대구광역시"
+
+        elif entity_second == "인천시":
+            entity_second = "인천광역시"
+
+        elif entity_second == "광주시":
+            entity_second = "광주광역시"
+
         elif entity_second == "울릉도":
             entity_second = "울릉"
 
-        if entity_second == "":
+        if entity_second == "전체":
             li = "%" + entity_first + "%"
 
-        elif entity_second == "전체":
-            li = "%" + entity_first + "%"
+        elif entity_first == "전체":
+            li = "%" + entity_second + "%"
 
         else:
             li = "%" + entity_first + "%" + entity_second + "%"
@@ -153,6 +206,7 @@ def emergency_alerts(body):
             }
         }
         return jsonify(res)
+
     finally:
         cur.close()
         conn.close()
