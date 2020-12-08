@@ -11,9 +11,11 @@
 * [문소연](https://github.com/opsop)
 
 ## About
-[Corona-Tracker API](https://github.com/Kamaropoulos/COVID19Py/blob/master/README.md#about) 활용 코로나 챗봇.
+* 카카오 오픈빌더를 활용하여 개발한 코로나 챗봇.
+* 카카오톡에 "코로나 챗봇" 채널 친구를 통해 확인 가능.
 
-## 
+## Used APIs
+[chatbot_organization.md](https://github.com/CSID-DGU/2020-2-OSSP-CP-CICE-8/blob/main/chatbot_organization.md)에 안내.
 
 ### Installation
 1. Clone git repository
@@ -43,6 +45,5 @@ http://0.0.0.0:5000/ -> http://ip-address:5000/
 ```
 use your own ip-address
 
-
 ## Bot Diagram
-![diagram](bot_monitoring/bot_diagram.png)
+![diagram](bot_monitoring/bot_diagram_final.png)
