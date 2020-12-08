@@ -50,41 +50,41 @@ use your own ip-address
 
 ## Bot images
 1. 국내 현황 보기
-![01_국내현황보기](bot_monitoring/bot_image/01_국내현황보기.jpg)
+    ![01_국내현황보기](bot_monitoring/bot_image/01_국내현황보기.jpg)
 
 2. 국내 현황 추이 그래프
-![02_국내현황추이그래프](bot_monitoring/bot_image/02_국내현황추이그래프.jpg)
+    ![02_국내현황추이그래프](bot_monitoring/bot_image/02_국내현황추이그래프.jpg)
 
 3. 선별진료소
-![03_선별진료소](bot_monitoring/bot_image/03_선별진료소.jpg)
+    ![03_선별진료소](bot_monitoring/bot_image/03_선별진료소.jpg)
 
 4. 사회적 거리두기
     * 단계별 특징
-    ![04_사회적거리두기_단계별특징](bot_monitoring/bot_image/04_사회적거리두기_단계별특징.jpg)
+        ![04_사회적거리두기_단계별특징](bot_monitoring/bot_image/04_사회적거리두기_단계별특징.jpg)
 
     * 지역별 단계보기
-    ![04_사회적거리두기_지역별단계보기](bot_monitoring/bot_image04_사회적거리두기_지역별단계보기.jpg)
+        ![04_사회적거리두기_지역별단계보기](bot_monitoring/bot_image04_사회적거리두기_지역별단계보기.jpg)
 
 5. 인기 키워드
-![05_인기키워드](bot_monitoring/bot_image/05_인기키워드.jpg)
+    ![05_인기키워드](bot_monitoring/bot_image/05_인기키워드.jpg)
 
 6. 하단에 검색어 선택 기능
-![06_하단에검색어선택](bot_monitoring/bot_image/06_하단에검색어선택.jpg)
+    ![06_하단에검색어선택](bot_monitoring/bot_image/06_하단에검색어선택.jpg)
 
 7. 전세계 현황 보기
-![07_전세계현황](bot_monitoring/bot_image/07_전세계현황.jpg)
+    ![07_전세계현황](bot_monitoring/bot_image/07_전세계현황.jpg)
 
 8. 네이버/ 유투브 뉴스 제공 기능
     * 네이버 뉴스
-    ![08_네이버뉴스](bot_monitoring/bot_image/08_네이버뉴스.jpg)
+        ![08_네이버뉴스](bot_monitoring/bot_image/08_네이버뉴스.jpg)
     * 유투브 뉴스
-    ![08_유투브뉴스](bot_monitoring/bot_image/08_유투브뉴스.jpg)
+        ![08_유투브뉴스](bot_monitoring/bot_image/08_유투브뉴스.jpg)
     
 9. 재난 문자 보기
-![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg)
+    ![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg)
 
-10. 자가진단 문진표 제공
-![10_자가진단](bot_monitoring/bot_image/10_자가진단.jpg)
+10. 자가진단 문진표 제공 
+    ![10_자가진단](bot_monitoring/bot_image/10_자가진단.jpg)
 
 11. 근처 병원 및 약국 안내
-![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg)
+    ![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg)
