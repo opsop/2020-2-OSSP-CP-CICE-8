@@ -48,4 +48,4 @@ use your own ip-address
 ![diagram](bot_monitoring/bot_diagram.png)
 
 ## Channel Link
-![link](https://pf.kakao.com/_KgxlnK)
+* [click](https://pf.kakao.com/_KgxlnK)
