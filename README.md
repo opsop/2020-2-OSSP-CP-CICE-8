@@ -51,45 +51,54 @@ use your own ip-address
 *** 
 
 ## Bot images
-1. 국내 현황 보기 <br>
+#### 1. 국내 현황 보기 <br>
     ![01_국내현황보기](bot_monitoring/bot_image/01_국내현황보기.jpg) <br>
 <br>
 
-2. 국내 현황 추이 그래프 <br>
+#### 2. 국내 현황 추이 그래프 <br>
     ![02_국내현황추이그래프](bot_monitoring/bot_image/02_국내현황추이그래프.jpg) <br>
 <br>
 
-3. 선별진료소 <br>
+#### 3. 선별진료소 <br>
     ![03_선별진료소](bot_monitoring/bot_image/03_선별진료소.jpg) <br>
 <br>
 
-4. 사회적 거리두기 <br>
-    * 단계별 특징 <br>
+#### 4. 사회적 거리두기 <br>
+    * <b> 단계별 특징 </b> <br>
     ![04_사회적거리두기_단계별특징](bot_monitoring/bot_image/04_사회적거리두기_단계별특징.jpg) <br> <br>
 
-    * 지역별 단계보기 <br>
-    ![04_사회적거리두기_지역별단계보기](bot_monitoring/bot_image04_사회적거리두기_지역별단계보기.jpg) <br>
+    * <b> 지역별 단계보기 </b> <br>
+    ![04_사회적거리두기_지역별단계보기](bot_monitoring/bot_image/04_사회적거리두기_지역별단계보기.jpg) <br>
+<br>
 
-5. 인기 키워드 <br>
+#### 5. 인기 키워드 <br>
     ![05_인기키워드](bot_monitoring/bot_image/05_인기키워드.jpg) <br>
+<br>
 
-6. 하단에 검색어 선택 기능
-    ![06_하단에검색어선택](bot_monitoring/bot_image/06_하단에검색어선택.jpg)
+#### 6. 하단에 검색어 선택 기능 <br>
+    ![06_하단에검색어선택](bot_monitoring/bot_image/06_하단에검색어선택.jpg) <br>
+<br>
 
-7. 전세계 현황 보기 <br>
-    ![07_전세계현황](bot_monitoring/bot_image/07_전세계현황.jpg)
+#### 7. 전세계 현황 보기 <br>
+    ![07_전세계현황](bot_monitoring/bot_image/07_전세계현황.jpg) <br>
+<br>
 
-8. 네이버/ 유투브 뉴스 제공 기능 <br>
+#### 8. 네이버/ 유투브 뉴스 제공 기능 <br>
     * 네이버 뉴스 <br>
-    ![08_네이버뉴스](bot_monitoring/bot_image/08_네이버뉴스.jpg) <br>
+    ![08_네이버뉴스](bot_monitoring/bot_image/08_네이버뉴스.jpg) <br> <br>
+
     * 유투브 뉴스 <br>
-    ![08_유투브뉴스](bot_monitoring/bot_image/08_유투브뉴스.jpg)
-    
-9. 재난 문자 보기 <br>
-    ![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg)
+    ![08_유투브뉴스](bot_monitoring/bot_image/08_유투브뉴스.jpg) <br>
+<br>
 
-10. 자가진단 문진표 제공 <br>
-    ![10_자가진단](bot_monitoring/bot_image/10_자가진단.jpg)
+#### 9. 재난 문자 보기 <br>
+    ![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg) <br>
+<br>
 
-11. 근처 병원 및 약국 안내 <br>
-    ![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg)
+#### 10. 자가진단 문진표 제공 <br>
+    ![10_자가진단](bot_monitoring/bot_image/10_자가진단.jpg) <br>
+<br>
+
+#### 11. 근처 병원 및 약국 안내 <br>
+    ![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg) <br>
+<br>
