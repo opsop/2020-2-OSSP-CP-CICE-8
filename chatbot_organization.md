@@ -1,46 +1,54 @@
-## 기능 & API, 링크
+## 활용한 API 안내
 
 #### 1. 국내확진자/ 사망자/ 완치자 알림
-https://github.com/dhlife09/Corona-19-API <br>
-매번 호출
+[Corona-19-API](https://github.com/dhlife09/Corona-19-API) 국내 코로나 정보 제공 <br>
+DB 저장.
 
 #### 2. 팬데믹 바이러스 비교 그래프(시각화) 제공
+[Corona-19-API](https://github.com/dhlife09/Corona-19-API) 국내 코로나 정보 제공 <br>
 국내 현황만 제공
 
 #### 3. 가까운 선별 진료소 보여주기
-카카오맵 API 활용 예정 <br>
-https://apis.map.kakao.com/
+[카카오맵 API](https://apis.map.kakao.com/)
 
 #### 4. 사회적 거리두기 단계 알림
-사회적 거리두기 단계 정보 보여주기
+사회적 거리두기 단계 정보 보여주기 <br>
+* 지역별 단계보기
+* 단계별 특징 제공.
 
 #### 5. 인기 키워드 목록화
-자연어 처리 모델<br>
-관련 오픈소스/ 사용할 구체적인 알고리즘 찾기
+자연어 처리 모델
 
 #### 6. 하단에 검색어 선택할 수 있게 만들기
 카카오 챗봇 자동 기능
 
 #### 7. 국가별 코로나 데이터 안내(전세계 현황)
-https://github.com/ExpDev07/coronavirus-tracker-api <br>
-DB 사용
+[Corona-Tracker API](https://github.com/Kamaropoulos/COVID19Py/blob/master/README.md#about) 활용 코로나 챗봇. <br>
+DB 저장
 
 #### 8. 코로나 관련 유투브/네이버 뉴스 제공
-8-1. 유투브 크롤링 -API 사용 가능<br>
-8-2. 네이버 크롤링 -크롤링하고 링크 연결<br>
-8-3. 뉴스 세분화 키워드
+* 8-1. 유투브 크롤링
+    Youtube Data API v3
+    DB 저장
+* 8-2. 네이버 크롤링 
+    네이버 API 
+    DB 저장
+* 8-3. 뉴스 세분화 키워드
+    코로나 확진자
+    코로나 백신
+    코로나 후유증
+    기타 검색
 
 #### 9. 재난문자 현황
-https://www.data.go.kr/data/3058822/openapi.do <br>
+[공공데이터 포털 재난문자방송 발령현황](https://www.data.go.kr/data/3058822/openapi.do) 
 DB 저장
 
 #### 10. 자가진단 문진표 제공
-https://tools.cdc.gov/medialibrary/index.aspx#/media/id/405848 <br>
-이미지 캡처해서 저장
+[코로나 자가진단](http://aiselftest.com/covid/) <br>
+[코로나 블루 진단](https://dongguk.webex.com/meet/pr2018112168)
 
 #### 11. 근처 병원/ 약국 위치 제공
-카카오맵 API 활용 예정 <br>
-https://apis.map.kakao.com/
+[카카오맵 API](https://apis.map.kakao.com/)
 
 #### 12. 기타 검색
 자연어처리 기능 사용(카카오에 있음)<br>
