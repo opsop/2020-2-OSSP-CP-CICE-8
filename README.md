@@ -47,5 +47,5 @@ use your own ip-address
 ## Bot Diagram
 ![diagram](bot_monitoring/bot_diagram.png)
 
-## Channel Link
+## Want to chat with our chatbot?
 * [Click Here](https://pf.kakao.com/_KgxlnK)
