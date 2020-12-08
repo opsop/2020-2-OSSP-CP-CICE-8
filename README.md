@@ -48,4 +48,4 @@ use your own ip-address
 ![diagram](bot_monitoring/bot_diagram.png)
 
 ## Want to chat with our chatbot?
-* [Click Here](https://pf.kakao.com/_KgxlnK)
+➡ [Click Here](https://pf.kakao.com/_KgxlnK)
