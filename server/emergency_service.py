@@ -6,12 +6,10 @@ from hotKeyword import *
 
 disasterDBPath = os.path.dirname(__file__) + '/CoronaBotDB/disaster_message_temp.db'
 
-
 def emergency_alerts(body):
     try:
-        hotKeyword("재난문자") # 인기 키워드 DB에 넣기
-        #print(disasterDBPath)
-        #print(body)
+        hotKeyword("재난 문자 현황") # 인기 키워드 DB에 넣기
+
         conn = sqlite3.connect(disasterDBPath)
 
         cur = conn.cursor()
@@ -208,6 +206,7 @@ def emergency_alerts(body):
             }
         }
         return jsonify(res)
+
     finally:
         cur.close()
         conn.close()
