@@ -62,11 +62,11 @@ use your own ip-address
     ![02_국내현황추이그래프](bot_monitoring/bot_image/02_국내현황추이그래프.jpg) <br>
 <br>
 
-3. 선별진료소 <br>
+3. 선별진료소 안내 <br>
     ![03_선별진료소](bot_monitoring/bot_image/03_선별진료소.jpg) <br>
 <br>
 
-4. 사회적 거리두기 <br>
+4. 사회적 거리두기 단계 <br>
     * 단계별 특징 <br>
     ![04_사회적거리두기_단계별특징](bot_monitoring/bot_image/04_사회적거리두기_단계별특징.jpg) <br> <br>
 
