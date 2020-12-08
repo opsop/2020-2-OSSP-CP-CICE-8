@@ -14,6 +14,9 @@
 * 카카오 오픈빌더를 활용하여 개발한 코로나 챗봇.
 * 카카오톡에 "코로나 챗봇" 채널 친구를 통해 확인 가능.
 
+## Want to chat with our chatbot?
+➡ [Click Here](https://pf.kakao.com/_KgxlnK)
+
 ## Used APIs
 [chatbot_organization.md](https://github.com/CSID-DGU/2020-2-OSSP-CP-CICE-8/blob/main/chatbot_organization.md)에 안내.
 
@@ -102,3 +105,4 @@ use your own ip-address
 11. 근처 병원 및 약국 안내 <br>
     ![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg) <br>
 <br>
+
