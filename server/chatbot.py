@@ -23,7 +23,6 @@ from hotKeyword import * # 인기 키워드
 from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
 from Sociallev import level # 사회적 거리두기 단계
 from Self_diag import self_diagnosis # 자가 진단
-from New_Korea import new_korea
 
 # 유튜브 뉴스 리스트 카드 버전
 from Tube import tube_get
@@ -104,12 +103,9 @@ def KoreaData():
     # print(body)
     print("국내 코로나 현황 call")
     content = body["action"]["detailParams"]["select"]["origin"]
+    KoreaResult = KoreaCorona(content)
     hotKeyword('국내 현황')
-    if content == "그래프 베타버전":
-        return(jsonify(new_korea()))
-    else:
-        KoreaResult = KoreaCorona(content)
-        return jsonify(KoreaResult)
+    return jsonify(KoreaResult)
 
 
 # 선별진료소 안내
