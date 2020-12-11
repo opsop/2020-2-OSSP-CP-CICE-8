@@ -54,6 +54,94 @@ use your own ip-address
 *** 
 
 ## Bot images
+
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-vox4{font-size:16px;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-z9od{font-size:12px;text-align:left;vertical-align:top}
+.tg .tg-73a0{border-color:inherit;font-size:12px;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-vox4">기능</th>
+    <th class="tg-vox4">사진</th>
+    <th class="tg-vox4">설명</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-73a0">1. 국내 현황 보기</td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0" rowspan="2"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0" rowspan="2">8. 뉴스 제공 기능</td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-z9od"></td>
+    <td class="tg-z9od"></td>
+    <td class="tg-z9od"></td>
+  </tr>
+</tbody>
+</table>
+
+
 1. 국내 현황 보기 <br>
     ![01_국내현황보기](bot_monitoring/bot_image/01_국내현황보기.jpg) <br>
 <br>
