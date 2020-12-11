@@ -75,7 +75,7 @@ use your own ip-address
 <br>
 
 5. 인기 키워드 <br>
-    ![05_인기키워드](bot_monitoring/bot_image/05_인기키워드.jpg) <br>
+    ![title](/bot_monitoring/bot_image/05_인기키워드.jpg){: width="200" height="400"}
 <br>
 
 6. 하단에 검색어 선택 기능 <br>
