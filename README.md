@@ -99,7 +99,7 @@ use your own ip-address
 <br>
 
 10. 자가진단 문진표 제공 <br>
-    <img src="bot_monitoring/bot_image/10_자가진단.jpg" width="50%" height ="50%"/>
+    <img src="bot_monitoring/bot_image/10_자가진단.jpg" width="10%" height ="10%"/>
     <br>
 <br>
 
