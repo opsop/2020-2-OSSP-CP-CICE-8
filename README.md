@@ -54,7 +54,8 @@ use your own ip-address
 *** 
 
 ## Bot images
-
+### 이렇게 표로 적어주는게 더 깔끔할것같아서
+### 각자 적으시면 될것같아요!
 
 <table class="tg">
 <thead>
