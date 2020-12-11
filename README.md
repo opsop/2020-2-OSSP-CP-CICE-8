@@ -54,6 +54,85 @@ use your own ip-address
 *** 
 
 ## Bot images
+### 이렇게 표로 적어주는게 더 깔끔할것같아서
+### 각자 적으시면 될것같아요!
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-vox4">기능</th>
+    <th class="tg-vox4">사진</th>
+    <th class="tg-vox4">설명</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-73a0">1. 국내 현황 보기</td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0" rowspan="2"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0" rowspan="2">8. 뉴스 제공 기능</td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0">10. 자가진단 문진표</td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/10_자가진단.jpg" width="50%"></td>
+    <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-z9od"></td>
+    <td class="tg-z9od"></td>
+    <td class="tg-z9od"></td>
+  </tr>
+</tbody>
+</table>
+
+
 1. 국내 현황 보기 <br>
     ![01_국내현황보기](bot_monitoring/bot_image/01_국내현황보기.jpg) <br>
 <br>
@@ -98,10 +177,6 @@ use your own ip-address
     ![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg) <br>
 <br>
 
-10. 자가진단 문진표 제공 <br>
-    <img src="bot_monitoring/bot_image/10_자가진단.jpg" width="30%" height ="30%"/>
-    <br>
-<br>
 
 11. 근처 병원 및 약국 안내 <br>
     ![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg) <br>
