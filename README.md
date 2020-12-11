@@ -119,8 +119,8 @@ use your own ip-address
     <td class="tg-73a0"></td>
   </tr>
   <tr>
-    <td class="tg-73a0"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">10. 자가진단 문진표</td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/10_자가진단.jpg" width="30%" height ="30%"/></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
@@ -176,10 +176,6 @@ use your own ip-address
     ![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg) <br>
 <br>
 
-10. 자가진단 문진표 제공 <br>
-    <img src="bot_monitoring/bot_image/10_자가진단.jpg" width="30%" height ="30%"/>
-    <br>
-<br>
 
 11. 근처 병원 및 약국 안내 <br>
     ![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg) <br>
