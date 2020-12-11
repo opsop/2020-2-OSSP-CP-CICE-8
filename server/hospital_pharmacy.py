@@ -1,14 +1,9 @@
-from flask import Flask, request
-import json
 from hotKeyword import *
 
 imageUrl = "https://user-images.githubusercontent.com/71917474/100836760-37822b00-34b3-11eb-8808-680db10567ce.jpg"
 
 
 def hospital_info(content):
-    # content = request.get_json()
-    #content = json.loads(request.data)
-    # print(content)
     hotKeyword("근처 병원 및 약국 안내")
     content = content['userRequest']['utterance']
     # print(content)
