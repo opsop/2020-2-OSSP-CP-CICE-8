@@ -51,6 +51,7 @@ use your own ip-address
 
 *** 
 ## Directory Tree
+```
 ├─.idea
 │  └─inspectionProfiles
 ├─.ipynb_checkpoints
@@ -97,6 +98,7 @@ use your own ip-address
     │      ├─examples
     │      └─kakaoi
     └─__pycache__
+```
 
 ## Bot images
 ### 이렇게 표로 적어주는게 더 깔끔할것같아서
