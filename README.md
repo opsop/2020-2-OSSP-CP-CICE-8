@@ -99,7 +99,8 @@ use your own ip-address
 <br>
 
 10. 자가진단 문진표 제공 <br>
-    ![10_자가진단](bot_monitoring/bot_image/10_자가진단.jpg) <br>
+    <img src="bot_monitoring/bot_image/10_자가진단.jpg" width="40%" height ="15%">
+    <br>
 <br>
 
 11. 근처 병원 및 약국 안내 <br>
