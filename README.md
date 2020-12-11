@@ -50,7 +50,53 @@ use your own ip-address
 ![diagram](bot_monitoring/bot_diagram_final.png)
 
 *** 
-## Directory
+## Directory Tree
+├─.idea
+│  └─inspectionProfiles
+├─.ipynb_checkpoints
+├─botproject
+│  ├─botbot
+│  │  ├─migrations
+│  │  │  └─__pycache__
+│  │  ├─templates
+│  │  └─__pycache__
+│  ├─botproject
+│  │  └─__pycache__
+│  └─static
+│      ├─admin
+│      │  ├─css
+│      │  │  └─vendor
+│      │  │      └─select2
+│      │  ├─fonts
+│      │  ├─img
+│      │  │  └─gis
+│      │  └─js
+│      │      ├─admin
+│      │      └─vendor
+│      │          ├─jquery
+│      │          ├─select2
+│      │          │  └─i18n
+│      │          └─xregexp
+│      ├─assets
+│      │  ├─css
+│      │  └─img
+│      └─js
+├─bot_monitoring
+│  ├─bot_image
+│  └─scenario
+├─chatbot_data
+│  └─entity
+├─proposal
+└─server
+    ├─CoronaBotDB
+    ├─msg_app
+    │  └─__pycache__
+    ├─refer
+    │  ├─CoronaBot-master
+    │  └─kakaoisdk
+    │      ├─examples
+    │      └─kakaoi
+    └─__pycache__
 
 ## Bot images
 ### 이렇게 표로 적어주는게 더 깔끔할것같아서
