@@ -51,6 +51,7 @@ use your own ip-address
 
 *** 
 ## Directory Tree
+(얘 전체파일까지 출력했더니 길이 에바라서 일케 넣었는데 그냥 빼는게 낫다싶으면 지우셔도 되고, 전체 파일 부분부분 넣는것도 괜찮은것같아요!)
 ```
 ├─.idea
 │  └─inspectionProfiles
