@@ -31,30 +31,32 @@ def get_emergency_alerts(page_number):
     dict_content = json.loads(content)
     return dict_content
 
-#conn = sqlite3.connect("disaster_message_temp.db", isolation_level=None)
-conn = sqlite3.connect(DB_PATH + "/disaster_message_temp.db", isolation_level=None)
+try:
+    #conn = sqlite3.connect("disaster_message_temp.db", isolation_level=None)
+    conn = sqlite3.connect(DB_PATH + "/disaster_message_temp.db", isolation_level=None)
 
-conn.execute("CREATE TABLE IF NOT EXISTS MESSAGE \
-    (id integer PRIMARY KEY, create_date text, location_name text, msg text)")
-conn.execute("DELETE from MESSAGE")
+    conn.execute("CREATE TABLE IF NOT EXISTS MESSAGE \
+        (id integer PRIMARY KEY, create_date text, location_name text, msg text)")
+    conn.execute("DELETE from MESSAGE")
 
-# i : 공공데이터포털 데이터에서 페이지 넘버 (i를 1씩 증가시키면서 재난 문자를 10개(page_num)씩 가져옴)
-# init : 초기 페이지 넘버(제일 첫 페이지)
-# d: 추출할 재난문자 개수
-while (d < msg_num):
-    mms = get_emergency_alerts(i)
+    # i : 공공데이터포털 데이터에서 페이지 넘버 (i를 1씩 증가시키면서 재난 문자를 10개(page_num)씩 가져옴)
+    # init : 초기 페이지 넘버(제일 첫 페이지)
+    # d: 추출할 재난문자 개수
+    while (d < msg_num):
+        mms = get_emergency_alerts(i)
 
-    rows = mms['DisasterMsg'][1]['row']  # 데이터의 mms['DisasterMsg'][1]['row']에 필요한 정보가 있음.
-    for idx, row in enumerate(rows):
-        _id = (i - init) * page_num + idx   # _id 로 DB 내의 index 값 설정
-        row['msg'] = row['msg'].replace('"', "'")
+        rows = mms['DisasterMsg'][1]['row']  # 데이터의 mms['DisasterMsg'][1]['row']에 필요한 정보가 있음.
+        for idx, row in enumerate(rows):
+            _id = (i - init) * page_num + idx   # _id 로 DB 내의 index 값 설정
+            row['msg'] = row['msg'].replace('"', "'")
 
-        query = """INSERT INTO MESSAGE(id, create_date, location_name, msg)
-                VALUES ( "%d", "%s", "%s", "%s" )""" % (_id, row['create_date'], row['location_name'], row['msg'])
-        #print(query)
-        conn.execute(query)
-        d = _id
-    i += 1
+            query = """INSERT INTO MESSAGE(id, create_date, location_name, msg)
+                    VALUES ( "%d", "%s", "%s", "%s" )""" % (_id, row['create_date'], row['location_name'], row['msg'])
+            #print(query)
+            conn.execute(query)
+            d = _id
+        i += 1
 
-conn.commit()
-conn.close()
+finally:
+    conn.commit()
+    conn.close()
