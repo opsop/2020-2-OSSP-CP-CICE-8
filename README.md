@@ -55,7 +55,7 @@ use your own ip-address
 
 ## Bot images
 ### 이렇게 표로 적어주는게 더 깔끔할것같아서
-### 각자 적으시면 될것같아요!
+### 각자 코드랑 기능 아주 간단하게 설명 적으시면 될것같아요!
 
 <table class="tg">
 <thead>
