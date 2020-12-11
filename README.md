@@ -120,7 +120,7 @@ use your own ip-address
   </tr>
   <tr>
     <td class="tg-73a0">10. 자가진단 문진표</td>
-    <td class="tg-73a0"><img src="bot_monitoring/bot_image/10_자가진단.jpg"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/10_자가진단.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
