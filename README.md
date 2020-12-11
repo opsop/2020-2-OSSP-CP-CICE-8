@@ -55,7 +55,6 @@ use your own ip-address
 
 ## Bot images
 
-</style>
 
 <table class="tg">
 <thead>
