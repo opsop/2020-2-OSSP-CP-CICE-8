@@ -163,12 +163,12 @@ use your own ip-address
   </tr>
   <tr>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/08_유투브뉴스.jpg"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">유투브 뉴스 링크 연결</td>
   </tr>
   <tr>
     <th class="tg-73a0">9. 재난 문자 보기</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/09_재난문자.jpg"></td>
-    <td class="tg-73a0">유투브 뉴스 링크 연결</td>
+    <td class="tg-73a0">해당 지역의 최신 재난문자 최대 3개까지 제공</td>
   </tr>
   <tr>
     <th class="tg-73a0">10. 자가진단 문진표</th>
