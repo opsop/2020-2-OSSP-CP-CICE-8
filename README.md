@@ -106,7 +106,7 @@ use your own ip-address
 ### 이렇게 표로 적어주는게 더 깔끔할것같아서
 ### 각자 기능 아주 간단하게 설명 적으시면 될것같아요!
 * 코드는 안 리드미에는 안 넣는게 좋을 것 같아요.. 코드 넣으면 오히려 안 볼 것 같아서요..
-* 기능만 간단하게(필요한 경우만) 넣는건 찬성입니당
+* 기능만 간단하게 넣는건 찬성입니당
 
 <table class="tg">
 <thead>
@@ -119,55 +119,55 @@ use your own ip-address
 <tbody>
   <tr>
     <td class="tg-73a0">1. 국내 현황 보기</td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/01_국내현황보기.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0">2. 국내 현황 추이 그래프</td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/02_국내현황추이그래프.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0">3. 선별진료소 안내</td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/03_선별진료소.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0" rowspan="2">4. 사회적 거리두기 단계</td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/04_사회적거리두기_단계별특징.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/04_사회적거리두기_지역별단계보기.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0">5. 인기 키워드</td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/05_인기키워드.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0">6. 하단에 검색어 선택 기능</td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/06_하단에검색어선택.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0">7. 전세계 현황 보기</td>
-    <td class="tg-73a0"></td>
-    <td class="tg-73a0"></td>
-  </tr>
-  <tr>
-    <td class="tg-73a0"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/07_전세계현황.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0" rowspan="2">8. 뉴스 제공 기능</td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/08_네이버뉴스.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/08_유투브뉴스.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
     <td class="tg-73a0">9. 재난 문자 보기</td>
-    <td class="tg-73a0"></td>
-  </tr>
-  <tr>
-    <td class="tg-73a0"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/09_재난문자.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
@@ -182,50 +182,5 @@ use your own ip-address
   </tr>
 </tbody>
 </table>
-
-
-1. 국내 현황 보기 <br>
-    ![01_국내현황보기](bot_monitoring/bot_image/01_국내현황보기.jpg) <br>
-<br>
-
-2. 국내 현황 추이 그래프 <br>
-    ![02_국내현황추이그래프](bot_monitoring/bot_image/02_국내현황추이그래프.jpg) <br>
-<br>
-
-3. 선별진료소 안내 <br>
-    ![03_선별진료소](bot_monitoring/bot_image/03_선별진료소.jpg) <br>
-<br>
-
-4. 사회적 거리두기 단계 <br>
-    * 단계별 특징 <br>
-    ![04_사회적거리두기_단계별특징](bot_monitoring/bot_image/04_사회적거리두기_단계별특징.jpg) <br> <br>
-
-    * 지역별 단계보기 <br>
-    ![04_사회적거리두기_지역별단계보기](bot_monitoring/bot_image/04_사회적거리두기_지역별단계보기.jpg) <br>
-<br>
-
-5. 인기 키워드 <br>
-    <img src="/bot_monitoring/bot_image/05_인기키워드.jpg" width="40%" height ="15%">
-<br>
-
-6. 하단에 검색어 선택 기능 <br>
-    ![06_하단에검색어선택](bot_monitoring/bot_image/06_하단에검색어선택.jpg) <br>
-<br>
-
-7. 전세계 현황 보기 <br>
-    ![07_전세계현황](bot_monitoring/bot_image/07_전세계현황.jpg) <br>
-<br>
-
-8. 네이버/ 유투브 뉴스 제공 기능 <br>
-    * 네이버 뉴스 <br>
-    ![08_네이버뉴스](bot_monitoring/bot_image/08_네이버뉴스.jpg) <br> <br>
-
-    * 유투브 뉴스 <br>
-    ![08_유투브뉴스](bot_monitoring/bot_image/08_유투브뉴스.jpg) <br>
-<br>
-
-9. 재난 문자 보기 <br>
-    ![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg) <br>
-<br>
 
 
