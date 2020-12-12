@@ -51,7 +51,8 @@ use your own ip-address
 
 *** 
 ## Directory Tree
-(얘 전체파일까지 출력했더니 길이 에바라서 일케 넣었는데 그냥 빼는게 낫다싶으면 지우셔도 되고, 전체 파일 부분부분 넣는것도 괜찮은것같아요!)
+(얘 전체파일까지 출력했더니 길이 에바라서 일케 넣었는데 그냥 빼는게 낫다싶으면 지우셔도 되고, 전체 파일 부분부분 넣는것도 괜찮은것같아요!) <br>
+--> 이거 넣는것 괜찮은 것 같아요!-by 승민
 ```
 ├─.idea
 │  └─inspectionProfiles
@@ -103,7 +104,9 @@ use your own ip-address
 
 ## Bot images
 ### 이렇게 표로 적어주는게 더 깔끔할것같아서
-### 각자 코드랑 기능 아주 간단하게 설명 적으시면 될것같아요!
+### 각자 기능 아주 간단하게 설명 적으시면 될것같아요!
+* 코드는 안 리드미에는 안 넣는게 좋을 것 같아요.. 코드 넣으면 오히려 안 볼 것 같아서요..
+* 기능만 간단하게(필요한 경우만) 넣는건 찬성입니당
 
 <table class="tg">
 <thead>
@@ -120,31 +123,31 @@ use your own ip-address
     <td class="tg-73a0"></td>
   </tr>
   <tr>
-    <td class="tg-73a0"></td>
-    <td class="tg-73a0"></td>
-    <td class="tg-73a0"></td>
-  </tr>
-  <tr>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">2. 국내 현황 추이 그래프</td>
     <td class="tg-73a0"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
-    <td class="tg-73a0" rowspan="2"></td>
+    <td class="tg-73a0">3. 선별진료소 안내</td>
     <td class="tg-73a0"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
+    <td class="tg-73a0" rowspan="2">4. 사회적 거리두기 단계</td>
     <td class="tg-73a0"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
+    <td class="tg-73a0">5. 인기 키워드</td>
     <td class="tg-73a0"></td>
+  </tr>
+  <tr>
+    <td class="tg-73a0">6. 하단에 검색어 선택 기능</td>
     <td class="tg-73a0"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">7. 전세계 현황 보기</td>
     <td class="tg-73a0"></td>
     <td class="tg-73a0"></td>
   </tr>
@@ -159,7 +162,7 @@ use your own ip-address
     <td class="tg-73a0"></td>
   </tr>
   <tr>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">9. 재난 문자 보기</td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
@@ -173,8 +176,8 @@ use your own ip-address
     <td class="tg-73a0"></td>
   </tr>
   <tr>
-    <td class="tg-z9od"></td>
-    <td class="tg-z9od"></td>
+    <td class="tg-z9od">11. 근처 병원 및 약국 안내</td>
+    <td class="tg-z9od"><img src="bot_monitoring/bot_image/11_근처병원및약국.jpg" width="50%"></td>
     <td class="tg-z9od"></td>
   </tr>
 </tbody>
@@ -225,8 +228,4 @@ use your own ip-address
     ![09_재난문자](bot_monitoring/bot_image/09_재난문자.jpg) <br>
 <br>
 
-
-11. 근처 병원 및 약국 안내 <br>
-    ![11_근처병원및약국](bot_monitoring/bot_image/11_근처병원및약국.jpg) <br>
-<br>
 
