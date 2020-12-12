@@ -119,7 +119,7 @@ use your own ip-address
 <tbody>
   <tr>
     <th class="tg-73a0">1. 국내 현황 보기</th>
-    <td class="tg-73a0"><img src="bot_monitoring/bot_image/01_국내현황보기.jpg" width="50%"></td>
+    <td class="tg-73a0"><img src="bot_monitoring/bot_image/01_국내현황보기.jpg"></td>
     <td class="tg-73a0">국내 코로나 확진자/ 완치자/ 사망자/ 치명률 등의 정보 제공</td>
   </tr>
   <tr>
