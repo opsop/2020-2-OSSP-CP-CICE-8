@@ -118,67 +118,67 @@ use your own ip-address
 </thead>
 <tbody>
   <tr>
-    <td class="tg-73a0">1. 국내 현황 보기</td>
+    <th class="tg-73a0">1. 국내 현황 보기</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/01_국내현황보기.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">국내 코로나 확진자/ 완치자/ 사망자/ 치명률 등의 정보 제공</td>
   </tr>
   <tr>
-    <td class="tg-73a0">2. 국내 현황 추이 그래프</td>
+    <th class="tg-73a0">2. 국내 현황 추이 그래프</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/02_국내현황추이그래프.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">추이 그래프 이미지와 정부 통계청 사이트 연결 버튼 제공</td>
   </tr>
   <tr>
-    <td class="tg-73a0">3. 선별진료소 안내</td>
+    <th class="tg-73a0">3. 선별진료소 안내</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/03_선별진료소.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">카카오맵에 선별진료소 안내</td>
   </tr>
   <tr>
-    <td class="tg-73a0" rowspan="2">4. 사회적 거리두기 단계</td>
+    <th class="tg-73a0" rowspan="2">4. 사회적 거리두기 단계</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/04_사회적거리두기_단계별특징.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">단계별 특징 안내</td>
   </tr>
   <tr>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/04_사회적거리두기_지역별단계보기.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">지역별 단계보기 정보 제공</td>
   </tr>
   <tr>
-    <td class="tg-73a0">5. 인기 키워드</td>
+    <th class="tg-73a0">5. 인기 키워드</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/05_인기키워드.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">챗봇 인기 키워드 3위까지 제공</td>
   </tr>
   <tr>
-    <td class="tg-73a0">6. 하단에 검색어 선택 기능</td>
+    <th class="tg-73a0">6. 하단에 검색어 선택 기능</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/06_하단에검색어선택.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">하단에 검색어 선택 가능</td>
   </tr>
   <tr>
-    <td class="tg-73a0">7. 전세계 현황 보기</td>
+    <th class="tg-73a0">7. 전세계 현황 보기</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/07_전세계현황.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">전세계 코로나 확진자/ 사망자/ 격리해제/ 치명률 정보 제공</td>
   </tr>
   <tr>
-    <td class="tg-73a0" rowspan="2">8. 뉴스 제공 기능</td>
+    <th class="tg-73a0" rowspan="2">8. 뉴스 제공 기능</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/08_네이버뉴스.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">네이버 뉴스 링크 연결</td>
   </tr>
   <tr>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/08_유투브뉴스.jpg" width="50%"></td>
     <td class="tg-73a0"></td>
   </tr>
   <tr>
-    <td class="tg-73a0">9. 재난 문자 보기</td>
+    <th class="tg-73a0">9. 재난 문자 보기</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/09_재난문자.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">유투브 뉴스 링크 연결</td>
   </tr>
   <tr>
-    <td class="tg-73a0">10. 자가진단 문진표</td>
+    <th class="tg-73a0">10. 자가진단 문진표</th>
     <td class="tg-73a0"><img src="bot_monitoring/bot_image/10_자가진단.jpg" width="50%"></td>
-    <td class="tg-73a0"></td>
+    <td class="tg-73a0">코로나 자가진단과 코로나 블루 자가진단 가능</td>
   </tr>
   <tr>
-    <td class="tg-z9od">11. 근처 병원 및 약국 안내</td>
+    <th class="tg-z9od">11. 근처 병원 및 약국 안내</th>
     <td class="tg-z9od"><img src="bot_monitoring/bot_image/11_근처병원및약국.jpg" width="50%"></td>
-    <td class="tg-z9od"></td>
+    <td class="tg-z9od">카카오맵에 근처 병원과 약국 정보 제공</td>
   </tr>
 </tbody>
 </table>
