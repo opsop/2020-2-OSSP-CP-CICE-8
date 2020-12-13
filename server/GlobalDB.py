@@ -49,7 +49,7 @@ VALUES ('%s','%s','%s', '%s')"""
 def update_GlobalDB():
 
     res = covi.COVID19().getAll()
-    updateTime = ":".join(res['locations'][0]['last_updated'].split(".")[:-1])
+    updateTime = ":".join(res['locations'][0]['last_updated'].split(".")[:-1]) # 초에서 소숫점 제거
     updateData = "UPDATE GLOBAL SET DATA='%s', LASTUPDATE='%s' WHERE COUNTRY='%s' "
     try:
         # 1. 디비 연결

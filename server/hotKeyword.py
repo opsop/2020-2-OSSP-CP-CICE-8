@@ -67,7 +67,11 @@ def searchHotKeyword(body):
         print("ERROR : ", e)
         print(traceback.format_exc())
     finally:
+        # 인기 키워드 테이블 데이터 확인용
+        print(conn.execute("SELECT * from HOTKEYWORD").fetchall())
         conn.close()
+
+
 
     #오는 request 형식 확인
     #print("인기키워드")
