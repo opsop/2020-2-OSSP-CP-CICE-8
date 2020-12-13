@@ -19,7 +19,7 @@ def dataSendSimple(message):
 
     return dataSend
 
-def GlobaldataSendCard(message,imageUrl):
+def GlobaldataSendCard(nation,message,imageUrl):
 
     dataSend = {
         "version": "2.0",
@@ -30,7 +30,7 @@ def GlobaldataSendCard(message,imageUrl):
                         "type": "basicCard",
                         "items": [
                             {
-                                "title": "국외 코로나 현황",
+                                "title": nation+" 코로나 현황",
                                 "description": message,
                                 "thumbnail": {
                                     "imageUrl": imageUrl},
