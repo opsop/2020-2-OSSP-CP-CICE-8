@@ -1,4 +1,4 @@
-## 활용한 API 안내
+## 활용한 API & LICENSE 안내
 
 #### 1. 국내확진자/ 사망자/ 완치자 알림
 [Corona-19-API](https://github.com/dhlife09/Corona-19-API) 국내 코로나 정보 제공 <br>
@@ -52,7 +52,8 @@ DB 저장
 [코로나 블루 진단](https://dongguk.webex.com/meet/pr2018112168)
 
 #### 11. 근처 병원/ 약국 위치 제공
-[카카오맵 API](https://apis.map.kakao.com/)
+[카카오맵 API](https://apis.map.kakao.com/) <br>
+License: [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0) 
 
 #### 12. 기타 검색
 자연어처리 기능 사용(카카오에 있음)<br>
