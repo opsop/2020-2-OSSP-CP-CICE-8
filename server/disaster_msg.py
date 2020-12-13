@@ -36,7 +36,7 @@ try:
     conn = sqlite3.connect(DB_PATH + "/disaster_message_temp.db", isolation_level=None)
 
     conn.execute("CREATE TABLE IF NOT EXISTS MESSAGE \
-        (id integer PRIMARY KEY, create_date text, location_name text, msg text)")
+        (id integer UNIQUE, create_date text, location_name text, msg text)")
     conn.execute("DELETE from MESSAGE")
 
     # i : 공공데이터포털 데이터에서 페이지 넘버 (i를 1씩 증가시키면서 재난 문자를 10개(page_num)씩 가져옴)
@@ -50,7 +50,7 @@ try:
             _id = (i - init) * page_num + idx   # _id 로 DB 내의 index 값 설정
             row['msg'] = row['msg'].replace('"', "'")
 
-            query = """INSERT INTO MESSAGE(id, create_date, location_name, msg)
+            query = """INSERT OR REPLACE INTO MESSAGE(id, create_date, location_name, msg)
                     VALUES ( "%d", "%s", "%s", "%s" )""" % (_id, row['create_date'], row['location_name'], row['msg'])
             #print(query)
             conn.execute(query)
