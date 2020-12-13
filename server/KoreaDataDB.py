@@ -87,9 +87,10 @@ def select_updateTime(updateTime):
         c.execute('SELECT * FROM KoreaDB WHERE updateTime = ?', setdata)
         ret = c.fetchone()
     except Exception as e:
-        print('db error:', e)
+        print('db error:', e,"\n")
     finally:
         db.close()
+        print(type(ret))
         return ret
 
 

@@ -14,7 +14,6 @@
 * 카카오 오픈빌더를 활용하여 개발한 코로나 챗봇.
 * 카카오톡에 "코로나 챗봇" 채널 친구를 통해 확인 가능. ➡ [Click Here](https://pf.kakao.com/_KgxlnK)
 
-
 ## Used APIs
 [chatbot_organization.md](https://github.com/CSID-DGU/2020-2-OSSP-CP-CICE-8/blob/main/chatbot_organization.md)에 안내.
 
@@ -51,8 +50,7 @@ use your own ip-address
 
 *** 
 ## Directory Tree
-(얘 전체파일까지 출력했더니 길이 에바라서 일케 넣었는데 그냥 빼는게 낫다싶으면 지우셔도 되고, 전체 파일 부분부분 넣는것도 괜찮은것같아요!) <br>
---> 이거 넣는것 괜찮은 것 같아요!-by 승민
+
 ```
 ├─.idea
 │  └─inspectionProfiles
@@ -103,10 +101,6 @@ use your own ip-address
 ```
 
 ## Bot images
-### 이렇게 표로 적어주는게 더 깔끔할것같아서
-### 각자 기능 아주 간단하게 설명 적으시면 될것같아요!
-* 코드는 안 리드미에는 안 넣는게 좋을 것 같아요.. 코드 넣으면 오히려 안 볼 것 같아서요..
-* 기능만 간단하게 넣는건 찬성입니당
 
 <table class="tg">
 <thead>
