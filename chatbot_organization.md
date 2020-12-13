@@ -2,14 +2,17 @@
 
 #### 1. 국내확진자/ 사망자/ 완치자 알림
 [Corona-19-API](https://github.com/dhlife09/Corona-19-API) 국내 코로나 정보 제공 <br>
+License: [MIT License](https://github.com/dhlife09/Corona-19-API/blob/master/LICENSE) <br>
 DB 저장.
 
 #### 2. 팬데믹 바이러스 비교 그래프(시각화) 제공
 [Corona-19-API](https://github.com/dhlife09/Corona-19-API) 국내 코로나 정보 제공 <br>
+License: [MIT License](https://github.com/dhlife09/Corona-19-API/blob/master/LICENSE) <br>
 국내 현황만 제공
 
 #### 3. 가까운 선별 진료소 보여주기
-[카카오맵 API](https://apis.map.kakao.com/)
+[카카오맵 API](https://apis.map.kakao.com/) <br>
+License: [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0) 
 
 #### 4. 사회적 거리두기 단계 알림
 사회적 거리두기 단계 정보 보여주기 <br>
@@ -24,20 +27,21 @@ DB 저장.
 
 #### 7. 국가별 코로나 데이터 안내(전세계 현황)
 [Corona-Tracker API](https://github.com/Kamaropoulos/COVID19Py/blob/master/README.md#about) 활용 코로나 챗봇. <br>
+License: [GPL-3.0 License](https://github.com/Kamaropoulos/COVID19Py/blob/master/LICENSE) <br>
 DB 저장
 
 #### 8. 코로나 관련 유투브/네이버 뉴스 제공
-* 8-1. 유투브 크롤링
-    Youtube Data API v3
+* 8-1. 유투브 크롤링 <br>
+    Youtube Data API v3 <br>
     DB 저장
-* 8-2. 네이버 크롤링 
-    네이버 API 
+* 8-2. 네이버 크롤링 <br>
+    네이버 API <br>
     DB 저장
-* 8-3. 뉴스 세분화 키워드
-    코로나 확진자
-    코로나 백신
-    코로나 후유증
-    기타 검색
+* 8-3. 뉴스 세분화 키워드 <br>
+    코로나 확진자 <br>
+    코로나 백신 <br>
+    코로나 후유증 <br>
+    기타 검색 <br>
 
 #### 9. 재난문자 현황
 [공공데이터 포털 재난문자방송 발령현황](https://www.data.go.kr/data/3058822/openapi.do) 
