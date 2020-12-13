@@ -3,7 +3,7 @@ import json
 import sqlite3 as sl
 from ConstVar import *
 from hotKeyword import *
-
+from copy import deepcopy
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 
@@ -22,7 +22,7 @@ def globalData(data):
         res = {'confirmed':0,'deaths':0,'recovered':0}
 
         data = data['action']['detailParams']
-        inputNation= data['sys_nation']['value']
+        inputNation= deepcopy(data['sys_nation']['value'])
 
         if inputNation == "글로벌" or inputNation == '외국':
             inputNation = "전세계"
