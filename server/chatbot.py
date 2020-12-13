@@ -104,6 +104,7 @@ def KoreaData():
     print("국내 코로나 현황 call")
     content = body["action"]["detailParams"]["select"]["origin"]
     KoreaResult = KoreaCorona(content)
+    #KoreaResult = KoreaCorona()
     hotKeyword('국내 현황')
     return jsonify(KoreaResult)
 
