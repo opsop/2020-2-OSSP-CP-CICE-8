@@ -24,9 +24,10 @@ def nrefresh_db():
     con.close()
 
 
+# 아이디, 키는 보안을 위해 지움
 def crawl_naver():
-    client_id = "BMMCxLy7yJWCna0lxGcL"  # 취득한 아이디 넣기
-    client_secret = "2tVAp55OCM"  # 취득한 키 넣기
+    client_id = "xxxxx"  # 취득한 아이디 넣기
+    client_secret = "xxxxx"  # 취득한 키 넣기
     encode_type = 'json'
     max_display = 5
     sort = 'date'
