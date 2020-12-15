@@ -15,14 +15,14 @@ from apscheduler.schedulers.background import BackgroundScheduler
 # 카카오 챗봇 기능별 메소드
 from KoreaAPIData import KoreaCorona, update_KoreaDB  # 국내 현황, 국내 확진자 추이 시각화, api 오후 2시 업데이트
 from globalData import globalData # 전세계 데이터
-from msg_app import emergency_alerts_service # 재난문자
-from emergency_service import * # 재난문자
-from hospital_pharmacy import hospital_info # 병원/약국 정보
-from triage_center import triage # 선별 진료소
+from emergency_service import * # 재난 문자 현황
+from hospital_pharmacy import hospital_info # 근처 병원 및 약국 안내
+from triage_center import triage # 선별진료소 안내
 from hotKeyword import * # 인기 키워드
 from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
 from Sociallev import level # 사회적 거리두기 단계
 from Self_diag import self_diagnosis # 자가 진단
+from mask import * # 마스크
 
 # 유튜브 뉴스 리스트 카드 버전
 from Tube import tube_get
@@ -104,6 +104,7 @@ def KoreaData():
     print("국내 코로나 현황 call")
     content = body["action"]["detailParams"]["select"]["origin"]
     KoreaResult = KoreaCorona(content)
+    #KoreaResult = KoreaCorona()
     hotKeyword('국내 현황')
     return jsonify(KoreaResult)
 
@@ -146,6 +147,12 @@ def Distance():
     a = level(content)
     return jsonify(a)
 
+# 마스크
+@app.route('/mask_info', methods=['POST'])
+def Mask():
+    print("마스크 call")
+    body = request.get_json()
+    return jsonify(hospital_info(body))
 
 # 서버 테스트 ( 카카오 오픈빌더 return format )
 @app.route('/message', methods=['POST'])

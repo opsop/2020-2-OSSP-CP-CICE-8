@@ -5,6 +5,8 @@ import os
 from hotKeyword import *
 
 disasterDBPath = os.path.dirname(__file__) + '/CoronaBotDB/disaster_message_temp.db'
+max = 3 # 최대로 나타낼 재난 문자 개수
+
 
 def emergency_alerts(body):
     try:
@@ -157,10 +159,10 @@ def emergency_alerts(body):
             msg_list.append(row)
         # for row in rows:
         #   print(row)
-        if len(msg_list) > 3:
-            msg_list = msg_list[0:3]
+        if len(msg_list) > max:  # 해당 지역에 최근에 온 재난 문자가 max인 3개보다 많을 때
+            msg_list = msg_list[0:max]
 
-        elif len(msg_list) == 0:
+        elif len(msg_list) == 0:  # 해당 지역에 최근에 온 재난 문자가 없을 때
             res = {
                 "version": "2.0",
                 "template": {
@@ -179,7 +181,7 @@ def emergency_alerts(body):
         msg_li = []
 
         for i in range(0, len(msg_list)):
-            msg_list[i] = msg_list[i][1:]
+            msg_list[i] = msg_list[i][1:]  # 첫번째 재난 문자(msg_list[i][0]) 이후로 온 재난 문자를 표시할 때 한 줄씩 띄어서 쓰기 위해
             for j in range(0, len(msg_list[0])):
                 print(msg_list[i])
                 msg_tmp = "\n".join(msg_list[i])
