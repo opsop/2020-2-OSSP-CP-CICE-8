@@ -24,8 +24,9 @@ def yrefresh_db():
     con.close()
 
 
+# 키는 보안을 위해 지움
 def crawl_tube():
-    youtube_key = "AIzaSyDgTuKL86WcF3uS6b6gBWEUoaUdd_cAOOA"
+    youtube_key = "xxxxx"
     news_num = 5
     add_list = [] # 저장할 아이템들
     search_list = ['코로나 확진자', '코로나 백신', '코로나 후유증']
