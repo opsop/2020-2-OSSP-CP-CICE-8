@@ -21,10 +21,11 @@ try:
     con_list=[]
     clear_list =[]
     for row in rows:
-        day_list.append(row[0][4:])
+        day = row[0][4:6] + "/" + row[0][6:]
+        day_list.append(day)
         con_list.append(row[1])
         clear_list.append(row[2])
-
+    print(day_list)
     plt.rc('axes', unicode_minus=False)
     for i, v in enumerate(day_list):
         plt.text(v, con_list[i], str(con_list[i])+'명',               # 좌표 (x축 = v, y축 = y[0]..y[1], 표시 = y[0]..y[1])
