@@ -90,5 +90,6 @@ def krefresh_db():
     con.commit()
     con.close()
 
-krefresh_db()
-input_db()
+def newkupdater(): # 업데이트 함수
+    krefresh_db() # 디비 clean
+    input_db() # 다시 7개 넣기(일주일치)

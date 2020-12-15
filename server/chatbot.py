@@ -23,6 +23,7 @@ from GlobalDB import update_GlobalDB # 전세계 현황 디비 업데이트
 from Sociallev import level # 사회적 거리두기 단계
 from Self_diag import self_diagnosis # 자가 진단
 from mask import * # 마스크
+from newkoreadb import newkupdater
 
 # 유튜브 뉴스 리스트 카드 버전
 from Tube import tube_get
@@ -48,6 +49,7 @@ sched.add_job(update_db,'cron', day_of_week='0-6', hour=10)
 sched.add_job(news_update, 'interval', hours=2)
 # sched.add_job(distance_update,'interval', hours = 3)
 sched.add_job(update_KoreaDB, 'cron', day_of_week='0-6', hour=13) # KoreaDB 오후 1시 업데이트
+sched.add_job(newkupdater, 'cron', day_of_week='0-6', hour=12)
 sched.start()
 
 app = Flask(__name__)
