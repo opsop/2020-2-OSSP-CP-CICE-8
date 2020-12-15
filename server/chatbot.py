@@ -13,7 +13,7 @@ SECURE_SSL_REDIRECT = False
 from apscheduler.schedulers.background import BackgroundScheduler
 
 # 카카오 챗봇 기능별 메소드
-from KoreaAPIData import KoreaCorona, update_KoreaDB  # 국내 현황, 국내 확진자 추이 시각화, api 오후 2시 업데이트
+#from KoreaAPIData import KoreaCorona, update_KoreaDB  # 국내 현황, 국내 확진자 추이 시각화, api 오후 2시 업데이트
 from globalData import globalData # 전세계 데이터
 from emergency_service import * # 재난 문자 현황
 from hospital_pharmacy import hospital_info # 근처 병원 및 약국 안내
@@ -24,6 +24,7 @@ from Sociallev import level # 사회적 거리두기 단계
 from Self_diag import self_diagnosis # 자가 진단
 from mask import * # 마스크
 from newkoreadb import newkupdater
+from korea_response import KoreaCorona
 
 # 유튜브 뉴스 리스트 카드 버전
 from Tube import tube_get
