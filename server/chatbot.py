@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request , render_template
 
 #-*- coding:utf-8 -*-
 from urllib.parse import urlencode, quote_plus
@@ -25,6 +25,7 @@ from Self_diag import self_diagnosis # 자가 진단
 from mask import * # 마스크
 from newkoreadb import newkupdater
 from korea_response import KoreaCorona
+from ConstVar import CurrentPath
 
 # 유튜브 뉴스 리스트 카드 버전
 from Tube import tube_get
@@ -71,6 +72,10 @@ def Keyboard():
       "Subject" : "OSSP",
     }
     return jsonify(dataSend)
+
+@app.route('/korea_graph')
+def KoreaGraph():
+    return render_template(CurrentPath + '/graphWeb/graph.html')
 
 # 긴급 재난문자
 @app.route('/city_info', methods=['POST'])

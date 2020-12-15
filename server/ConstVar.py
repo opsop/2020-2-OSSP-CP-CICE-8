@@ -1,5 +1,7 @@
 import os
-DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
+CurrentPath = os.path.dirname(__file__)
+DB_PATH = CurrentPath + '/CoronaBotDB'
+
 #print(DB_PATH)
 
 def dataSendSimple(message):
