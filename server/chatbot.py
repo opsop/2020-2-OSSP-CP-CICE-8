@@ -75,7 +75,7 @@ def Keyboard():
 
 @app.route('/korea_graph')
 def KoreaGraph():
-    return render_template('/graph.html')
+    return render_template(CurrentPath + '/templates/graph.html')
 
 # 긴급 재난문자
 @app.route('/city_info', methods=['POST'])

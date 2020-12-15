@@ -7,8 +7,16 @@
     <title>Flask Info</title>
 </head>
 <body>
-<img src="./korea_graph.png" alt="Mountain">
+<img src="korea_graph.jpg" onerror="error()">
 <p>This page is Info page.</p>
+
+
+<script>
+function error() {
+  document.getElementById("demo").innerHTML = "The image could not be loaded.";
+}
+</script>
+
 
 </body>
 </html>
