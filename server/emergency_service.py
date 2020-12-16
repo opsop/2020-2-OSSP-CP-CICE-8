@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 import json
 import sqlite3
-import os
 from hotKeyword import *
+from ConstVar import DB_PATH
 
-disasterDBPath = os.path.dirname(__file__) + '/CoronaBotDB/disaster_message_temp.db'
+disasterDBPath = DB_PATH + '/disaster_message_temp.db'
 max = 3 # 최대로 나타낼 재난 문자 개수
 
 

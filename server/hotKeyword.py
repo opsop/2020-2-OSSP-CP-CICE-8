@@ -76,5 +76,29 @@ def searchHotKeyword(body):
     #오는 request 형식 확인
     #print("인기키워드")
     #print(body)
+    return hotKeywordButton()
+    #return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)
 
-    return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)
+def hotKeywordButton():
+    dataSend = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "simpleText": {
+            "text": "인기 키워드"
+          },
+          "buttons": [
+            {
+              "action": "block",
+              "label": "열어보기",
+              "messageText": "전세계 현황"
+              "blockId" : "5fb0e639d9431d64aa840e50"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+    return dataSend
