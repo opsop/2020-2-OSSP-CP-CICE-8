@@ -4,7 +4,7 @@ import sqlite3 as sl
 from ConstVar import *
 from hotKeyword import *
 from copy import deepcopy
-from ConstVar import imageUrl
+from ConstVar import MaskURL
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 
