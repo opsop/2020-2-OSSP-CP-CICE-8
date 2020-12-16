@@ -48,6 +48,29 @@ def hotKeyword( nttpass : str ):
         conn.commit()
         cur.close()
         conn.close()
+        
+def hotKeywordButton(buttons):
+    dataSend = {
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "carousel": {
+                    "type": "basicCard",
+                    "items": [
+                        {
+                            "title":  "인기 키워드",
+                            "thumbnail": {
+                                "imageUrl": "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg"},
+                            "buttons": buttons
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+    return dataSend
 
 def searchHotKeyword(body):
 
@@ -100,28 +123,3 @@ def searchHotKeyword(body):
     #print(body)
     return hotKeywordButton(buttons)
     #return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)
-
-searchHotKeyword(" ")
-
-def hotKeywordButton(buttons):
-    dataSend = {
-    "version": "2.0",
-    "template": {
-        "outputs": [
-            {
-                "carousel": {
-                    "type": "basicCard",
-                    "items": [
-                        {
-                            "title":  "인기 키워드",
-                            "thumbnail": {
-                                "imageUrl": "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg"},
-                            "buttons": buttons
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-}
-    return dataSend
