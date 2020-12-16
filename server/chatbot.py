@@ -99,6 +99,7 @@ def Global():
 def Naver_news():
     print("네이버 뉴스 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     content = body["action"]["detailParams"]["corona_topic"]["origin"]
     dataSend = naver_get(content)
     return jsonify(dataSend)
@@ -108,6 +109,7 @@ def Naver_news():
 def Youtube():
     print("유튜브 뉴스 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     content = body["action"]["detailParams"]["youtube_corona"]["origin"]
     dataSend = tube_get(content)
     return jsonify(dataSend)
@@ -116,6 +118,7 @@ def Youtube():
 @app.route('/KoreaData',methods = ['GET','POST'])
 def KoreaData():
     body = request.get_json() # 되묻기 질문용도
+    print("blockId : "+body['userRequest']['block']['id'])
     # print(body)
     print("국내 코로나 현황 call")
     content = body["action"]["detailParams"]["select"]["origin"]
@@ -130,6 +133,7 @@ def KoreaData():
 def Triage():
     print("선별진료소 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     return jsonify(triage(body))
 
 
@@ -138,6 +142,7 @@ def Triage():
 def Hospital():
     print("병원및약국 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     return jsonify(hospital_info(body))
 
 # 인기 키워드 검색기능
@@ -145,6 +150,7 @@ def Hospital():
 def HotKeyword():
     print("인기 키워드 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     return jsonify(searchHotKeyword(body))
 
 # 자가진단 테스트
@@ -152,6 +158,7 @@ def HotKeyword():
 def Diagnosis():
     print("자가진단 테스트 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     return jsonify(self_diagnosis(body))
 
 # 사회적 거리두기
@@ -159,6 +166,7 @@ def Diagnosis():
 def Distance():
     print("사회적 거리두기 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     content = body["action"]["detailParams"]["lev"]["origin"]
     a = level(content)
     return jsonify(a)
@@ -168,6 +176,7 @@ def Distance():
 def Mask():
     print("마스크 call")
     body = request.get_json()
+    print("blockId : "+body['userRequest']['block']['id'])
     return jsonify(hospital_info(body))
 
 # 서버 테스트 ( 카카오 오픈빌더 return format )

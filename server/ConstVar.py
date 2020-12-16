@@ -4,6 +4,24 @@ DB_PATH = CurrentPath + '/CoronaBotDB'
 
 #print(DB_PATH)
 
+botKey = {
+    '선별진료소 안내' : 42,
+    '자가진단': 61,
+    '전세계 현황': "5fb0e639d9431d64aa840e50",
+    '유튜브 뉴스': 130,
+    '네이버 뉴스': 132,
+    '국내 현황':25,
+    '재난문자': 73,
+    '근처 병원 및 약국 안내': 44,
+    '사회적 거리두기 단계': 116,
+    '재난 문자 현황': 22
+    }
+
+
+
+
+
+
 def dataSendSimple(message):
 
     dataSend = {
@@ -268,7 +286,8 @@ sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot
 'params': {'sys_nation': '미국', 'situation': 'situation'},
 'detailParams': {'sys_nation': {'groupName': '', 'origin': '미국', 'value': '미국'},
 'situation': {'groupName': '', 'origin': '데이터', 'value': 'situation'}},
-'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'},
+'clientExtra': {}},
+'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'},
 'user': {'id': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
 'type': 'botUserKey', 'properties':
 {'botUserKey': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
@@ -277,3 +296,5 @@ sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot
 'plusfriend_user_key': 'IWOvhONHTgXo'}}, 'utterance': '미국 데이터',
 'params': {'surface': 'Kakaotalk.plusfriend'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'},
 'contexts': []}
+
+print("blockId : "+sampleReque['userRequest']['block']['id'])

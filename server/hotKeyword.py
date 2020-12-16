@@ -2,6 +2,7 @@ import sqlite3 as sl
 import os
 from ConstVar import *
 import traceback
+from ConstVar import botKey
 
 # counting hotKeyword
 # from hotKeyword import *
@@ -62,6 +63,27 @@ def searchHotKeyword(body):
         rank = ['🥇','🥈','🥉']
         #ex) 1. a \n 2. b \n 3. c
         res = "\n\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
+        buttons = list()
+
+        for i,x in zip(rank,a):
+            if x[0] in botKey.keys():
+                data = {
+                    "label": i +" : "+ str(x[0]),
+                    "action": "block",
+                    "messageText": str(x[0]),
+                    "blockId" : botKey[str(x[0])]
+                }
+                buttons.append(data)
+            else :
+                data = {
+                    "label": i +" : "+ str(x[0]),
+                    "action": "block",
+                    "messageText": str(x[0]),
+                    "blockId" : botKey["전세계 현황"]
+                }
+                buttons.append(data)
+
+        print(buttons)
 
     except Exception as e:
         print("ERROR : ", e)
@@ -76,11 +98,13 @@ def searchHotKeyword(body):
     #오는 request 형식 확인
     #print("인기키워드")
     #print(body)
-    return hotKeywordButton()
+    return hotKeywordButton(buttons)
     #return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)
 
-def hotKeywordButton():
-dataSend = {
+searchHotKeyword(" ")
+
+def hotKeywordButton(buttons):
+    dataSend = {
     "version": "2.0",
     "template": {
         "outputs": [
@@ -92,15 +116,7 @@ dataSend = {
                             "title":  "인기 키워드",
                             "thumbnail": {
                                 "imageUrl": "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg"},
-                            "buttons": [
-                              {
-                                "label": "열어보기",
-                                "action": "block",
-                                "messageText": "전세계 현황",
-                                "blockId" : "5fb0e639d9431d64aa840e50"
-                              }
-
-                            ]
+                            "buttons": buttons
                         }
                     ]
                 }
