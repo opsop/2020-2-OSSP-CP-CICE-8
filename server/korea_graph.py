@@ -51,7 +51,7 @@ try:
 
     plt.xlabel('(날짜)', fontproperties=fontprop, fontsize = 15)
     plt.ylabel('(명)', fontproperties=fontprop, fontsize = 15)
-    plt.ylim(0,1300)
+    #plt.ylim(0,1300)
     plt.legend(loc='center right', bbox_to_anchor=(1.45, 0.5), shadow = True, fontsize = 15)
     #font_name = fm.FontProperties(fname = font_path).get_name()
     #plt.legend(prop = {'family' : font_name, 'size':15})

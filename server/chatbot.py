@@ -45,7 +45,6 @@ def update_db():
 #update_GlobalDB()
 sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 #sched.add_job(update_db, 'cron', hours=24)
-# scheduling dbupdate at 6:00(pm) ervery day
 
 def update_korea():
     print("koreadb 업데이트 진행중")

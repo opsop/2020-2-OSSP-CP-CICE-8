@@ -8,9 +8,9 @@ i = 1  # 공공데이터포털 데이터에서 페이지 넘버 (i를 1씩 증�
 init = 1  # 초기 페이지 넘버(제일 첫 페이지)
 d = 0  # 추출할 재난문자 개수
 
-# 하루에 한번(오전 10시)에 업데이트
+# 하루에 한번 업데이트
 
-decode_key = unquote('고유한 개인키') # 개인키 값 여기에
+decode_key = unquote('O25gUy60KqtQ%2B0JSuKlerJKpJxLyZNK4OHXqxZArRcQVzeS5iqA3G6jHNJIBiFnHA%2BQPBstl32Ua6zW%2Bc2aQ8Q%3D%3D') # 개인키 값
 url = 'http://apis.data.go.kr/1741000/DisasterMsg2/getDisasterMsgList'  # 공공데이터포털 주소
 
 

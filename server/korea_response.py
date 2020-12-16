@@ -1,6 +1,6 @@
 import sqlite3
 import os
-DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
+DB_PATH = os.path.dirname(__file__) + 'CoronaBotDB'
 
 def KoreaCorona(param):
     con = sqlite3.connect(DB_PATH + '/newkorea.db')
@@ -9,18 +9,26 @@ def KoreaCorona(param):
     # 데이터 Fetch
     rows = cur.fetchall()
     row = rows[0]
+    row = list(row)
+    row[0] = row[0][:4]+'.'+row[0][4:6]+'.'+row[0][6:]
+    for i in range(1, len(row)):
+        row[i] = int(row[i])
+        row[i] = format(row[i], ',')
     messages = """(%s 00시 기준)
 확진자 %s(+%s)명
 완치자 %s(+%s)명
-사망자 %s명
-격리자 %s명
+사망자 %s(+%s)명
+격리해제 %s명
 치명률 %.2f%%""" % (row[0],
                  row[1], row[5],
                  row[2], row[7],
-                 row[6],
+                 row[4], row[6],
                  row[3],
-                 int(row[6]) / int(row[1]) * 100)  # 치명률: (사망자/ 확진자)*100
+                 int(row[4].replace(",","")) / int(row[1].replace(",","")) * 100)  # 치명률: (사망자/ 확진자)*100
+    print(messages)
 
+    cur.close()
+    con.close()
     if param == "현황 보기":
         return KoreadataSendCard(messages,
                                  imageUrl="https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg")
