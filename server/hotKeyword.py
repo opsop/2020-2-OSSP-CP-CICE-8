@@ -3,6 +3,7 @@ import os
 from ConstVar import *
 import traceback
 from ConstVar import botKey
+from ConstVar import hotKeywordButton
 
 # counting hotKeyword
 # from hotKeyword import *
@@ -48,29 +49,8 @@ def hotKeyword( nttpass : str ):
         conn.commit()
         cur.close()
         conn.close()
-        
-def hotKeywordButton(buttons):
-    dataSend = {
-    "version": "2.0",
-    "template": {
-        "outputs": [
-            {
-                "carousel": {
-                    "type": "basicCard",
-                    "items": [
-                        {
-                            "title":  "인기 키워드",
-                            "thumbnail": {
-                                "imageUrl": "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg"},
-                            "buttons": buttons
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-}
-    return dataSend
+
+
 
 def searchHotKeyword(body):
 
@@ -85,9 +65,8 @@ def searchHotKeyword(body):
 
         rank = ['🥇','🥈','🥉']
         #ex) 1. a \n 2. b \n 3. c
-        res = "\n\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
+        #res = "\n\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
         buttons = list()
-
         for i,x in zip(rank,a):
             if x[0] in botKey.keys():
                 data = {

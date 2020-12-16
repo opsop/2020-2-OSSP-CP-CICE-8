@@ -4,6 +4,7 @@ import sqlite3 as sl
 from ConstVar import *
 from hotKeyword import *
 from copy import deepcopy
+from ConstVar import imageUrl
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 
@@ -65,7 +66,7 @@ def globalData(data):
         print("Exception",e)
         print(traceback.format_exc())
     finally:
-        return GlobaldataSendCard(data['sys_nation']['value'],message,imageUrl = "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg" )
+        return GlobaldataSendCard(data['sys_nation']['value'],message,imageUrl = imageUrl )
 
 #print(globalData(sampleReque))
 

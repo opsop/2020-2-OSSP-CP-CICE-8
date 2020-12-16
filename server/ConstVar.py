@@ -1,7 +1,7 @@
 import os
 CurrentPath = os.path.dirname(__file__)
 DB_PATH = CurrentPath + '/CoronaBotDB'
-
+MaskURL = "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg"
 #print(DB_PATH)
 
 botKey = {
@@ -13,13 +13,31 @@ botKey = {
     '국내 현황': "5fcbb41d779b4a59a14d4016",
     '근처 병원 및 약국 안내': "5fb08876d9431d64aa840cea",
     '사회적 거리두기 단계': "5fb041a2eb7b236e6162d7e7",
-    '재난 문자 현황': 22
+    '재난 문자 현황': "5fb08d08d6fe9b32458ce2a4"
     }
 
-
-
-
-
+def hotKeywordButton(buttons):
+    dataSend = {
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "carousel": {
+                    "type": "basicCard",
+                    "items": [
+                        {
+                            "title":  "인기 키워드",
+                            "thumbnail": {
+                                "imageUrl": MaskURL},
+                            "buttons": buttons
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+    return dataSend
 
 def dataSendSimple(message):
 
