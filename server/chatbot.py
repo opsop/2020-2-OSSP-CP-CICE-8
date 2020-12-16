@@ -82,6 +82,7 @@ def KoreaGraph():
 def CityInfo():
     body = json.loads(request.data)
     print("긴급 재난문자 call")
+    print("blockId : "+body['userRequest']['block']['id'])
     # req = request.get_json()
     params = body["action"]["params"]
     return emergency_alerts(params)
