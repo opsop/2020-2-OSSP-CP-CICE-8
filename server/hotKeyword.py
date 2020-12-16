@@ -2,8 +2,7 @@ import sqlite3 as sl
 import os
 from ConstVar import *
 import traceback
-from ConstVar import botKey
-from ConstVar import hotKeywordButton
+from ConstVar import botKey, hotKeywordButton
 
 # counting hotKeyword
 # from hotKeyword import *
@@ -60,8 +59,7 @@ def searchHotKeyword(body):
     try:
         conn = sl.connect(DB_PATH + "/corona.db")
         # 내림차순 3개까지
-        a = conn.execute(" SELECT * FROM HOTKEYWORD ORDER BY COUNTING DESC LIMIT 3 ").fetchall()
-        a = list(a)
+        a = list(conn.execute(" SELECT * FROM HOTKEYWORD ORDER BY COUNTING DESC LIMIT 3 ").fetchall())
 
         rank = ['🥇','🥈','🥉']
         #ex) 1. a \n 2. b \n 3. c
