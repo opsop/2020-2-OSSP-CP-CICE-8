@@ -66,7 +66,7 @@ def globalData(data):
         print("Exception",e)
         print(traceback.format_exc())
     finally:
-        return GlobaldataSendCard(data['sys_nation']['value'],message,imageUrl = imageUrl )
+        return GlobaldataSendCard(data['sys_nation']['value'],message,imageUrl = MaskURL )
 
 #print(globalData(sampleReque))
 
