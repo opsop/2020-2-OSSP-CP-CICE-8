@@ -8,7 +8,7 @@ import matplotlib.font_manager as fm
 font_path = r'./경기천년바탕_Regular.ttf'   # plot할때 한국어
 fontprop = fm.FontProperties(fname=font_path, size=15)
 
-Path = os.path.dirname(__file__) + 'CoronaBotDB/newkorea.db'
+Path = os.path.dirname(__file__) + '/CoronaBotDB/newkorea.db'
 #Path = os.path.dirname(__file__) + 'newkorea.db'
 conn = sqlite3.connect(Path)
 cur = conn.cursor()
