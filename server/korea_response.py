@@ -1,6 +1,6 @@
 import sqlite3
 import os
-DB_PATH = os.path.dirname(__file__) + 'CoronaBotDB'
+DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 
 def KoreaCorona(param):
     con = sqlite3.connect(DB_PATH + '/newkorea.db')
