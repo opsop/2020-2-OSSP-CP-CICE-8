@@ -17,9 +17,9 @@ def KoreaCorona(param):
 치명률 %.2f%%""" % (row[0],
                  row[1], row[5],
                  row[2], row[7],
-                 row[6],
+                 row[4],
                  row[3],
-                 int(row[6]) / int(row[1]) * 100)  # 치명률: (사망자/ 확진자)*100
+                 int(row[4]) / int(row[1]) * 100)  # 치명률: (사망자/ 확진자)*100
 
     if param == "현황 보기":
         return KoreadataSendCard(messages,
