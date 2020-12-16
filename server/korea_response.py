@@ -27,6 +27,8 @@ def KoreaCorona(param):
                  int(row[4].replace(",","")) / int(row[1].replace(",","")) * 100)  # 치명률: (사망자/ 확진자)*100
     print(messages)
 
+    cur.close()
+    con.close()
     if param == "현황 보기":
         return KoreadataSendCard(messages,
                                  imageUrl="https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg")
