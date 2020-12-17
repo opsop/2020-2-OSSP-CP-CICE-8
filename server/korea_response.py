@@ -5,7 +5,7 @@ DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 def KoreaCorona(param):
     con = sqlite3.connect(DB_PATH + '/newkorea.db')
     cur = con.cursor()
-    cur.execute("select * from korea where rowid = 7")
+    cur.execute("select * from korea where rowid = 8")  # 최신 데이터 가져오기 (8번째 행에 해당하는 데이터가 최신 데이터)
     # 데이터 Fetch
     rows = cur.fetchall()
     row = rows[0]
