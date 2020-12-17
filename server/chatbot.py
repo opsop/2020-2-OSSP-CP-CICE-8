@@ -37,11 +37,16 @@ from news_updater import news_update
 
 # db 업데이트
 def update_db():
-    print("db 업데이트 진행중")
-    import disaster_msg
+    print("GlobalDB 업데이트 진행중")
     update_GlobalDB()
-    print("db 업데이트 완료")
+    print("GlobalDB 업데이트 완료")
     # 업데이트할 것들 여기에
+
+def update_msg():
+    print("재난문자 업데이트 진행중")
+    import disaster_msg
+    print("재난문자 업데이트 완료")
+
 #update_GlobalDB()
 sched = BackgroundScheduler({'apscheduler.timezone': 'Asia/Seoul'})
 #sched.add_job(update_db, 'cron', hours=24)
@@ -54,10 +59,10 @@ def update_korea():
 
 sched.add_job(update_db,'cron', day_of_week='0-6', hour=10)
 sched.add_job(news_update, 'interval', hours=2)
-# sched.add_job(distance_update,'interval', hours = 3)
+sched.add_job(update_msg,'cron', day_of_week='0-6', hours = 12)
 
 #sched.add_job(update_KoreaDB, 'cron', day_of_week='0-6', hour=13) # KoreaDB 오후 1시 업데이트
-sched.add_job(update_korea, 'cron', day_of_week='0-6', hour=12)
+sched.add_job(update_korea, 'cron', day_of_week='0-6', hour=13)
 
 sched.start()
 
