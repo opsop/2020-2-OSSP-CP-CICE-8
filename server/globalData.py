@@ -3,7 +3,8 @@ import json
 import sqlite3 as sl
 from ConstVar import *
 from hotKeyword import *
-
+from copy import deepcopy
+from ConstVar import MaskURL
 # query create table as QCT
 #print(json.dumps(post,indent = '\t', ensure_ascii=False))
 
@@ -22,7 +23,7 @@ def globalData(data):
         res = {'confirmed':0,'deaths':0,'recovered':0}
 
         data = data['action']['detailParams']
-        inputNation= data['sys_nation']['value']
+        inputNation= deepcopy(data['sys_nation']['value'])
 
         if inputNation == "글로벌" or inputNation == '외국':
             inputNation = "전세계"
@@ -65,7 +66,7 @@ def globalData(data):
         print("Exception",e)
         print(traceback.format_exc())
     finally:
-        return GlobaldataSendCard(message,imageUrl = "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg" )
+        return GlobaldataSendCard(data['sys_nation']['value'],message,imageUrl = MaskURL )
 
 #print(globalData(sampleReque))
 

@@ -1,6 +1,6 @@
 import sqlite3
 import os
-DB_PATH = os.path.dirname(__file__) + 'CoronaBotDB'
+DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
 
 def KoreaCorona(param):
     con = sqlite3.connect(DB_PATH + '/newkorea.db')
@@ -39,7 +39,7 @@ def KoreaCorona(param):
                 "outputs": [
                     {
                         "simpleImage": {
-                            "imageUrl": "https://github.com/CSID-DGU/2020-2-OSSP-CP-CICE-8/blob/main/server/korea_graph.png?raw=true",
+                            "imageUrl": "http://3.223.84.68:5000/static/korea_graph.jpg",
                             # 직접 만든 시각화 이미지의 URL
                             "altText": "국내 코로나 확진자 추이입니다."
                         }
@@ -91,4 +91,3 @@ def KoreadataSendCard(message, imageUrl):
         }
     }
     return dataSend
-KoreaCorona('현황보기')

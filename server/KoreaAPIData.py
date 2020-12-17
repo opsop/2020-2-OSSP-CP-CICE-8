@@ -47,31 +47,31 @@ def KoreaCorona(param='현황 보기'):
     # 국내 현황 메시지
     # DB 데이터 정렬을 통해, DB 데이터 중에 최신 데이터 출력
     totalValue=list(KoreaDataDB.select_all())
-    print("\n 디비 업데이트 전 테이블 전체 값:", totalValue, "\n")
-    
+    #print("\n 디비 업데이트 전 테이블 전체 값:", totalValue, "\n")
+
     #update_KoreaDB()
 
-    # 어제 날짜 
+    # 어제 날짜
     yesterday = date.today() - timedelta(1)
     yesterday = yesterday.strftime('%Y.%m.%d')
-    print(yesterday)
+    #print(yesterday)
 
     # 오늘 날짜
     TodayDate = date.today()
     TodayDate = TodayDate.strftime('%Y.%m.%d')
-    print(TodayDate)
+    #print(TodayDate)
 
     currentDate = TodayDate # TodayDate '2020.12.20'
     currentValue = KoreaDataDB.select_updateTime(currentDate) # 최신 데이터(오늘 데이터) 갖고오기
 
     # 오늘자 데이터가 아직 DB에 없을 경우를 대비해서, DB의 데이터 중 가장 최신 데이터를 반환할 수 있도록 함. (에러 방지)
     if currentValue is None: # 아직 업데이트 전
-        currentValue = KoreaDataDB.select_updateTime(yesterday) # 어제 데이터 
-        # currentValue = KoreaDataDB.select_updateTime('2020.12.7') # 시험 데이터 
+        currentValue = KoreaDataDB.select_updateTime(yesterday) # 어제 데이터
+        # currentValue = KoreaDataDB.select_updateTime('2020.12.7') # 시험 데이터
     else: # 업데이트 후
         currentValue = KoreaDataDB.select_updateTime(currentDate) # 오늘 데이터
     print("업데이트 후 DB에 저장된 가장 최신 데이터:", currentValue, "\n")
-    
+
 
     messages=""" 국내 현황입니다.
 (%s 00시 기준)
@@ -85,7 +85,7 @@ def KoreaCorona(param='현황 보기'):
     currentValue[2], # currentValue['TotalDeath'],
     currentValue[4], # currentValue['NowCase']
     (int(currentValue[2].replace(",",""))/int(currentValue[1].replace(",","")))*100) # 치명률: (사망자/ 확진자)*100
-    print(messages)
+    #print(messages)
 
     # 되묻기 질문에 대한 응답.
     if param == "현황 보기":
@@ -152,8 +152,8 @@ def update_KoreaDB():
 
     print("업데이트에 들어가는 정보: ",TodayDate, apiData['TotalCase'], apiData['TotalDeath'], apiData['TotalRecovered'],
                             apiData['NowCase'], apiData['TotalChecking'], apiData['data0_1'], apiData['TodayRecovered'],"\n")
-    
-    
+
+
     return
 
 # "현황 보기"에 대한 응답 형식
@@ -186,4 +186,6 @@ def KoreadataSendCard(message,imageUrl):
     }
     return dataSend
 
+
 #print(KoreaCorona())
+#totalValue.sort(key = lambda x: datetime.strptime(x[0], '%Y.%m.%d'),reverse=True)

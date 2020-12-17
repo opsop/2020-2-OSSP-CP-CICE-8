@@ -2,6 +2,7 @@ import sqlite3 as sl
 import os
 from ConstVar import *
 import traceback
+from ConstVar import botKey, hotKeywordButton
 
 # counting hotKeyword
 # from hotKeyword import *
@@ -48,6 +49,8 @@ def hotKeyword( nttpass : str ):
         cur.close()
         conn.close()
 
+
+
 def searchHotKeyword(body):
 
     # 인기 키워드 로직 채워넣기
@@ -56,21 +59,44 @@ def searchHotKeyword(body):
     try:
         conn = sl.connect(DB_PATH + "/corona.db")
         # 내림차순 3개까지
-        a = conn.execute(" SELECT * FROM HOTKEYWORD ORDER BY COUNTING DESC LIMIT 3 ").fetchall()
-        a = list(a)
+        a = list(conn.execute(" SELECT * FROM HOTKEYWORD ORDER BY COUNTING DESC LIMIT 3 ").fetchall())
 
         rank = ['🥇','🥈','🥉']
         #ex) 1. a \n 2. b \n 3. c
-        res = "\n\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
+        #res = "\n\n".join( i +" : " + str(x[0]) for i,x in zip(rank,a))
+        buttons = list()
+        for i,x in zip(rank,a):
+            if x[0] in botKey.keys():
+                data = {
+                    "label": i +" : "+ str(x[0]),
+                    "action": "block",
+                    "messageText": str(x[0]),
+                    "blockId" : botKey[str(x[0])]
+                }
+                buttons.append(data)
+            else :
+                data = {
+                    "label": i +" : "+ str(x[0]),
+                    "action": "block",
+                    "messageText": str(x[0]),
+                    "blockId" : botKey["전세계 현황"]
+                }
+                buttons.append(data)
+
+        print(buttons)
 
     except Exception as e:
         print("ERROR : ", e)
         print(traceback.format_exc())
     finally:
+        # 인기 키워드 테이블 데이터 확인용
+        print(conn.execute("SELECT * from HOTKEYWORD").fetchall())
         conn.close()
+
+
 
     #오는 request 형식 확인
     #print("인기키워드")
     #print(body)
-
-    return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)
+    return hotKeywordButton(buttons)
+    #return dataSendSimple("인기 키워드 순위 입니다.\n\n"+res)

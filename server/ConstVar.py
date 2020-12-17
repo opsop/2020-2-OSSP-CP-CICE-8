@@ -1,6 +1,43 @@
 import os
-DB_PATH = os.path.dirname(__file__) + '/CoronaBotDB'
+CurrentPath = os.path.dirname(__file__)
+DB_PATH = CurrentPath + '/CoronaBotDB'
+MaskURL = "https://user-images.githubusercontent.com/71917474/101284898-d39a9200-3825-11eb-9474-44084a8631de.jpg"
 #print(DB_PATH)
+
+botKey = {
+    '선별진료소 안내' : "5fafee1f2cb6e55d5b67a980",
+    '자가진단': "5fb0348fd6fe9b32458ce223",
+    '전세계 현황': "5fb0e639d9431d64aa840e50",
+    '유튜브 뉴스': "5fb0e293d6fe9b32458ce405",
+    '네이버 뉴스': "5fb0e29be0729d24a9b0b20a",
+    '국내 현황': "5fcbb41d779b4a59a14d4016",
+    '근처 병원 및 약국 안내': "5fb08876d9431d64aa840cea",
+    '사회적 거리두기 단계': "5fb041a2eb7b236e6162d7e7",
+    '재난 문자 현황': "5fb08d08d6fe9b32458ce2a4"
+    }
+
+def hotKeywordButton(buttons):
+    dataSend = {
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "carousel": {
+                    "type": "basicCard",
+                    "items": [
+                        {
+                            "title":  "인기 키워드",
+                            "thumbnail": {
+                                "imageUrl": MaskURL},
+                            "buttons": buttons
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+    return dataSend
 
 def dataSendSimple(message):
 
@@ -19,7 +56,7 @@ def dataSendSimple(message):
 
     return dataSend
 
-def GlobaldataSendCard(message,imageUrl):
+def GlobaldataSendCard(nation,message,imageUrl):
 
     dataSend = {
         "version": "2.0",
@@ -30,7 +67,7 @@ def GlobaldataSendCard(message,imageUrl):
                         "type": "basicCard",
                         "items": [
                             {
-                                "title": "국외 코로나 현황",
+                                "title": nation+" 코로나 현황",
                                 "description": message,
                                 "thumbnail": {
                                     "imageUrl": imageUrl},
@@ -266,7 +303,8 @@ sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot
 'params': {'sys_nation': '미국', 'situation': 'situation'},
 'detailParams': {'sys_nation': {'groupName': '', 'origin': '미국', 'value': '미국'},
 'situation': {'groupName': '', 'origin': '데이터', 'value': 'situation'}},
-'clientExtra': {}}, 'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'},
+'clientExtra': {}},
+'userRequest': {'block': {'id': '5fb0e639d9431d64aa840e50', 'name': '전세계 현황'},
 'user': {'id': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
 'type': 'botUserKey', 'properties':
 {'botUserKey': '28761f0d6fec519d333afb202d85dca7842acb03053fbc6e77f757a681a0732475',
@@ -275,3 +313,5 @@ sampleReque = {'bot': {'id': '5fa4d2bf6d34f06b2b08ad93', 'name': 'corona_chatbot
 'plusfriend_user_key': 'IWOvhONHTgXo'}}, 'utterance': '미국 데이터',
 'params': {'surface': 'Kakaotalk.plusfriend'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'},
 'contexts': []}
+
+print("blockId : "+sampleReque['userRequest']['block']['id'])
