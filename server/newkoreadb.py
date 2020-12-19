@@ -57,9 +57,7 @@ df['완치자 수']=(df.clear_cnt-df.clear_cnt.shift()).fillna(0)
 df['acc_cnt']=df['acc_cnt'].astype(object)
 df['death_cnt']=df['death_cnt'].astype(object)
 df['clear_cnt']=df['clear_cnt'].astype(object)
-
-df = df.drop(index=6)
-
+#print(df)
 # print(df)
 def create_db():
     con = sqlite3.connect(DB_PATH + '/newkorea.db')
@@ -72,8 +70,9 @@ def create_db():
 def input_db():
     con = sqlite3.connect(DB_PATH + '/newkorea.db')
     cursor = con.cursor()
-    length1 = df.shape[0]
+    length1 = df.shape[0] - 1 # 행을 8행만 불러오기 위함
     length2 = df.shape[1]
+
     for i in range(length1):
         row = []
         for j in range(length2):
